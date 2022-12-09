@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./../reset.css">
+    <style>
+        .super{
+            width: 960px;
+        }
+        .title{
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            z-index: 6;
+            height: 50px;
+            background-color: #000;
+            margin: auto;
+            padding-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        nav a{
+            color: #fff;
+            width: 180px;
+            height: 42px;
+            padding-top: 5px;
+            text-decoration: none;
+        }
+        .middle{
+            position: fixed;
+            background-color: #fff;
+            width: 100%;
+            height: 80px;
+            z-index: 9;
+        }
+        .bottom{
+            position: fixed;
+            background-color: #000;
+            width: 100%;
+            height: 90px;
+            z-index: 7;
+        }
+        .bottom p{
+            position: fixed;
+            background-color: red;
+            height: 90px;
+            width: 200px;
+            z-index: 8;
+        }
+        nav a:hover{
+            border-bottom: 3px red solid;
+        }
+        nav{
+            display: flex;
+            justify-content: space-evenly;
+            width: 960px;
+            margin: auto;
+        }
+        .super{
+            width: 960px;
+            text-align: center;
+            padding-top: 150px;
+            margin: auto;
+        }
+        .super h1{
+            font-size: 40px;
+            font-weight: 900;
+            line-height: 2;
+        }
+        .super > p{
+            display: inline-block;
+            border-top: 5px #000 solid;
+        }
+        .super .box{
+            width: 960px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .text-a p,.text-a a{
+            border: #000 1px dotted;
+            font-size: 20px;
+            line-height: 2;
+            width: 180px;
+        }
+        .text-a{
+            position: relative;
+            overflow: hidden;
+        }
+        .super .box .text-a .jump a{
+            text-decoration: none;
+            display:block;
+            background-color: #ae0014;
+            color: #ae0014;
+            font-weight: 900;
+            top: 95%;
+            opacity: 1;
+            transition: .5s;
+            position:absolute ;
+        }
+        .super .box .text-a:hover .jump a{
+            top: 0;
+            opacity: 1;
+            color: #ae0014;
+            background-color: #ae0014;
+        }
+        .super .box .text-a:hover p{
+            position: relative;
+            color: #fff;
+            z-index: 1;
+        }
+
+        .car .one{
+            position: absolute;
+            top: -140px;
+            left: 0;
+            z-index: 2;
+        }
+        .img{
+            margin-top: 200px;
+            margin-bottom: 500px;
+            padding-left: 180px;
+            width: 695px;
+            height: 430px;
+            position: relative;
+            z-index: 1;
+        }
+        .car .one,.safe .two,.drive .three,.people .four,.proud .five{
+            background-color: #BB0404;
+        }
+        .car .one h2{
+            background-color: #BB0404;
+            margin-bottom: 20px;
+            font-size: 50px;
+            width: 355px;
+            color: #fff;
+            font-family:Arial, Helvetica, sans-serif
+        }
+        .car .one span{
+            font-size: 120px;
+            display: inline-block;
+            transform:rotate(90deg) ;
+        }
+        .car .one .text{
+            background-color: #000;
+            width: 315px;
+            text-align: left;
+            padding: 30px 20px 60px;
+            line-height: 1.5;
+        }
+        .car .one .text h3{
+            font-size: 25px;
+            color: #fff;
+            text-align: left;
+        }
+        .car .one .text p{
+            font-size: 20px;
+            color: #ccc;
+        }
+
+
+        .bgc1{
+            width: 440px;
+            height: 290px;
+            background-color: #f5f5f5;
+            position: absolute;
+            z-index: -1;
+            right: -80px;
+            top: -100px;
+        }
+        .feature1{
+            position: absolute;
+            background-color: #eeeeee;
+            width: 622px;
+            height: 245px;
+            text-align: left;
+            padding: 15px 30px;
+            bottom: -240px;
+            left: 40px;
+            z-index: 2;
+        }
+
+
+        .feature1 p,.feature2 p{
+            color: #C53333;
+            font-weight: 900;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        .feature1 span,.feature2 span{
+            display: inline-block;
+            background-color: #000;
+            color: #eee;
+            padding: 5px;
+            border-radius:3px ;
+        }
+        .feature1 i,.feature2 i{
+            font-size: 15px;
+            font-weight: 900;
+            color: dimgrey;
+            line-height: 1.5;
+        }
+        .feature1 .point,.feature2 .point{
+            color: #BB0404;
+            background-color: transparent;
+        }
+
+
+        .text .play{
+            width: 20px;
+            height: 20px;
+            background-color: #bb0404;
+            text-align: center;
+            padding: 10px 20px;
+        }
+        .text .play p{
+            text-align: end;
+            background-color: #fff;
+            width: 40px;
+            height: 20px;
+            clip-path: polygon(0% 0%,50% 50%,0% 100%);
+            margin: auto;
+        }
+        
+
+        .safe .two h2{
+            font-size: 50px;
+            margin-bottom: 20px;
+            width: 355px;
+            color: #fff;
+            font-family:Arial, Helvetica, sans-serif
+        }
+        .safe .two span{
+            font-size: 120px;
+            display: inline-block;
+            transform:rotate(90deg) ;
+        }
+        .safe .two .text{
+            background-color: #000;
+            width: 315px;
+            text-align: left;
+            padding: 30px 20px 60px;
+            line-height: 1.5;
+        }
+        .safe .two .text h3{
+            font-size: 25px;
+            color: #fff;
+            text-align: left;
+        }
+        .safe .two .text p{
+            font-size: 20px;
+            color: #ccc;
+        }
+
+        .img2{
+            margin-top: 200px;
+            margin-bottom: 500px;
+            width: 695px;
+            height: 430px;
+            position: relative;
+            z-index: 1;
+        }
+        .safe .two{
+            position: absolute;
+            top: -140px;
+            right: -260px;
+            z-index: 2;
+        }
+        .bgc2{
+            width: 518px;
+            height: 413px;
+            background-color: #f5f5f5;
+            position: absolute;
+            right: -80px;
+            top: -65px;
+            z-index: -1;
+        }
+        .feature2{
+            position: absolute;
+            background-color: #eeeeee;
+            width: 622px;
+            height: 178px;
+            text-align: left;
+            padding: 15px 30px;
+            bottom: -180px;
+            left: 270px;
+            z-index: 2;
+        }
+
+
+        .drive .three h2{
+            font-size: 50px;
+            margin-bottom: 20px;
+            width: 355px;
+            color: #fff;
+            font-family:Arial, Helvetica, sans-serif
+        }
+        .drive .three span{
+            font-size: 120px;
+            display: inline-block;
+            transform:rotate(90deg) ;
+            padding-left: 0;
+        }
+        .drive .three .text{
+            background-color: #000;
+            width: 315px;
+            text-align: left;
+            padding: 30px 20px 60px;
+            line-height: 1.5;
+        }
+        .drive .three .text h3{
+            font-size: 25px;
+            color: #fff;
+            text-align: left;
+        }
+        .drive .three .text p{
+            font-size: 20px;
+            color: #ccc;
+        }
+
+        .drive .img{
+            position: relative;
+            z-index: 1;
+        }
+        .drive .three{
+            position: absolute;
+            top: -140px;
+            left: 0;
+            z-index: 2;
+        }
+
+
+        .people .four h2{
+            margin-bottom: 20px;
+            font-size: 50px;
+            width: 355px;
+            color: #fff;
+            font-family:Arial, Helvetica, sans-serif
+        }
+        .people .four span{
+            font-size: 120px;
+            display: inline-block;
+            transform:rotate(90deg) ;
+        }
+        .people .four .text{
+            background-color: #000;
+            width: 315px;
+            text-align: left;
+            padding: 30px 20px 60px;
+            line-height: 1.5;
+        }
+        .people .four .text h3{
+            font-size: 25px;
+            color: #fff;
+            text-align: left;
+        }
+        .people .four .text p{
+            font-size: 20px;
+            color: #ccc;
+        }
+
+        .people .img{
+            position: relative;
+            z-index: 1;
+        }
+        .people .four{
+            position: absolute;
+            top: -140px;
+            right: -260px;
+            z-index: 2;
+        }
+
+        
+        .proud .five h2{
+            margin-bottom: 20px;
+            font-size: 50px;
+            width: 355px;
+            color: #fff;
+            font-family:Arial, Helvetica, sans-serif
+        }
+        .proud .five span{
+            font-size: 120px;
+            display: inline-block;
+            transform:rotate(90deg) ;
+            padding-left: 0;
+        }
+        .proud .five .text{
+            background-color: #000;
+            width: 315px;
+            text-align: left;
+            padding: 30px 20px 60px;
+            line-height: 1.5;
+        }
+        .proud .five .text h3{
+            font-size: 25px;
+            color: #fff;
+            text-align: left;
+        }
+        .proud .five .text p{
+            font-size: 20px;
+            color: #ccc;
+        }
+
+        .proud .img{
+            position: relative;
+            z-index: 1;
+        }
+        .proud .five{
+            position: absolute;
+            top: -140px;
+            left: 0;
+            z-index: 2;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="bottom">
+        <p></p>
+        <div class="middle">
+            <div class="title">
+                <nav>
+                    <a href="a">核心理念</a>
+                    <a href="a">五大優勢</a> 
+                    <a href="a">46THINGS</a> 
+                    <a href="a">影片演示</a> 
+                    <a href="a">搭載車款</a> 
+                </nav>
+            </div>
+        </div>
+    </div>
+        
+    <div class="super">
+        <h1>五大優勢</h1>
+        <p>　　　</p>
+
+        <div class="box">
+            <div class="text-a">
+                <p>操控樂趣</p>
+                <div class="jump">
+                    <a href="a">操控樂趣</a>
+                </div>
+            </div>
+            
+            <div class="text-a">
+                <p>安全守護</p>
+                <div class="jump">
+                    <a href="a">安全守護</a>
+                </div>
+            </div>
+            
+            <div class="text-a">
+                <p>乘坐舒適</p>
+                <div class="jump">
+                    <a href="a">乘坐舒適</a>
+                </div>
+            </div>
+            
+            <div class="text-a">
+                <p>以人為本</p>
+                <div class="jump">
+                    <a href="a">以人為本</a>
+                </div>
+            </div>
+            
+            <div class="text-a">
+                <p>引以為傲</p>
+                <div class="jump">
+                    <a href="a">引以為傲</a>
+                </div>
+            </div>
+        </div>
+        <div class="car">
+            <div class="img">
+                <div class="one">
+                    <h2><span>01</span>操控樂趣</h2>
+                
+                    <div class="text">
+                        <h3>人人滿意的駕駛體驗</h3>
+                        <p>透過最佳重量分配，實現平順起步，直線穩定加速，過彎同時保持車身平穩，帶給駕駛更靈敏的道路反饋，享受隨心馳聘的行駛快感。</p>
+                        <!-- <div class="play">
+                            <p></p>
+                        </div> -->
+                    </div>
+                </div>    
+                <img src="https://picsum.photos/695/430/?random=10">
+                
+                <div class="bgc1">
+                </div>
+                <div class="feature1">
+                    <p>因為我們做了這些革新————————————————————————</p>
+                    <br><span>低重心設計</span><br>
+                    <span class="point">．</span><i>透過低重心設計，不僅呈現更低伏的外觀，更能減少車身側保持高速行駛穩定性。</i>
+                    <br><span>車體剛性強化</span><br>
+                    <span class="point">．</span><i>車身結構採用超高度鋼材，提高車輛穩定性，同時藉由雷射強化焊接技術，大幅增加焊點數量，提升車身抗扭剛性，強化駕馭穩定性及安全性。</i>
+                    <br><span>四輪獨立懸吊</span><br>
+                    <span class="point">．</span><i>搭載全新四輪獨立懸吊設定，透過懸吊的高承載強度，保持輪胎抓地力，同時兼顧轉向靈敏度與清晰路感回饋，提升駕馭樂趣。</i>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="safe">
+            <div class="img2">
+                <div class="two">
+                    <h2>安全守護<span>02</span></h2>
+                    
+                    <div class="text">
+                        <h3>行車更安心的高剛性車體</h3>
+                        <p>您的愛車會妥善保護您，強悍穩固的車身可使您安全無虞，世界級的安全科技讓你輕鬆自如享受旅程、毫無後顧之憂。</p>
+                        <!-- <div class="play">
+                            <p></p> 
+                        </div>-->
+                    </div>
+                </div>
+
+                <img src="https://picsum.photos/695/430/?random=10">
+                
+                <div class="bgc2">
+                </div>
+                <div class="feature2">
+                    <p>因為我們做了這些革新————————————————————————</p>
+                    <br><span>主動安全</span><br>
+                    <span class="point">．</span><i>以先進的TSS系統，主動偵測路況，輔助駕駛判斷路況維持行車安全。</i>
+                    <br><span>被動安全</span><br>
+                    <span class="point">．</span><i>堅固的高剛性車體，使用熱沖壓材料的高強度抗扭鋼板，強化座艙對意外事故的保護力。</i>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="drive">
+            <div class="img">
+                <div class="three">
+                    <h2><span>03</span>乘坐舒適</h2>
+                    
+                    <div class="text">
+                        <h3>令人放鬆的車室空間</h3>
+                        <p>車室空間設計著重人體工學，透過方向盤、踏板等位置優化，追求更舒適的駕駛位置，並以新型座椅設計，提高座椅包覆性，致力實現長途駕駛不疲勞的舒適駕馭體驗。</p>
+                        <!-- <div class="play">
+                            <p></p>
+                        </div> -->
+                    </div>
+                </div>
+        
+            <img src="https://picsum.photos/695/430/?random=10">
+                
+                <div class="bgc1">
+                </div>
+                <div class="feature1">
+                    <p>因為我們做了這些革新————————————————————————</p>
+                    <br><span>駕駛位置最佳化</span><br>
+                    <span class="point">．</span><i>針對駕駛位置進行徹底的修改，讓駕馭者可如同握手般自然且舒適地操控方向盤。</i>
+                    <br><span>駕馭視野佳</span><br>
+                    <span class="point">．</span><i>考量駕駛坐進車內的高度，透過前擋風玻璃位置的調整，達到盲區極小化，使駕駛視野更開闊，同步提升駕馭安全。</i>
+                    <br><span>更寧靜的車室</span><br>
+                    <span class="point">．</span><i>採用最新三層結構的隔音材料，與引擎、變速箱的零件改革，將座艙的震動抑制在最小限度，提供乘客舒適安靜的享受。</i>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="people">
+            <div class="img2">
+                <div class="four">
+                    <h2>以人為本<span>04</span></h2>
+                    
+                    <div class="text">
+                        <h3>使用者導向的貼心設計</h3>
+                        <p>藉由高度人性化的介面組合、傳遞車輛資訊，豐富日常駕駛體驗。從提升油耗表現到行李廂空間最適化，均細心考量，更加貼近使用者真正所需與習慣，並給予即時回應。</p>
+                        <!-- <div class="play">
+                            <p></p>
+                        </div>  -->
+                    </div>
+                </div>
+        
+            <img src="https://picsum.photos/695/430/?random=10">
+
+                <div class="bgc2">
+                </div>
+                <div class="feature2">
+                    <p>因為我們做了這些革新————————————————————————</p>
+                    <br><span>優異油耗表現</span><br>
+                    <span class="point">．</span><i>以AURIS為例，更強勁的高效引擎將熱效率提升至40%，達到世界級水準，屢屢突破燃油效率新境界。</i>
+                    <br><span>行李箱空間最適化</span><br>
+                    <span class="point">．</span><i>以PRIUS為例，透過將電池位置移到後座下方，讓行李箱擁有更大的空間。</i>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="proud">
+            <div class="img">
+                <div class="five">
+                    <h2><span>05</span>乘坐舒適</h2>
+                    
+                    <div class="text">
+                        <h3>令人放鬆的車室空間</h3>
+                        <p>車室空間設計著重人體工學，透過方向盤、踏板等位置優化，追求更舒適的駕駛位置，並以新型座椅設計，提高座椅包覆性，致力實現長途駕駛不疲勞的舒適駕馭體驗。</p>
+                        <!-- <div class="play">
+                            <p></p>
+                        </div> -->
+                    </div>
+                </div>
+                <img src="https://picsum.photos/695/430/?random=10">
+                
+                <div class="bgc1">
+                </div>
+                <div class="feature1">
+                    <p>因為我們做了這些革新————————————————————————</p>
+                    <br><span>駕駛</span><br>
+                    <span class="point">．</span><i>針對駕駛位置進行徹底的修改，讓駕馭者可如同握手般自然且舒適地操控方向盤。</i>
+                    <br><span>駕馭</span><br>
+                    <span class="point">．</span><i>考量駕駛坐進車內的高度，透過前擋風玻璃位置的調整，達到盲區極小化，使駕駛視野更開闊，同步提升駕馭安全。</i>
+                    <br><span>更寧靜</span><br>
+                    <span class="point">．</span><i>採用最新三層結構的隔音材料，與引擎、變速箱的零件改革，將座艙的震動抑制在最小限度，提供乘客舒適安靜的享受。</i>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

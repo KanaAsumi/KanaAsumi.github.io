@@ -105,25 +105,38 @@
             if(input.value.length < 3)
             input.value += x.innerText
             else
-            Span.innerText = '請輸入正確的值'
-
+            alert( '請停止你的行為')
+            
         }))
-
+        
         let ent = document.querySelector('#ent')
         ent.addEventListener('click', function(){
             
-            if (parseInt(input.value) > key){
-                let max = input.value
-                maxSpan.innerText = max
+            let max = parseInt(maxSpan.innerText)
+            let min = parseInt(minSpan.innerText)
+            let enter = parseInt(input.value,10)
+            
+            if(isNaN(parseInt(input.value))){
+                alert('請輸入數字!!!')
             }
-            else if(parseInt(input.value) < key){
-                let min = input.value
-                minSpan.innerText = min
+            else if (max > enter && enter > key){
+
+                maxSpan.innerText = enter
+            }
+            else if(min < enter && enter < key){
+                
+                minSpan.innerText = enter
+            }
+            else if(enter == key){
+                alert('恭喜猜對了!!!')
             }
             else{
-                alert('恭喜過關了!!!')
+                alert('請輸入正確的值!!!')
             }
             input.value = "";
+            
+           
+
 
         });
         

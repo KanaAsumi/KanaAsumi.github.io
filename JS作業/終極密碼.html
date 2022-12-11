@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .computer{
+            width: 960px;
+            background-color: #ccc; 
+            margin: auto;
+            text-align: center;
+        }
+        .min, .max, span{
+            display: inline;
+            font-size: 30px;
+
+        }
+        .box{
+            width: 300px;
+            margin: auto;
+        }
+        .input{
+            padding: 20px;
+        }
+        input{
+            line-height: 3;
+            width: 300px;
+        }
+        .row{
+            display: flex;
+            padding: 20px; 
+            width: 300px;
+        }
+        button{
+            padding: 20px;
+            font-size: 20px;
+            margin:auto ;
+            border: 3px black solid;
+        }
+        button:not(#clear,#ent){
+            border-radius: 20px;
+        }
+        button:hover{
+            box-shadow: 0px 0px 3px ;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="computer">
+        <div class="box">
+            <div class="input">
+                <input type="text" id="num-input" placeholder="請輸入數字" min="0" max="100" maxlength="3">
+            </div>
+            <div class="key">
+                <div class="min">
+                    <span>0</span>
+                </div>
+                <span>～</span>
+                <div class="max">
+                    <span>100</span>
+                </div>
+            </div>
+            
+            <div class="row">
+                <button id="btn">1</button>
+                <button id="btn">2</button>
+                <button id="btn">3</button>
+            </div>
+            <div class="row">
+                <button id="btn">4</button>
+                <button id="btn">5</button>
+                <button id="btn">6</button>
+            </div>
+            <div class="row">
+                <button id="btn">7</button>
+                <button id="btn">8</button>
+                <button id="btn">9</button>
+            </div>
+            <div class="row">
+                <button id="clear"><i class="fa fa-close"></i></button>
+                <button id="btn">0</button>
+                <button id="ent"><i class="fa fa-check"></i></button>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        function getKey(){
+        return Math.floor(Math.random()*100)+1;
+        };
+        let key = getKey()
+        console.log(key)
+        let myBtn = document.querySelectorAll('#btn')
+        let minSpan = document.querySelector('.min')
+        let maxSpan = document.querySelector('.max')
+        let input = document.querySelector('#num-input')
+        myBtn.forEach(x => x.addEventListener('click', function(){ 
+            
+            let k = parseInt(input.value)
+            if(input.value.length < 3)
+            input.value += x.innerText
+            else
+            Span.innerText = '請輸入正確的值'
+
+        }))
+
+        let ent = document.querySelector('#ent')
+        ent.addEventListener('click', function(){
+            
+            if (parseInt(input.value) > key){
+                let max = input.value
+                maxSpan.innerText = max
+            }
+            else if(parseInt(input.value) < key){
+                let min = input.value
+                minSpan.innerText = min
+            }
+            else{
+                alert('恭喜過關了!!!')
+            }
+            input.value = "";
+
+        });
+        
+        let clear = document.querySelector('#clear')
+        clear.addEventListener('click', function(){
+
+            input.value = "";
+
+        });
+            // console.log(myBtn[i])
+
+        
+        // alert(myBtn.textContent)
+        // myBtn.addEventListener('click', function(){
+
+        // let number = myBtn.innerText
+
+        // //把 tmp 的值塞進去 span
+        // Span.innerText += number
+    // })
+
+
+
+
+    </script>
+</body>
+</html>

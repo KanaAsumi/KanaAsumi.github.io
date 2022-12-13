@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./../reset.css">
+    <style>
+        .box{
+            width: 100%;
+
+        }
+        .card{
+            padding: 15px;
+        }
+        .img{
+            
+        }
+        img{
+            
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+        <div class="card">
+            <div class="img">
+                <img src="https://fakeimg.pl/300x200/200">
+            </div>
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis accusamus possimus odit perspiciatis sit sed, quod dicta sint voluptas totam consequatur cupiditate quis impedit, officiis non alias itaque eum. Cumque!</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="https://fakeimg.pl/300x200/200">
+            </div>
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis accusamus possimus odit perspiciatis sit sed, quod dicta sint voluptas totam consequatur cupiditate quis impedit, officiis non alias itaque eum. Cumque!</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="https://fakeimg.pl/300x200/200">
+            </div>
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis accusamus possimus odit perspiciatis sit sed, quod dicta sint voluptas totam consequatur cupiditate quis impedit, officiis non alias itaque eum. Cumque!</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="https://fakeimg.pl/300x200/200">
+            </div>
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis accusamus possimus odit perspiciatis sit sed, quod dicta sint voluptas totam consequatur cupiditate quis impedit, officiis non alias itaque eum. Cumque!</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="https://fakeimg.pl/300x200/200">
+            </div>
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis accusamus possimus odit perspiciatis sit sed, quod dicta sint voluptas totam consequatur cupiditate quis impedit, officiis non alias itaque eum. Cumque!</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="https://fakeimg.pl/300x200/200">
+            </div>
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis accusamus possimus odit perspiciatis sit sed, quod dicta sint voluptas totam consequatur cupiditate quis impedit, officiis non alias itaque eum. Cumque!</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>

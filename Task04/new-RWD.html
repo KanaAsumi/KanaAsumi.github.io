@@ -9,16 +9,24 @@
     <style>
         .box{
             width: 100%;
+            text-align: center;
+            max-width: 768px;
         }
         .card{
             box-sizing: border-box;
             padding: 15px;
+            display: flex;
+            flex-direction: row;
         }
         .img{
-            
+            /* width: 50%; */
         }
         img{
             width: 100%;
+        }
+        .text{
+            width: 50%;
+            margin: auto;
         }
         :root{
             --ff:3;
@@ -26,11 +34,64 @@
 
         @media screen and (min-width: 768px){
             .box{
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                margin: auto;
+            }
+            .card{
                 width: calc(100%/var(--ff));
+                flex-direction: column;
+                max-width: 1024px;
+            }
+            .img{
+                align-self: center;
+                width: 100%;
+            }
+            .text{
+                width: 100%;
             }
         }
         @media screen and (min-width: 1024px){
             
+            .card.card:nth-last-child(n+5){
+                --ff:2;
+                flex-direction: row;
+            }
+            .card:nth-last-child(n+5) .img{
+                width: 50%;
+            }
+            .card:nth-last-child(n+5) .text{
+                width: 50%;
+            }
+            .card:nth-child(n+3){
+                --ff:4;
+            }
+            .card:nth-child(n+3){
+                position: relative;
+                max-width: 1200px;
+                overflow: hidden;
+            }
+            .card:nth-child(n+3) .text{
+                position: absolute;
+                --ff:4;
+                right: 0;
+                left: 0;
+                max-width: 256px;
+                margin: auto;
+                overflow: hidden;
+                width: calc(100% - 30px);
+                /* text-align: center;
+                position: absolute;
+                max-width: 256px;
+                left: 0;
+                right: 0;
+                width: calc(100% - 30px);
+                margin: auto;
+                color: red; */
+            }
+            
+
         }
     </style>
 </head>

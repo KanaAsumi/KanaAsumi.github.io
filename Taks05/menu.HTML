@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./../reset.css">
+    <style>
+        .header{
+            background-color: aqua;
+            display: flex;
+            height: fit-content;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        .header .logo{
+            padding: 5px;
+        }
+        .header .nav{
+            width: 300px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .header .nav ul{
+            vertical-align: middle;
+            text-decoration: none;
+            text-align: center;
+            color: red;
+            /* top: 100%; */
+            background-color: #fa0;
+        }
+        input,ul{
+            display: none;
+        }
+        h2{
+            font-weight: 900;
+            color: black;
+        }
+        li + li{
+                border-top: 1px solid #000;
+        }
+        .logo img{
+            vertical-align: middle;
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+            font-weight: 900;
+        }
+        
+
+        @media screen and (width < 768px) {
+            .HB{
+                height: 40px;
+                width: 40px;
+                background-color: #f0a;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+            .HB span{
+                width: 80%;
+                height: 2px;
+                background-color: #fff;
+            }
+            .nav{
+                position: absolute;
+                top: 100%;
+                display: flex;
+                flex-direction: column;
+                background-color: #fa0;
+                opacity: 0;
+            }
+            .item{
+                outline: 1px solid black;
+                position: relative;
+            }
+            
+            .item:hover{
+                background-color: #faf;
+            }
+            .arrow{
+                width: 40px;
+                height: 40px;
+                display: flex;
+                background-color:#fff;
+                flex-direction: column;
+                justify-content: space-evenly;
+            }
+            .arrow span{
+                display: block;
+                width: 20px;
+                height: 2px;
+                background-color: #000;
+            }
+            .arrow span:nth-child(1){
+                transform: rotate(-45deg);
+            }
+            .arrow span:nth-child(2){
+                transform: rotate(45deg);
+            }
+            #click:checked ~ .header .nav{
+                right: 0;
+                opacity: 1;
+                transition: 1s;
+            }
+            #click:checked + .header .HB span:nth-child(1){
+                transform: translate(0, 350%) rotate(-45deg);
+                transition: 1s;
+            }
+            #click:checked + .header .HB span:nth-child(2){
+                display: none;
+            }
+            #click:checked + .header .HB span:nth-child(3){
+                transform: translate(0, -350%) rotate(45deg);
+                transition: 1s;
+            }
+            .arrow_chack:checked ~ .list ul{
+                display: flex;
+                flex-direction: column;
+                top: 100%;
+                width: 300px;
+            }
+            .check a{
+                padding: 10px 0px;
+                margin: auto;
+            }
+            .check{
+                display: flex;
+            }
+            .arrow_chack:checked ~ .check label{
+                transform: rotate(-90deg);
+            }
+            /* .arrow span:nth-child(2){
+                transform: rotate(45deg);
+            } */
+
+
+            
+
+
+        }
+        @media screen and (width >= 768px) {
+            .HB{
+                display: none;
+            }
+            .item{
+                height: 60px;
+                display: flex;
+                align-items: center;
+            }
+            li + li{
+                border-top: 1px solid #000;
+            }
+            .header .nav ul{
+                outline: 2px solid black;
+            }
+            .header .nav .item:hover ul{
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                width: 300px;
+                right: 0;
+            }
+
+            
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <input type="checkbox" id="click">
+    <div class="header">
+
+        <div class="logo">
+            <img src="https://fakeimg.pl/50x50/200">
+        </div>
+        <label for="click" class="HB">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        
+        <div class="nav">
+            <div class="item">
+                <input type="checkbox" id="arrow" class="arrow_chack">
+                <div class="check">
+                    <label for="arrow" class="arrow">
+                        <span></span>
+                        <span></span>
+                    </label>
+                    <a href="a">link</a>
+                </div>
+                <div class="list">
+                    <ul>
+                        <h2>link</h2>
+                        <li>123456</li>
+                        <li>123456</li>
+                        <li>123456</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item">
+                <input type="checkbox" id="arrow2" class="arrow_chack">
+                <div class="check">
+                    <label for="arrow2" class="arrow">
+                        <span></span>
+                        <span></span>
+                    </label>
+                    <a href="a">link2</a>            
+                </div>
+                <div class="list">
+                    <ul>
+                        <h2>link2</h2>
+                        <li>123456</li>
+                        <li>123456</li>
+                        <li>123456</li>
+                        <li>123456</li>
+                        <li>123456</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item">
+                <input type="checkbox" id="arrow3" class="arrow_chack">
+                <div class="check">
+                    <label for="arrow3" class="arrow">
+                        <span></span>
+                        <span></span>
+                    </label>
+                    <a href="a">link3</a>
+                </div>
+                <div class="list">
+                    <ul>
+                        <h2>link3</h2>
+                        <li>123456</li>
+                        <li>123456</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item">
+                <input type="checkbox" id="arrow4" class="arrow_chack">
+                <div class="check">
+                    <label for="arrow4" class="arrow">
+                        <span></span>
+                        <span></span>
+                    </label>
+                    <a href="a">link4</a>
+                </div>
+                <div class="list">
+                    <ul>
+                        <h2>link4</h2>
+                        <li>123456</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item">
+                <input type="checkbox" id="arrow5" class="arrow_chack">
+                <div class="check">
+                    <label for="arrow5" class="arrow">
+                        <span></span>
+                        <span></span>
+                    </label>  
+                    <a href="a">link5</a>
+                </div>
+                <div class="list">
+                    <ul>
+                        <h2>link5</h2>
+                        <li>123456</li>
+                        <li>123456</li>
+                        <li>123456</li>
+                    </ul>
+                </div>
+            </div>   
+
+            <div class="item">
+                <input type="checkbox" id="arrow6" class="arrow_chack">
+                <div class="check">
+                    <label for="arrow6" class="arrow">
+                        <span></span>
+                        <span></span>
+                    </label>
+                    <a href="a">link6</a>
+                </div>
+                <div class="list">
+                    <ul>
+                        <h2>link6</h2>
+                        <li>123456</li>
+                        <li>123456</li>
+                        <li>1234564444444444</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+</body>
+</html>

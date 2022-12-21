@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./../reset.css">
+    <style>
+        .page {
+            width: 1200px;
+            margin: auto;
+        }
+
+        .car {
+            display: flex;
+            position: relative;
+            align-items: center;
+        }
+
+        .btn button:first-child {
+            position: absolute;
+            left: 150px;
+        }
+
+        .btn button:last-child {
+            position: absolute;
+            right: 150px;
+        }
+
+        .btn button {
+            height: 40px;
+            width: 40px;
+            background-color: aqua;
+        }
+
+        .color {
+            display: flex;
+            /* align-items: center; */
+            justify-content: center;
+        }
+
+        .color button {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="car">
+            <img src="" alt="" id="car">
+            <div class="btn">
+                <button id="left">←</button>
+                <button id="right">→</button>
+            </div>
+        </div>
+        <div class="color">
+            <button class="gray">gray</button>
+            <button class="red">red</button>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+        const grey_carArray = [];
+        const red_carArray = [];
+
+        let Pic = document.getElementById("car");
+        let right = document.getElementById("right");
+        let left = document.getElementById("left");
+        let red = document.querySelector(".red");
+        let gray = document.querySelector(".gray");
+
+        for (let i = 1; i <= 60; i++) {
+            let greycar = `./car/GREY_CAR (${i}).png`;
+            grey_carArray.push(greycar);
+        }
+        let i = 0;
+        Pic.src = grey_carArray[i];
+
+        let R_gray = function () {
+            i++;
+            if (i == grey_carArray.length) {
+                i = 0;
+            }
+            Pic.src = grey_carArray[i];
+        };
+        let L_gray = function () {
+            i--;
+            if (i < 0) {
+                i = grey_carArray.length - 1;
+            }
+            Pic.src = grey_carArray[i];
+        };
+
+        right.onmousedown = R_gray
+        left.onmousedown = L_gray
+
+        
+
+        gray.addEventListener("click", graybtn);
+        function graybtn() {
+
+            for (let i = 1; i <= 60; i++) {
+                let greycar = `./car/GREY_CAR (${i}).png`;
+                grey_carArray.push(greycar);
+            }
+            let i = 0;
+            Pic.src = grey_carArray[i];
+            let R_gray = function () {
+                i++;
+                if (i == grey_carArray.length) {
+                    i = 0;
+                }
+                Pic.src = grey_carArray[i];
+            };
+            let L_gray = function () {
+                i--;
+                if (i < 0) {
+                    i = grey_carArray.length - 1;
+                }
+                Pic.src = grey_carArray[i];
+            };
+
+            right.onmousedown = R_gray
+            left.onmousedown = L_gray
+        };
+
+        red.addEventListener("click", redbtn);
+        function redbtn() {
+
+            for (let j = 1; j <= 60; j++) {
+                let redcar = `./car/RED_CAR (${j}).png`;
+                red_carArray.push(redcar);
+            }
+            let j = 0;
+            Pic.src = red_carArray[j];
+            let R_red = function () {
+                j++;
+                if (j == red_carArray.length) {
+                    j = 0;
+                }
+                Pic.src = red_carArray[j];
+            };
+            let L_red = function () {
+                j--;
+                if (j < 0) {
+                    j = red_carArray.length - 1;
+                }
+                Pic.src = red_carArray[j];
+            };
+
+            right.onmousedown = R_red
+            left.onmousedown = L_red
+        };
+
+
+    </script>
+</body>
+
+</html>

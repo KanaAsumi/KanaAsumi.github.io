@@ -15,32 +15,30 @@
 
         .car {
             display: flex;
-            /* position: relative; */
             align-items: center;
         }
 
         .btn button:first-child {
             position: absolute;
             left: 150px;
+            top: 150px;
         }
 
         .btn button:last-child {
             position: absolute;
             right: 150px;
+            top: 150px;
         }
 
         .btn button {
             height: 40px;
             width: 40px;
-            background-color: aqua ;
-            /* outline: none; */
+            background-color: aqua;
             border-radius: 50px;
-            /* opacity: .5; */
         }
 
         .color {
             display: flex;
-            /* align-items: center; */
             justify-content: center;
         }
 
@@ -74,95 +72,98 @@
 
 
     <script>
-        let white = []
-        , silver = []
-        , red = []
-        , gray = []
-        , dark = []
-        , black = [];
-        let carArray = [white, silver, red, gray, dark, black];
+        window.onload = function () {
+
+            let white = []
+                , silver = []
+                , red = []
+                , gray = []
+                , dark = []
+                , black = [];
+            let carArray = [white, silver, red, gray, dark, black];
 
 
-        let Pic = document.getElementById("car");
-        let right = document.getElementById("right");
-        let left = document.getElementById("left");
-        let white_btn = document.querySelector(".white");
-        let silver_btn = document.querySelector(".silver");
-        let red_btn = document.querySelector(".red");
-        let gray_btn = document.querySelector(".gray");
-        let dark_btn = document.querySelector(".dark");
-        let black_btn = document.querySelector(".black");
+            let Pic = document.getElementById("car");
+            let right = document.getElementById("right");
+            let left = document.getElementById("left");
+            let white_btn = document.querySelector(".white");
+            let silver_btn = document.querySelector(".silver");
+            let red_btn = document.querySelector(".red");
+            let gray_btn = document.querySelector(".gray");
+            let dark_btn = document.querySelector(".dark");
+            let black_btn = document.querySelector(".black");
 
 
-        for (let i = 0; i < 6; i++) {
+            for (let i = 0; i < 6; i++) {
 
-            for (let j = 1; j <= 60; j++){
+                for (let j = 1; j <= 60; j++) {
 
-                let car = `./car/${i}car (${j}).png`;
-                carArray[i].push(car);
+                    let car = `./car/${i}car (${j}).png`;
+                    carArray[i].push(car);
+
+                }
 
             }
+            let color = 0;
+            let num = 0;
+            Pic.src = carArray[color][num];
 
-        }
-        let color = 0;
-        let num = 0;
-        Pic.src = carArray[color][num];
+            white_btn.addEventListener("click", whitebtn);
+            function whitebtn() {
+                color = 0;
+                Pic.src = carArray[color][num];
 
-        white_btn.addEventListener("click", whitebtn);
-        function whitebtn() {
-            color = 0;
-            Pic.src = carArray[color][num];
-          
-        }; 
-        silver_btn.addEventListener("click", silverbtn);
-        function silverbtn() {
-            color = 1;
-            Pic.src = carArray[color][num];
-          
-        }; 
-        red_btn.addEventListener("click", redbtn);
-        function redbtn() {
-            color = 2;
-            Pic.src = carArray[color][num];
-          
-        }; 
-        gray_btn.addEventListener("click", graybtn);
-        function graybtn() {
-            color = 3;
-            Pic.src = carArray[color][num];
-          
-        };
-        dark_btn.addEventListener("click", darkbtn);
-        function darkbtn() {
-            color = 4;
-            Pic.src = carArray[color][num];
-          
-        }; 
-        black_btn.onclick = blackbtn
-        // black_btn.addEventListener("click", blackbtn);
-        function blackbtn() {
-            color = 5;
-            Pic.src = carArray[color][num];
-          
-        };
+            };
+            silver_btn.addEventListener("click", silverbtn);
+            function silverbtn() {
+                color = 1;
+                Pic.src = carArray[color][num];
 
-        let R = function () {
-            num++;
-            if (num >= 60) {
-                num = 0;
-            }
-            Pic.src = carArray[color][num];
-        };
-        let L = function () {
-            num--;
-            if (num < 0) {
-                num = 59;
-            }
-            Pic.src = carArray[color][num];
-        };
+            };
+            red_btn.addEventListener("click", redbtn);
+            function redbtn() {
+                color = 2;
+                Pic.src = carArray[color][num];
 
-        right.onclick = R
-        left.onclick = L
+            };
+            gray_btn.addEventListener("click", graybtn);
+            function graybtn() {
+                color = 3;
+                Pic.src = carArray[color][num];
+
+            };
+            dark_btn.addEventListener("click", darkbtn);
+            function darkbtn() {
+                color = 4;
+                Pic.src = carArray[color][num];
+
+            };
+            black_btn.onclick = blackbtn;
+            // black_btn.addEventListener("click", blackbtn);
+            function blackbtn() {
+                color = 5;
+                Pic.src = carArray[color][num];
+
+            };
+
+            let R = function () {
+                num++;
+                if (num >= 60) {
+                    num = 0;
+                }
+                Pic.src = carArray[color][num];
+            };
+            let L = function () {
+                num--;
+                if (num < 0) {
+                    num = 59;
+                }
+                Pic.src = carArray[color][num];
+            };
+
+            right.onclick = R
+            left.onclick = L
+        };
 
     </script>
 </body>

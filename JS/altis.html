@@ -110,7 +110,11 @@
             Pic.src = carArray[color][num];
 
             let div = document.createElement("div");
-            div.append(carArray);
+            div.append(carArray[0].forEach(x=>{
+                let img = document.createElement("img");
+                img.src.push(x)
+
+            }));
             // div.style.display="none";
 
             white_btn.addEventListener("click", whitebtn);

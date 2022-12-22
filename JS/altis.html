@@ -104,9 +104,14 @@
                 }
 
             }
+            
             let color = 0;
             let num = 0;
             Pic.src = carArray[color][num];
+
+            let div = document.createElement("div");
+            div.append(carArray);
+            // div.style.display="none";
 
             white_btn.addEventListener("click", whitebtn);
             function whitebtn() {

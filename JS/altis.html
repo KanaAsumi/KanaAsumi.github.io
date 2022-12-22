@@ -104,18 +104,21 @@
                 }
 
             }
-            
+
             let color = 0;
             let num = 0;
             Pic.src = carArray[color][num];
 
             let div = document.createElement("div");
-            div.append(carArray[0].forEach(x=>{
-                let img = document.createElement("img");
-                img.src.push(x)
-
-            }));
-            // div.style.display="none";
+            for (z = 0; z < 6; z ++) {
+                carArray[z].forEach(x => {
+                    let img = document.createElement("img");
+                    img.src = x;
+                    div.append(img);
+                });
+            };
+            document.querySelector(".car").append(div);
+            div.style.display = "none";
 
             white_btn.addEventListener("click", whitebtn);
             function whitebtn() {

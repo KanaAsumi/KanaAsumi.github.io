@@ -189,17 +189,18 @@
             /* background-image: url(./../whoscall網站圖片檔/premium_hero-1500.png.webp); */
             background-image: url(./../whoscall網站圖片檔/premium_hero_mobile-1200.png.webp);
             background-size: cover;
-            /* height: 100vh; */
+            height: 100vh;
             /* width: 100%; */
-            height: 76.5vh;
+            /* height: 76.5vh; */
         }
 
-        .row:first-child .col-md-12.d-flex {
-            background-image: url(./../whoscall網站圖片檔/premium_hero-1500.png.webp);
-            background-size: cover;
-        }
-
+        
         @media screen and (min-width:768px) {
+            .row:first-child .col-md-12.d-flex {
+                background-image: url(./../whoscall網站圖片檔/premium_hero-1500.png.webp);
+                background-size: cover;
+                height: 76.5vh;
+            }
             .btn.fw-bold.my-auto {
                 color: #00C300;
                 background-color: transparent;
@@ -760,7 +761,7 @@
                 <p class="h3 text-white">Gogolook</p>
             </div>
         </div>
-        <div class="row fw-bold text-muted border-top">
+        <div class="row fw-bold text-muted border-top flex-sm-column-reverse flex-md-row">
             <div class="col-12 col-md-8">
                 <p class="d-md-inline">© 2022 Gogolook. All Rights Reserved.</p>
                 <a class="d-md-inline p-3" href="a">服務條款</a>

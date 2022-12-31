@@ -1,0 +1,660 @@
+[
+    [
+        {
+            "id": "iPad_106W",
+            "color": "spacegray",
+            "storage": "64GB",
+            "network": "Wi-Fi",
+            "peice": "19,900",
+            "description": "太空灰 Wi-Fi",
+            "picture": ""
+        },
+        {
+            "id": "iPad_125W",
+            "color": "spacegray",
+            "storage": "256GB",
+            "network": "Wi-Fi",
+            "peice": "24,900",
+            "description": "太空灰 Wi-Fi",
+            "picture": ""
+        },
+        {
+            "id": "iPad_106G",
+            "color": "spacegray",
+            "storage": "64GB",
+            "network": "5G",
+            "peice": "24,900",
+            "description": "太空灰 5G",
+            "picture": ""
+        },
+        {
+            "id": "iPad_125G",
+            "color": "spacegray",
+            "storage": "256GB",
+            "network": "5G",
+            "peice": "29,900",
+            "description": "太空灰 5G",
+            "picture": ""
+        },
+        {
+            "id": "iPad_206W",
+            "color": "blue",
+            "storage": "64GB",
+            "network": "Wi-Fi",
+            "peice": "19,900",
+            "description": "藍色 Wi-Fi",
+            "picture": ""
+        },
+        {
+            "id": "iPad_225W",
+            "color": "blue",
+            "storage": "256GB",
+            "network": "Wi-Fi",
+            "peice": "24,900",
+            "description": "藍色 Wi-Fi",
+            "picture": ""
+        },
+        {
+            "id": "iPad_206G",
+            "color": "blue",
+            "storage": "64GB",
+            "network": "5G",
+            "peice": "24,900",
+            "description": "藍色 5G",
+            "picture": ""
+        },
+        {
+            "id": "iPad_225G",
+            "color": "blue",
+            "storage": "256GB",
+            "network": "5G",
+            "peice": "29,900",
+            "description": "藍色 5G",
+            "picture": ""
+        },
+        {
+            "id": "iPad_306W",
+            "color": "pink",
+            "storage": "64GB",
+            "network": "Wi-Fi",
+            "peice": "19,900",
+            "description": "粉紅色 Wi-Fi",
+            "picture": ""
+        },
+        {
+            "id": "iPad_325W",
+            "color": "pink",
+            "storage": "256GB",
+            "network": "Wi-Fi",
+            "peice": "24,900",
+            "description": "粉紅色 Wi-Fi",
+            "picture": ""
+        },
+        {
+            "id": "iPad_306G",
+            "color": "pink",
+            "storage": "64GB",
+            "network": "5G",
+            "peice": "24,900",
+            "description": "粉紅色 5G",
+            "picture": ""
+        },
+        {
+            "id": "iPad_325G",
+            "color": "pink",
+            "storage": "256GB",
+            "network": "5G",
+            "peice": "29,900",
+            "description": "粉紅色 5G",
+            "picture": ""
+        },
+        {
+            "id": "iPad_406W",
+            "color": "紫色",
+            "storage": "64GB",
+            "network": "Wi-Fi",
+            "peice": "19,900",
+            "description": "紫色 Wi-Fi",
+            "picture": ""
+        },
+        {
+            "id": "iPad_425W",
+            "color": "紫色",
+            "storage": "256GB",
+            "network": "Wi-Fi",
+            "peice": "24,900",
+            "description": "紫色 Wi-Fi",
+            "picture": ""
+        },
+        {
+            "id": "iPad_406G",
+            "color": "紫色",
+            "storage": "64GB",
+            "network": "5G",
+            "peice": "24,900",
+            "description": "紫色 5G",
+            "picture": ""
+        },
+        {
+            "id": "iPad_425G",
+            "color": "紫色",
+            "storage": "256GB",
+            "network": "5G",
+            "peice": "29,900",
+            "description": "紫色 5G",
+            "picture": ""
+        },
+        {
+            "id": "iPad_506W",
+            "color": "White",
+            "storage": "64GB",
+            "network": "Wi-Fi",
+            "peice": "19,900",
+            "description": "星光色 Wi-Fi",
+            "picture": ""
+        },
+        {
+            "id": "iPad_525W",
+            "color": "White",
+            "storage": "256GB",
+            "network": "Wi-Fi",
+            "peice": "24,900",
+            "description": "星光色 Wi-Fi",
+            "picture": ""
+        },
+        {
+            "id": "iPad_506G",
+            "color": "White",
+            "storage": "64GB",
+            "network": "5G",
+            "peice": "24,900",
+            "description": "星光色 5G",
+            "picture": ""
+        },
+        {
+            "id": "iPad_525G",
+            "color": "White",
+            "storage": "256GB",
+            "network": "5G",
+            "peice": "29,900",
+            "description": "星光色 5G",
+            "picture": ""
+        }
+    ],
+    [
+        {
+            "id": "Pro_112",
+            "color": "purple",
+            "ROM": "128GB",
+            "peice": "34,900",
+            "description": "Pro深紫色 ROM:128GB",
+            "picture": ""
+        },
+        {
+            "id": "ProMax_112",
+            "color": "purple",
+            "ROM": "128GB",
+            "peice": "38,900",
+            "description": "Pro Max深紫色 ROM:128GB",
+            "picture": ""
+        },
+        {
+            "id": "Pro_125",
+            "color": "purple",
+            "ROM": "256GB",
+            "peice": "38,400",
+            "description": "Pro深紫色 ROM:256GB",
+            "picture": ""
+        },
+        {
+            "id": "ProMax_125",
+            "color": "purple",
+            "ROM": "256GB",
+            "peice": "42,400",
+            "description": "Pro Max深紫色 ROM:256GB",
+            "picture": ""
+        },
+        {
+            "id": "Pro_151",
+            "color": "purple",
+            "ROM": "512GB",
+            "peice": "35,400",
+            "description": "Pro深紫色 ROM:512GB",
+            "picture": ""
+        },
+        {
+            "id": "ProMax_151",
+            "color": "purple",
+            "ROM": "512GB",
+            "peice": "49,400",
+            "description": "Pro Max深紫色 ROM:512GB",
+            "picture": ""
+        },
+        {
+            "id": "Pro_11T",
+            "color": "purple",
+            "ROM": "1TB",
+            "peice": "52,400",
+            "description": "Pro深紫色 ROM:1TB",
+            "picture": ""
+        },
+        {
+            "id": "ProMax_11T",
+            "color": "purple",
+            "ROM": "1TB",
+            "peice": "56,400",
+            "description": "Pro Max深紫色 ROM:1TB",
+            "picture": ""
+        },
+        {
+            "id": "Pro_212",
+            "color": "gold",
+            "ROM": "128GB",
+            "peice": "34,900",
+            "description": "Pro金色 ROM:128GB",
+            "picture": ""
+        },
+        {
+            "id": "ProMax_212",
+            "color": "gold",
+            "ROM": "128GB",
+            "peice": "38,900",
+            "description": "Pro Max金色 ROM:128GB",
+            "picture": ""
+        },
+        {
+            "id": "Pro_225",
+            "color": "gold",
+            "ROM": "256GB",
+            "peice": "38,400",
+            "description": "Pro金色 ROM:256GB",
+            "picture": ""
+        },
+        {
+            "id": "ProMax_225",
+            "color": "gold",
+            "ROM": "256GB",
+            "peice": "42,400",
+            "description": "Pro Max金色 ROM:256GB",
+            "picture": ""
+        },
+        {
+            "id": "Pro_251",
+            "color": "gold",
+            "ROM": "512GB",
+            "peice": "35,400",
+            "description": "Pro金色 ROM:512GB",
+            "picture": ""
+        },
+        {
+            "id": "ProMax_251",
+            "color": "gold",
+            "ROM": "512GB",
+            "peice": "49,400",
+            "description": "Pro Max金色 ROM:512GB",
+            "picture": ""
+        },
+        {
+            "id": "Pro_21T",
+            "color": "gold",
+            "ROM": "1TB",
+            "peice": "52,400",
+            "description": "Pro金色 ROM:1TB",
+            "picture": ""
+        },
+        {
+            "id": "ProMax_21T",
+            "color": "gold",
+            "ROM": "1TB",
+            "peice": "56,400",
+            "description": "Pro Max金色 ROM:1TB",
+            "picture": ""
+        },
+        {
+            "id": "Pro_312",
+            "color": "silver",
+            "ROM": "128GB",
+            "peice": "34,900",
+            "description": "Pro銀色 ROM:128GB",
+            "picture": ""
+        },
+        {
+            "id": "ProMax_312",
+            "color": "silver",
+            "ROM": "128GB",
+            "peice": "38,900",
+            "description": "Pro Max銀色 ROM:128GB",
+            "picture": ""
+        },
+        {
+            "id": "Pro_325",
+            "color": "silver",
+            "ROM": "256GB",
+            "peice": "38,400",
+            "description": "Pro銀色 ROM:256GB",
+            "picture": ""
+        },
+        {
+            "id": "ProMax_325",
+            "color": "silver",
+            "ROM": "256GB",
+            "peice": "42,400",
+            "description": "Pro Max銀色 ROM:256GB",
+            "picture": ""
+        },
+        {
+            "id": "Pro_351",
+            "color": "silver",
+            "ROM": "512GB",
+            "peice": "35,400",
+            "description": "Pro銀色 ROM:512GB",
+            "picture": ""
+        },
+        {
+            "id": "ProMax_351",
+            "color": "silver",
+            "ROM": "512GB",
+            "peice": "49,400",
+            "description": "Pro Max銀色 ROM:512GB",
+            "picture": ""
+        },
+        {
+            "id": "Pro_301T",
+            "color": "silver",
+            "ROM": "1TB",
+            "peice": "52,400",
+            "description": "Pro銀色 ROM:1TB",
+            "picture": ""
+        },
+        {
+            "id": "ProMax_301T",
+            "color": "silver",
+            "ROM": "1TB",
+            "peice": "56,400",
+            "description": "Pro Max銀色 ROM:1TB",
+            "picture": ""
+        },
+        {
+            "id": "Pro_412",
+            "color": "black",
+            "ROM": "128GB",
+            "peice": "34,900",
+            "description": "Pro黑色 ROM:128GB",
+            "picture": ""
+        },
+        {
+            "id": "ProMax_412",
+            "color": "black",
+            "ROM": "128GB",
+            "peice": "38,900",
+            "description": "Pro Max黑色 ROM:128GB",
+            "picture": ""
+        },
+        {
+            "id": "Pro_425",
+            "color": "black",
+            "ROM": "256GB",
+            "peice": "38,400",
+            "description": "Pro黑色 ROM:256GB",
+            "picture": ""
+        },
+        {
+            "id": "ProMax_425",
+            "color": "black",
+            "ROM": "256GB",
+            "peice": "42,400",
+            "description": "Pro Max黑色 ROM:256GB",
+            "picture": ""
+        },
+        {
+            "id": "Pro_451",
+            "color": "black",
+            "ROM": "512GB",
+            "peice": "35,400",
+            "description": "Pro黑色 ROM:512GB",
+            "picture": ""
+        },
+        {
+            "id": "ProMax_451",
+            "color": "black",
+            "ROM": "512GB",
+            "peice": "49,400",
+            "description": "Pro Max黑色 ROM:512GB",
+            "picture": ""
+        },
+        {
+            "id": "Pro_401T",
+            "color": "black",
+            "ROM": "1TB",
+            "peice": "52,400",
+            "description": "Pro黑色 ROM:1TB",
+            "picture": ""
+        },
+        {
+            "id": "ProMax_401T",
+            "color": "black",
+            "ROM": "1TB",
+            "peice": "56,400",
+            "description": "Pro Max黑色 ROM:1TB",
+            "picture": ""
+        }
+    ],
+    [
+        {
+            "id": "M1_1082G",
+            "color": "spacegray",
+            "RAM": "8GB",
+            "ROM": "256GB",
+            "peice": "30,900",
+            "description": "太空灰 RAM:8GB/ROM:256GB",
+            "picture": ""
+        },
+        {
+            "id": "M1_1162G",
+            "color": "spacegray",
+            "RAM": "16GB",
+            "ROM": "256GB",
+            "peice": "36,900",
+            "description": "太空灰 RAM:16GB/ROM:256GB",
+            "picture": ""
+        },
+        {
+            "id": "M1_1085G",
+            "color": "spacegray",
+            "RAM": "8GB",
+            "ROM": "512GB",
+            "peice": "36,900",
+            "description": "太空灰 RAM:8GB/ROM:512GB",
+            "picture": ""
+        },
+        {
+            "id": "M1_1165G",
+            "color": "spacegray",
+            "RAM": "16GB",
+            "ROM": "512GB",
+            "peice": "42,900",
+            "description": "太空灰 RAM:16GB/ROM:512GB",
+            "picture": ""
+        },
+        {
+            "id": "M1_1081T",
+            "color": "spacegray",
+            "RAM": "8GB",
+            "ROM": "1TB",
+            "peice": "42,900",
+            "description": "太空灰 RAM:8GB/ROM:1TB",
+            "picture": ""
+        },
+        {
+            "id": "M1_1161T",
+            "color": "spacegray",
+            "RAM": "16GB",
+            "ROM": "1TB",
+            "peice": "48,900",
+            "description": "太空灰 RAM:16GB/ROM:1TB",
+            "picture": ""
+        },
+        {
+            "id": "M1_1082T",
+            "color": "spacegray",
+            "RAM": "8GB",
+            "ROM": "2TB",
+            "peice": "54,900",
+            "description": "太空灰 RAM:8GB/ROM:2TB",
+            "picture": ""
+        },
+        {
+            "id": "M1_1162T",
+            "color": "spacegray",
+            "RAM": "16GB",
+            "ROM": "2TB",
+            "peice": "60,900",
+            "description": "太空灰 RAM:16GB/ROM:2TB",
+            "picture": ""
+        },
+        {
+            "id": "M1_2082G",
+            "color": "gold",
+            "RAM": "8GB",
+            "ROM": "256GB",
+            "peice": "30,900",
+            "description": "金色 RAM:8GB/ROM:256GB",
+            "picture": ""
+        },
+        {
+            "id": "M1_2162G",
+            "color": "gold",
+            "RAM": "16GB",
+            "ROM": "256GB",
+            "peice": "36,900",
+            "description": "金色 RAM:16GB/ROM:256GB",
+            "picture": ""
+        },
+        {
+            "id": "M1_2085G",
+            "color": "gold",
+            "RAM": "8GB",
+            "ROM": "512GB",
+            "peice": "36,900",
+            "description": "金色 RAM:8GB/ROM:512GB",
+            "picture": ""
+        },
+        {
+            "id": "M1_2165G",
+            "color": "gold",
+            "RAM": "16GB",
+            "ROM": "512GB",
+            "peice": "42,900",
+            "description": "金色 RAM:16GB/ROM:512GB",
+            "picture": ""
+        },
+        {
+            "id": "M1_2081T",
+            "color": "gold",
+            "RAM": "8GB",
+            "ROM": "1TB",
+            "peice": "42,900",
+            "description": "金色 RAM:8GB/ROM:1TB",
+            "picture": ""
+        },
+        {
+            "id": "M1_2161T",
+            "color": "gold",
+            "RAM": "16GB",
+            "ROM": "1TB",
+            "peice": "48,900",
+            "description": "金色 RAM:16GB/ROM:1TB",
+            "picture": ""
+        },
+        {
+            "id": "M1_2082T",
+            "color": "gold",
+            "RAM": "8GB",
+            "ROM": "2TB",
+            "peice": "54,900",
+            "description": "金色 RAM:8GB/ROM:2TB",
+            "picture": ""
+        },
+        {
+            "id": "M1_2162T",
+            "color": "gold",
+            "RAM": "16GB",
+            "ROM": "2TB",
+            "peice": "60,900",
+            "description": "金色 RAM:16GB/ROM:2TB",
+            "picture": ""
+        },
+        {
+            "id": "M1_3082G",
+            "color": "silver",
+            "RAM": "8GB",
+            "ROM": "256GB",
+            "peice": "30,900",
+            "description": "銀色 RAM:8GB/ROM:256GB",
+            "picture": ""
+        },
+        {
+            "id": "M1_3162G",
+            "color": "silver",
+            "RAM": "16GB",
+            "ROM": "256GB",
+            "peice": "36,900",
+            "description": "銀色 RAM:16GB/ROM:256GB",
+            "picture": ""
+        },
+        {
+            "id": "M1_3085G",
+            "color": "silver",
+            "RAM": "8GB",
+            "ROM": "512GB",
+            "peice": "36,900",
+            "description": "銀色 RAM:8GB/ROM:512GB",
+            "picture": ""
+        },
+        {
+            "id": "M1_3165G",
+            "color": "silver",
+            "RAM": "16GB",
+            "ROM": "512GB",
+            "peice": "42,900",
+            "description": "銀色 RAM:16GB/ROM:512GB",
+            "picture": ""
+        },
+        {
+            "id": "M1_3081T",
+            "color": "silver",
+            "RAM": "8GB",
+            "ROM": "1TB",
+            "peice": "42,900",
+            "description": "銀色 RAM:8GB/ROM:1TB",
+            "picture": ""
+        },
+        {
+            "id": "M1_3161T",
+            "color": "silver",
+            "RAM": "16GB",
+            "ROM": "1TB",
+            "peice": "48,900",
+            "description": "銀色 RAM:16GB/ROM:1TB",
+            "picture": ""
+        },
+        {
+            "id": "M1_3082T",
+            "color": "silver",
+            "RAM": "8GB",
+            "ROM": "2TB",
+            "peice": "54,900",
+            "description": "銀色 RAM:8GB/ROM:2TB",
+            "picture": ""
+        },
+        {
+            "id": "M1_3162T",
+            "color": "silver",
+            "RAM": "16GB",
+            "ROM": "2TB",
+            "peice": "60,900",
+            "description": "銀色 RAM:16GB/ROM:2TB",
+            "picture": ""
+        }
+    ]
+]

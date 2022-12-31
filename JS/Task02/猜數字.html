@@ -6,9 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="./../reset.css">
     <link rel="stylesheet" href="./../grid.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .box {
             margin-top: 50px;
@@ -16,7 +20,7 @@
             margin-right: auto;
             padding: 50px;
             /* margin: auto; */
-            width: 860px;   
+            width: 960px;
             outline: 3px solid;
             background-color: #ccc;
         }
@@ -30,25 +34,52 @@
             text-align: center;
             line-height: 4;
         }
-        .anscol{
+
+        .anscol {
+            /* padding: 5px; */
             height: 300px;
             background-color: #fff;
             margin: 10px;
+            overflow: scroll;
+            flex-wrap: wrap;
         }
-        .enter{
+
+        .anscol p {
+            padding: 5px;
+            display: block;
+            font-size: 40px;
+
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .green {
+            background-color: #00C300;
+        }
+
+        .anscol span {
+            /* background-color: red; */
+            border-radius: 10px;
+        }
+
+        .enter {
             display: flex;
             width: auto;
             justify-content: space-between;
         }
-        .enter input{
+
+        .enter input {
             /* width: 700px; */
             font-size: 40px;
             /* width: auto; */
         }
-        .enter i{
+
+        .enter i {
             background-color: #fff;
             font-size: 50px;
-            
+
         }
     </style>
 </head>
@@ -67,20 +98,174 @@
             </div>
         </div>
         <div class="anscol">
-
+            <!-- <p class="anscol"></p> -->
         </div>
         <div class="enter">
+
             <i class="fa-solid fa-share">請輸入</i>
-            <input type="text">
-            <i class="fa-solid fa-check"></i>
+            <input type="text" placeholder="請輸入數字" maxlength="4">
+            <i class="fa-solid fa-check">按我</i>
+            <!-- data-bs-toggle="modal" data-bs-target="#exampleModal" -->
         </div>
-        
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">恭喜你過關了!!!</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <p style="font-size: 2px; color: #ccc;">或者按我關閉</p>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">按我關閉</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
     <script>
+        window.onload = () => {
+            // let key = getKey()
+            // console.log(key)
+            let col = document.querySelectorAll(".col-4")
+            let inputans = document.querySelector("input")
+            let check = document.querySelector(".fa-check")
+            let anscol = document.querySelector(".anscol")
+            let modal = document.querySelector("#exampleModal")
 
+
+            col[0].addEventListener("click", getKey)
+            col[1].addEventListener("click", block)
+            col[2].addEventListener("click", blockanswer)
+
+            function getKey() {
+                col[0].removeEventListener("click", getKey)
+                // col[1].removeEventListener("click", giveup)
+                col[1].removeEventListener("click", block)
+                col[2].removeEventListener("click", blockanswer)
+                col[1].addEventListener("click", giveup)
+                let answers = [];
+                get_answer()
+                function get_answer() {
+                    let q, w, e, r;
+                    do {
+                        q = Math.floor(Math.random() * 10).toString();
+                        w = Math.floor(Math.random() * 10).toString();
+                        e = Math.floor(Math.random() * 10).toString();
+                        r = Math.floor(Math.random() * 10).toString();
+                    }
+                    while (q == w || q == e || q == r || w == e || w == r || e == r)
+                    answers.push(q, w, e, r);
+                }
+                function throwOut() {
+                    return answers
+                }
+                console.log(answers)
+                let answer = answers.join("")
+                col[2].addEventListener("click", showanswer);
+                function showanswer() { alert(`\n\n　　　　　　　　　　　　　答案是${answer}\n\n`); };
+
+                check.addEventListener("click", checks);
+
+                function checks() {
+                    let atime = 0;
+                    let btime = 0;
+                    let p = document.createElement("p")
+                    let span = document.querySelector("span")
+                    let answertext = document.querySelector(".modal-body")
+
+                    // debugger
+                    if (inputans.value == "") {
+                        alert("\n\n　　　　　　　　　　　　　請輸入字元\n\n");
+
+                    }
+                    else if (isNaN(parseFloat(inputans.value))) {
+                        alert("\n\n　　　　　　　　　　　　請務必輸入數字\n\n");
+
+                    }
+                    else if (inputans.value.length != 4) {
+                        alert("\n\n　　　　　　　　　　　請務必輸入長度為4的數字\n\n");
+
+                    }
+                    else {
+                        for (let i = 0; i < 4; i++) {
+                            let inputArray = Array.from(inputans.value)
+                            if (answers[i] == inputArray[i]) {
+                                // debugger
+                                atime++;
+                                continue;
+                            }
+                            for (let j = 0; j < 4; j++) {
+                                if (answers[i] == inputArray[j] && i != j) {
+                                    btime++;
+                                }
+                            }
+                        }
+                    }
+                    // parseFloat(atime)
+                    // parseInt(btime, 10)
+                    if (atime == 4) {
+                        // span.classList.remove("red")
+                        // span.classList.add("green")
+                        p.innerHTML = `<span class="green">${atime}A${btime}B</span> ${inputans.value}`;
+
+                        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {
+                            keyboard: true
+                        })
+                        
+                        let ansp = document.createElement("p")
+                        ansp.innerHTML = `恭喜你猜對了!!! 答案為${answer}`
+                        answertext.append(ansp)
+                        var modalToggle = document.getElementById('exampleModal') // relatedTarget
+                        myModal.show(modalToggle)
+                    }
+                    else {
+                        // span.classList.remove("green")
+                        // span.classList.add("red")
+                        p.innerHTML = `<span class="red">${atime}A${btime}B</span> ${inputans.value}`;
+                    }
+                    anscol.append(p);
+                    inputans.value = "";
+
+                };
+                function giveup() {
+                    inputans.value = "";
+                    anscol.innerHTML = "";
+                    // inputans.innerHTML = "";
+                    col[0].removeEventListener("click", getKey);
+                    col[1].removeEventListener("click", giveup);
+                    col[2].removeEventListener("click", showanswer);
+                    check.removeEventListener("click", checks);
+                    getKey();
+                    col[1].addEventListener("click", block)
+                    col[2].addEventListener("click", blockanswer)
+                    alert(`\n\n　　　　　　　　勝敗乃兵家常事，請大俠重新來過\n\n\n　　　　　　　　　　　　　答案是${answer}\n\n\n　　　　　　　　　　請再次按下開始重新挑戰`)
+                };
+                return throwOut
+            };
+
+
+            function block() {
+                alert("\n\n　　　　　　　　　　你還沒開始怎麼就放棄了呢？\n\n")
+            };
+            function blockanswer() {
+                alert("\n\n　　　　　　　　　　　人生沒有答案讓你看\n\n")
+            };
+
+
+
+
+        };
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

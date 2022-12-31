@@ -28,7 +28,10 @@
             background-color: #ba77;
         }
 
+        .pic {}
+
         img {
+            vertical-align: bottom;
             width: 100%;
         }
 
@@ -113,14 +116,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-6">
-                    <div class="pic">
+                    <div class="pic py-5">
                         <!-- <img src="" alt=""> -->
                     </div>
                 </div>
                 <div class="col-12 col-md-6 fw-bold">
                     <p class="h1 fw-bold">顏色</p>
-                    <div class="row">
-                        <div class="box">
+                    <div class="row" id="color">
+                        <!-- <div class="box">
                             <div class="item my-4">
                                 <div class="color my-2"></div>
                                 <div class="text">
@@ -143,7 +146,7 @@
                                     <p>太空灰</p>
                                 </div>
                             </div>
-                        </div>
+                        </div>                        
                         <div class="box">
                             <div class="item my-4">
                                 <div class="color my-2"></div>
@@ -151,20 +154,21 @@
                                     <p>太空灰</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="box">
+                        </div> -->
+                        <!-- <div class="box">
                             <div class="item my-4">
                                 <div class="color my-2"></div>
                                 <div class="text">
                                     <p>太空灰</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <p class="h1 fw-bold">規格</p>
-                    <div class="row">
+                    <div class="row" id="specifications">
                         <div class="box">
                             <div class="item my-4">
+                                <div class="format">a</div>
                                 <div class="text">
                                     <p></p>
                                 </div>
@@ -176,26 +180,26 @@
                         <div class="box">
                             <div class="item my-4">
                                 <!-- <div class="text"> -->
-                                    <p>123</p>
+                                <p>123</p>
                                 <!-- </div> -->
                                 <!-- <div class="text"> -->
-                                    <p></p>
+                                <p></p>
                                 <!-- </div> -->
                             </div>
                         </div>
                         <div class="box">
-                            <!-- <div class="item my-4"> -->
+                            <div class="item my-4">
                                 <!-- <div class="text"> -->
-                                    <p>123</p>
-                                <!-- </div> -->
-                                <!-- <div class="text"> -->
-                                    <p></p>
-                                <!-- </div> -->
+                                <p>123</p>
+                            </div>
+                            <!-- <div class="text"> -->
+                            <p></p>
+                            <!-- </div> -->
                             <!-- </div> -->
                         </div>
                     </div>
                     <p class="h1 fw-bold">價格</p>
-                    <div class="row fs-1">
+                    <div class="row fs-1" id="price">
                         <div class="item my-4">
                             <div class="price">
                                 <p>12,345</p>
@@ -214,7 +218,7 @@
             [
                 {
                     "id": "iPad_106W",
-                    "color": "spacegray",
+                    "color": "gray",
                     "storage": "64GB",
                     "network": "Wi-Fi",
                     "peice": "19,900",
@@ -223,7 +227,7 @@
                 },
                 {
                     "id": "iPad_125W",
-                    "color": "spacegray",
+                    "color": "gray",
                     "storage": "256GB",
                     "network": "Wi-Fi",
                     "peice": "24,900",
@@ -232,7 +236,7 @@
                 },
                 {
                     "id": "iPad_106G",
-                    "color": "spacegray",
+                    "color": "gray",
                     "storage": "64GB",
                     "network": "5G",
                     "peice": "24,900",
@@ -241,7 +245,7 @@
                 },
                 {
                     "id": "iPad_125G",
-                    "color": "spacegray",
+                    "color": "gray",
                     "storage": "256GB",
                     "network": "5G",
                     "peice": "29,900",
@@ -322,7 +326,7 @@
                 },
                 {
                     "id": "iPad_406W",
-                    "color": "紫色",
+                    "color": "purple",
                     "storage": "64GB",
                     "network": "Wi-Fi",
                     "peice": "19,900",
@@ -331,7 +335,7 @@
                 },
                 {
                     "id": "iPad_425W",
-                    "color": "紫色",
+                    "color": "purple",
                     "storage": "256GB",
                     "network": "Wi-Fi",
                     "peice": "24,900",
@@ -340,7 +344,7 @@
                 },
                 {
                     "id": "iPad_406G",
-                    "color": "紫色",
+                    "color": "purple",
                     "storage": "64GB",
                     "network": "5G",
                     "peice": "24,900",
@@ -349,7 +353,7 @@
                 },
                 {
                     "id": "iPad_425G",
-                    "color": "紫色",
+                    "color": "purple",
                     "storage": "256GB",
                     "network": "5G",
                     "peice": "29,900",
@@ -654,7 +658,7 @@
             [
                 {
                     "id": "M1_1082G",
-                    "color": "spacegray",
+                    "color": "gray",
                     "RAM": "8GB",
                     "ROM": "256GB",
                     "peice": "30,900",
@@ -663,7 +667,7 @@
                 },
                 {
                     "id": "M1_1162G",
-                    "color": "spacegray",
+                    "color": "gray",
                     "RAM": "16GB",
                     "ROM": "256GB",
                     "peice": "36,900",
@@ -672,7 +676,7 @@
                 },
                 {
                     "id": "M1_1085G",
-                    "color": "spacegray",
+                    "color": "gray",
                     "RAM": "8GB",
                     "ROM": "512GB",
                     "peice": "36,900",
@@ -681,7 +685,7 @@
                 },
                 {
                     "id": "M1_1165G",
-                    "color": "spacegray",
+                    "color": "gray",
                     "RAM": "16GB",
                     "ROM": "512GB",
                     "peice": "42,900",
@@ -690,7 +694,7 @@
                 },
                 {
                     "id": "M1_1081T",
-                    "color": "spacegray",
+                    "color": "gray",
                     "RAM": "8GB",
                     "ROM": "1TB",
                     "peice": "42,900",
@@ -699,7 +703,7 @@
                 },
                 {
                     "id": "M1_1161T",
-                    "color": "spacegray",
+                    "color": "gray",
                     "RAM": "16GB",
                     "ROM": "1TB",
                     "peice": "48,900",
@@ -708,7 +712,7 @@
                 },
                 {
                     "id": "M1_1082T",
-                    "color": "spacegray",
+                    "color": "gray",
                     "RAM": "8GB",
                     "ROM": "2TB",
                     "peice": "54,900",
@@ -717,7 +721,7 @@
                 },
                 {
                     "id": "M1_1162T",
-                    "color": "spacegray",
+                    "color": "gray",
                     "RAM": "16GB",
                     "ROM": "2TB",
                     "peice": "60,900",
@@ -881,42 +885,68 @@
         })
         let pic = document.querySelector(".pic")
         let img = document.createElement("img")
+        let color_item = document.querySelector("#color")
         // col[0] = document.addEventListener("click", iPhone);
         // col[1] = document.addEventListener("click", MAC);
         // col[2] = document.addEventListener("click", iPad);
 
         // let img = document.querySelector("img");
         function pushimg(e) {
+            let colorArray = [];
+            let looptime;
+            color_item.innerHTML = "";
             // console.dir(e.target)
-            console.log(e.target.id)
+            // console.log(e.target.id)
             // debugger
             if (e.target.id == "iphone") {
+                // debugger
+                looptime = 4;
+                colorArray = ["purple", "gold", "silver", "black"];
                 img.setAttribute("src", "./../apple/iPhone 14 Pro/iphone-14-pro11.jpg")
             }
             else if (e.target.id == "mac") {
+                looptime = 3;
+                colorArray = ["gray", "gold", "silver"];
                 img.setAttribute("src", "./../apple/MacBookAir/macbook-air1.jpg")
             }
             else if (e.target.id == "ipad") {
+                looptime = 5;
+                colorArray = ["gray", "blue", "pink", "purple", "white"];
                 img.setAttribute("src", "./../apple/iPadAir/ipad-air1.jpg")
+            }
+            for (let i = 0; i < looptime; i++) {
+                // console.log(colorArray[i])
+                let div = document.createElement("div");
+                div.setAttribute("class", "box")
+                let boxdiv = document.createElement("div")
+                boxdiv.setAttribute("class", "item my-4")
+                let colordiv = document.createElement("div")
+                colordiv.setAttribute("class", `color my-2 ${colorArray[i]}`)
+                let textdiv = document.createElement("div")
+                textdiv.setAttribute("class", "text")
+                boxdiv.append(colordiv)
+                boxdiv.append(textdiv)
+                div.append(boxdiv)
+                color_item.append(div)
             }
             pic.append(img)
 
         }
-        function iPhone() {
-            // img.removeAttribute("src")
-            img.setAttribute("src", "./../apple/iPhone 14 Pro/iphone-14-pro11.jpg")
-            // pic.append(img)
-        }
-        function MAC() {
-            // img.removeAttribute("src")
-            img.setAttribute("src", "./../apple/MacBookAir/macbook-air1.jpg")
-            // pic.append(img)
-        }
-        function iPad() {
-            // img.removeAttribute("src")
-            img.setAttribute("src", "./../apple/iPadAir/ipad-air1.jpg")
-            // pic.append(img)
-        }
+        // function iPhone() {
+        //     // img.removeAttribute("src")
+        //     img.setAttribute("src", "./../apple/iPhone 14 Pro/iphone-14-pro11.jpg")
+        //     // pic.append(img)
+        // }
+        // function MAC() {
+        //     // img.removeAttribute("src")
+        //     img.setAttribute("src", "./../apple/MacBookAir/macbook-air1.jpg")
+        //     // pic.append(img)
+        // }
+        // function iPad() {
+        //     // img.removeAttribute("src")
+        //     img.setAttribute("src", "./../apple/iPadAir/ipad-air1.jpg")
+        //     // pic.append(img)
+        // }
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"

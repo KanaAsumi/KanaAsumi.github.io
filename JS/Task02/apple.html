@@ -700,10 +700,13 @@
         ]
     </script>
     <script>
+        window.onload = () => { pushimg() };
+
+
         let col = document.querySelectorAll(".col-md-4");
         col.forEach(x => {
             x.addEventListener("click", function (e) { pushimg(e) })
-            
+
         })
         let pic = document.querySelector(".pic")
         let img = document.createElement("img")
@@ -752,7 +755,7 @@
             color_item.innerHTML = "";
             rom_item.innerHTML = "";
             price_item.innerText = "";
-            
+
             let dele;
             let delet;
             if (delet = document.querySelector("#delet")) {
@@ -767,11 +770,11 @@
             console.log(pricefather)
 
 
-            
+
 
             console.log(rom_item.parentNode)
 
-           
+
             if (e.target.id == "iphone") {
                 looptime = 4;
                 number = 0;
@@ -793,7 +796,7 @@
                 textArray = ["256GB", "512GB", "1TB", "2TB"];
                 macramArray = ["8GB", "16GB"];
                 // ============================================================
-              
+
 
                 img.setAttribute("src", pathArray[1][0])
             }
@@ -811,7 +814,7 @@
                 img.setAttribute("src", pathArray[2][0])
             }
             for (let i = 0; i < looptime; i++) {
-                
+
                 let div = document.createElement("div");
                 div.setAttribute("class", "box")
                 let boxdiv = document.createElement("div")
@@ -831,7 +834,7 @@
                 color_item.append(div)
                 let colorOpt = document.querySelectorAll(".item.my-4")
                 colorOpt[i].addEventListener("click", function () {
-                    // debugger
+
                     img.setAttribute("src", `${pathArray[number][i]}`)
 
                     rom_item.innerHTML = "";
@@ -846,18 +849,18 @@
                         romdiv.append(addROM)
                         devicediv.append(romdiv)
                         rom_item.append(devicediv)
-                        
+
                         romdiv.addEventListener("click", function (event) {
                             if (ramloop !== 0) {
 
-                                
+
                                 if (document.querySelectorAll(".choose").length != 0) {
                                     remove = document.querySelector(".box.choose")
                                     console.log(remove)
                                     remove.classList.remove("choose")
                                 }
                                 console.log(remove)
-                                
+
                                 if (event.target.textContent == "64GB") {
 
                                     give = document.querySelector(`.x${textArray[j]}.box`)
@@ -886,12 +889,12 @@
                                     give.setAttribute("class", `x${textArray[j]} box choose`)
                                     multiplier = 4;
                                 }
-                                
 
-                                
+
+
                                 console.log(romfather)
                                 let row = document.createElement("div")
-                                
+
                                 if (dele = document.querySelector("#dele")) {
                                     romfather.removeChild(dele)
                                 }
@@ -899,7 +902,7 @@
                                 row.setAttribute("id", "dele")
                                 if (romfather.children.length < 2 && e.target.id == "mac") {
 
-                                    
+
                                     for (let z = 0; z < ramloop; z++) {
                                         let devicediv = document.createElement("div");
                                         devicediv.setAttribute("class", "box")
@@ -1009,8 +1012,6 @@
                     price_item.append(addprice)
 
                 }
-
-
             }
         }
 

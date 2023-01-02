@@ -28,8 +28,6 @@
             background-color: #ba77;
         }
 
-        /* .pic {} */
-
         img {
             vertical-align: bottom;
             width: 100%;
@@ -126,37 +124,19 @@
             <div class="row">
                 <div class="col-12 col-md-6">
                     <div class="pic py-5">
-                        <!-- <img src="" alt=""> -->
                     </div>
                 </div>
                 <div class="col-12 col-md-6 fw-bold">
                     <p class="h1 fw-bold">顏色</p>
                     <div class="row" id="color">
-                        <!-- <div class="box">
-                            <div class="item my-4">
-                                <div class="color my-2 gray"></div>
-                                <div class="text">
-                                    <p>太空灰</p>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                     <p class="h1 fw-bold">規格</p>
                     <div class="area">
                         <div class="row" id="specifications">
-                            <!-- <div class="box">
-                                <div class="item my-4">
-                                    <p>123</p>
-                                    <p>123</p>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
                     <p class="h1 fw-bold">價格</p>
                     <div class="row fs-1" id="price">
-                        <!-- <div class="price my-4">
-                            <p>12,345</p>
-                        </div>  -->
                     </div>
                 </div>
             </div>
@@ -701,42 +681,38 @@
     </script>
     <script>
         window.onload = () => {
+            pushdn()
             let col = document.querySelectorAll(".col-md-4");
             col.forEach(x => {
                 x.addEventListener("click", function (e) { pushimg(e) })
             })
         };
 
-
-        // let col = document.querySelectorAll(".col-md-4");
-        // col.forEach(x => {
-        //     x.addEventListener("click", function (e) { pushimg(e) })
-        // })
         let pic = document.querySelector(".pic")
         let img = document.createElement("img")
         let area = document.querySelector(".area")
         let color_item = document.querySelector("#color")
         let rom_item = document.querySelector("#specifications")
         let price_item = document.querySelector("#price")
+        let pathArray = [
+            ["./../apple/iPhone 14 Pro/iphone-14-pro11.jpg",
+                "./../apple/iPhone 14 Pro/iphone-14-pro12.jpg",
+                "./../apple/iPhone 14 Pro/iphone-14-pro13.jpg",
+                "./../apple/iPhone 14 Pro/iphone-14-pro14.jpg"
+            ],
+            ["./../apple/MacBookAir/macbook-air1.jpg",
+                "./../apple/MacBookAir/macbook-air2.jpg",
+                "./../apple/MacBookAir/macbook-air3.jpg"
+            ],
+            ["./../apple/iPadAir/ipad-air1.jpg",
+                "./../apple/iPadAir/ipad-air2.jpg",
+                "./../apple/iPadAir/ipad-air3.jpg",
+                "./../apple/iPadAir/ipad-air4.jpg",
+                "./../apple/iPadAir/ipad-air5.jpg"
+            ]
+        ];
 
         function pushimg(e) {
-            let pathArray = [
-                ["./../apple/iPhone 14 Pro/iphone-14-pro11.jpg",
-                    "./../apple/iPhone 14 Pro/iphone-14-pro12.jpg",
-                    "./../apple/iPhone 14 Pro/iphone-14-pro13.jpg",
-                    "./../apple/iPhone 14 Pro/iphone-14-pro14.jpg"
-                ],
-                ["./../apple/MacBookAir/macbook-air1.jpg",
-                    "./../apple/MacBookAir/macbook-air2.jpg",
-                    "./../apple/MacBookAir/macbook-air3.jpg"
-                ],
-                ["./../apple/iPadAir/ipad-air1.jpg",
-                    "./../apple/iPadAir/ipad-air2.jpg",
-                    "./../apple/iPadAir/ipad-air3.jpg",
-                    "./../apple/iPadAir/ipad-air4.jpg",
-                    "./../apple/iPadAir/ipad-air5.jpg"
-                ]
-            ];
             let colorArray = [];
             let colortextArray = [];
             let textArray = [];
@@ -979,7 +955,7 @@
                                     }
                                 }
                             }
-                            else { 
+                            else {
                                 pushprice(j)
                             }
                         })
@@ -1019,6 +995,19 @@
             }
         }
 
+        function pushdn() {
+            let dn = document.createElement("div")
+            let body =document.querySelector("body")
+            dn.setAttribute("class", "d-none")
+            pathArray.forEach(x => {
+                x.forEach(y => {
+                    let img = document.createElement("img")
+                    img.setAttribute("src", y)
+                    dn.append(img)
+                    body.append(dn)
+                })
+            })
+        }
 
 
     </script>

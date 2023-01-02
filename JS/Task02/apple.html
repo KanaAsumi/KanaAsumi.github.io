@@ -38,11 +38,17 @@
         .box {
             margin: 5px;
             text-align: center;
-            /* margin: auto; */
             width: 100px;
-            /* height: 100px; */
             outline: 1px solid;
             border-radius: 5px;
+        }
+
+        .box:active {
+            background-color: #fa0;
+        }
+
+        .box a:visited {
+            color: #00c300;
         }
 
         .color {
@@ -84,6 +90,9 @@
             background-color: #e7e3db;
         }
 
+        .choose {
+            background-color: #7BA9BE;
+        }
 
         .col-12 {
             outline: 1px solid;
@@ -125,39 +134,7 @@
                     <div class="row" id="color">
                         <!-- <div class="box">
                             <div class="item my-4">
-                                <div class="color my-2"></div>
-                                <div class="text">
-                                    <p>太空灰</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <div class="item my-4">
-                                <div class="color my-2"></div>
-                                <div class="text">
-                                    <p>太空灰</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <div class="item my-4">
-                                <div class="color my-2"></div>
-                                <div class="text">
-                                    <p>太空灰</p>
-                                </div>
-                            </div>
-                        </div>                        
-                        <div class="box">
-                            <div class="item my-4">
-                                <div class="color my-2"></div>
-                                <div class="text">
-                                    <p>太空灰</p>
-                                </div>
-                            </div>
-                        </div> -->
-                        <!-- <div class="box">
-                            <div class="item my-4">
-                                <div class="color my-2"></div>
+                                <div class="color my-2 gray"></div>
                                 <div class="text">
                                     <p>太空灰</p>
                                 </div>
@@ -165,46 +142,21 @@
                         </div> -->
                     </div>
                     <p class="h1 fw-bold">規格</p>
-                    <div class="row" id="specifications">
-                        <div class="box">
-                            <div class="item my-4">
-                                <div class="format">a</div>
-                                <div class="text">
-                                    <p></p>
+                    <div class="area">
+                        <div class="row" id="specifications">
+                            <!-- <div class="box">
+                                <div class="item my-4">
+                                    <p>123</p>
+                                    <p>123</p>
                                 </div>
-                                <div class="text">
-                                    <p></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <div class="item my-4">
-                                <!-- <div class="text"> -->
-                                <p>123</p>
-                                <!-- </div> -->
-                                <!-- <div class="text"> -->
-                                <p></p>
-                                <!-- </div> -->
-                            </div>
-                        </div>
-                        <div class="box">
-                            <div class="item my-4">
-                                <!-- <div class="text"> -->
-                                <p>123</p>
-                            </div>
-                            <!-- <div class="text"> -->
-                            <p></p>
-                            <!-- </div> -->
-                            <!-- </div> -->
+                            </div> -->
                         </div>
                     </div>
                     <p class="h1 fw-bold">價格</p>
                     <div class="row fs-1" id="price">
-                        <div class="item my-4">
-                            <div class="price">
-                                <p>12,345</p>
-                            </div>
-                        </div>
+                        <!-- <div class="price my-4">
+                            <p>12,345</p>
+                        </div>  -->
                     </div>
                 </div>
             </div>
@@ -217,8 +169,8 @@
         let appleArray = [
             [
                 {
-                    "id": "iPad_106W",
-                    "color": "gray",
+                    "id": "1",
+                    "color": "gray 太空灰",
                     "storage": "64GB",
                     "network": "Wi-Fi",
                     "peice": "19,900",
@@ -226,8 +178,8 @@
                     "picture": ""
                 },
                 {
-                    "id": "iPad_125W",
-                    "color": "gray",
+                    "id": "2",
+                    "color": "gray 太空灰",
                     "storage": "256GB",
                     "network": "Wi-Fi",
                     "peice": "24,900",
@@ -235,8 +187,8 @@
                     "picture": ""
                 },
                 {
-                    "id": "iPad_106G",
-                    "color": "gray",
+                    "id": "3",
+                    "color": "gray 太空灰",
                     "storage": "64GB",
                     "network": "5G",
                     "peice": "24,900",
@@ -244,8 +196,8 @@
                     "picture": ""
                 },
                 {
-                    "id": "iPad_125G",
-                    "color": "gray",
+                    "id": "4",
+                    "color": "gray 太空灰",
                     "storage": "256GB",
                     "network": "5G",
                     "peice": "29,900",
@@ -253,8 +205,8 @@
                     "picture": ""
                 },
                 {
-                    "id": "iPad_206W",
-                    "color": "blue",
+                    "id": "5",
+                    "color": "blue 藍色",
                     "storage": "64GB",
                     "network": "Wi-Fi",
                     "peice": "19,900",
@@ -262,8 +214,8 @@
                     "picture": ""
                 },
                 {
-                    "id": "iPad_225W",
-                    "color": "blue",
+                    "id": "6",
+                    "color": "blue 藍色",
                     "storage": "256GB",
                     "network": "Wi-Fi",
                     "peice": "24,900",
@@ -271,8 +223,8 @@
                     "picture": ""
                 },
                 {
-                    "id": "iPad_206G",
-                    "color": "blue",
+                    "id": "7",
+                    "color": "blue 藍色",
                     "storage": "64GB",
                     "network": "5G",
                     "peice": "24,900",
@@ -280,8 +232,8 @@
                     "picture": ""
                 },
                 {
-                    "id": "iPad_225G",
-                    "color": "blue",
+                    "id": "8",
+                    "color": "blue 藍色",
                     "storage": "256GB",
                     "network": "5G",
                     "peice": "29,900",
@@ -289,8 +241,8 @@
                     "picture": ""
                 },
                 {
-                    "id": "iPad_306W",
-                    "color": "pink",
+                    "id": "9",
+                    "color": "pink 粉紅色",
                     "storage": "64GB",
                     "network": "Wi-Fi",
                     "peice": "19,900",
@@ -298,8 +250,8 @@
                     "picture": ""
                 },
                 {
-                    "id": "iPad_325W",
-                    "color": "pink",
+                    "id": "10",
+                    "color": "pink 粉紅色",
                     "storage": "256GB",
                     "network": "Wi-Fi",
                     "peice": "24,900",
@@ -307,8 +259,8 @@
                     "picture": ""
                 },
                 {
-                    "id": "iPad_306G",
-                    "color": "pink",
+                    "id": "11",
+                    "color": "pink 粉紅色",
                     "storage": "64GB",
                     "network": "5G",
                     "peice": "24,900",
@@ -316,8 +268,8 @@
                     "picture": ""
                 },
                 {
-                    "id": "iPad_325G",
-                    "color": "pink",
+                    "id": "12",
+                    "color": "pink 粉紅色",
                     "storage": "256GB",
                     "network": "5G",
                     "peice": "29,900",
@@ -325,8 +277,8 @@
                     "picture": ""
                 },
                 {
-                    "id": "iPad_406W",
-                    "color": "purple",
+                    "id": "13",
+                    "color": "purple 紫色",
                     "storage": "64GB",
                     "network": "Wi-Fi",
                     "peice": "19,900",
@@ -334,8 +286,8 @@
                     "picture": ""
                 },
                 {
-                    "id": "iPad_425W",
-                    "color": "purple",
+                    "id": "14",
+                    "color": "purple 紫色",
                     "storage": "256GB",
                     "network": "Wi-Fi",
                     "peice": "24,900",
@@ -343,8 +295,8 @@
                     "picture": ""
                 },
                 {
-                    "id": "iPad_406G",
-                    "color": "purple",
+                    "id": "15",
+                    "color": "purple 紫色",
                     "storage": "64GB",
                     "network": "5G",
                     "peice": "24,900",
@@ -352,8 +304,8 @@
                     "picture": ""
                 },
                 {
-                    "id": "iPad_425G",
-                    "color": "purple",
+                    "id": "16",
+                    "color": "purple 紫色",
                     "storage": "256GB",
                     "network": "5G",
                     "peice": "29,900",
@@ -361,8 +313,8 @@
                     "picture": ""
                 },
                 {
-                    "id": "iPad_506W",
-                    "color": "White",
+                    "id": "17",
+                    "color": "White 星光色",
                     "storage": "64GB",
                     "network": "Wi-Fi",
                     "peice": "19,900",
@@ -370,8 +322,8 @@
                     "picture": ""
                 },
                 {
-                    "id": "iPad_525W",
-                    "color": "White",
+                    "id": "18",
+                    "color": "White 星光色",
                     "storage": "256GB",
                     "network": "Wi-Fi",
                     "peice": "24,900",
@@ -379,8 +331,8 @@
                     "picture": ""
                 },
                 {
-                    "id": "iPad_506G",
-                    "color": "White",
+                    "id": "19",
+                    "color": "White 星光色",
                     "storage": "64GB",
                     "network": "5G",
                     "peice": "24,900",
@@ -388,8 +340,8 @@
                     "picture": ""
                 },
                 {
-                    "id": "iPad_525G",
-                    "color": "White",
+                    "id": "20",
+                    "color": "White 星光色",
                     "storage": "256GB",
                     "network": "5G",
                     "peice": "29,900",
@@ -400,265 +352,137 @@
             [
                 {
                     "id": "Pro_112",
-                    "color": "purple",
+                    "color": "purple 紫色",
                     "ROM": "128GB",
                     "peice": "34,900",
                     "description": "Pro深紫色 ROM:128GB",
                     "picture": ""
                 },
                 {
-                    "id": "ProMax_112",
-                    "color": "purple",
-                    "ROM": "128GB",
-                    "peice": "38,900",
-                    "description": "Pro Max深紫色 ROM:128GB",
-                    "picture": ""
-                },
-                {
                     "id": "Pro_125",
-                    "color": "purple",
+                    "color": "purple 紫色",
                     "ROM": "256GB",
                     "peice": "38,400",
                     "description": "Pro深紫色 ROM:256GB",
                     "picture": ""
                 },
                 {
-                    "id": "ProMax_125",
-                    "color": "purple",
-                    "ROM": "256GB",
-                    "peice": "42,400",
-                    "description": "Pro Max深紫色 ROM:256GB",
-                    "picture": ""
-                },
-                {
                     "id": "Pro_151",
-                    "color": "purple",
+                    "color": "purple 紫色",
                     "ROM": "512GB",
                     "peice": "35,400",
                     "description": "Pro深紫色 ROM:512GB",
                     "picture": ""
                 },
                 {
-                    "id": "ProMax_151",
-                    "color": "purple",
-                    "ROM": "512GB",
-                    "peice": "49,400",
-                    "description": "Pro Max深紫色 ROM:512GB",
-                    "picture": ""
-                },
-                {
                     "id": "Pro_11T",
-                    "color": "purple",
+                    "color": "purple 紫色",
                     "ROM": "1TB",
                     "peice": "52,400",
                     "description": "Pro深紫色 ROM:1TB",
                     "picture": ""
                 },
                 {
-                    "id": "ProMax_11T",
-                    "color": "purple",
-                    "ROM": "1TB",
-                    "peice": "56,400",
-                    "description": "Pro Max深紫色 ROM:1TB",
-                    "picture": ""
-                },
-                {
                     "id": "Pro_212",
-                    "color": "gold",
+                    "color": "gold 金色",
                     "ROM": "128GB",
                     "peice": "34,900",
                     "description": "Pro金色 ROM:128GB",
                     "picture": ""
                 },
                 {
-                    "id": "ProMax_212",
-                    "color": "gold",
-                    "ROM": "128GB",
-                    "peice": "38,900",
-                    "description": "Pro Max金色 ROM:128GB",
-                    "picture": ""
-                },
-                {
                     "id": "Pro_225",
-                    "color": "gold",
+                    "color": "gold 金色",
                     "ROM": "256GB",
                     "peice": "38,400",
                     "description": "Pro金色 ROM:256GB",
                     "picture": ""
                 },
                 {
-                    "id": "ProMax_225",
-                    "color": "gold",
-                    "ROM": "256GB",
-                    "peice": "42,400",
-                    "description": "Pro Max金色 ROM:256GB",
-                    "picture": ""
-                },
-                {
                     "id": "Pro_251",
-                    "color": "gold",
+                    "color": "gold 金色",
                     "ROM": "512GB",
                     "peice": "35,400",
                     "description": "Pro金色 ROM:512GB",
                     "picture": ""
                 },
                 {
-                    "id": "ProMax_251",
-                    "color": "gold",
-                    "ROM": "512GB",
-                    "peice": "49,400",
-                    "description": "Pro Max金色 ROM:512GB",
-                    "picture": ""
-                },
-                {
                     "id": "Pro_21T",
-                    "color": "gold",
+                    "color": "gold 金色",
                     "ROM": "1TB",
                     "peice": "52,400",
                     "description": "Pro金色 ROM:1TB",
                     "picture": ""
                 },
                 {
-                    "id": "ProMax_21T",
-                    "color": "gold",
-                    "ROM": "1TB",
-                    "peice": "56,400",
-                    "description": "Pro Max金色 ROM:1TB",
-                    "picture": ""
-                },
-                {
                     "id": "Pro_312",
-                    "color": "silver",
+                    "color": "silver 銀色",
                     "ROM": "128GB",
                     "peice": "34,900",
                     "description": "Pro銀色 ROM:128GB",
                     "picture": ""
                 },
                 {
-                    "id": "ProMax_312",
-                    "color": "silver",
-                    "ROM": "128GB",
-                    "peice": "38,900",
-                    "description": "Pro Max銀色 ROM:128GB",
-                    "picture": ""
-                },
-                {
                     "id": "Pro_325",
-                    "color": "silver",
+                    "color": "silver 銀色",
                     "ROM": "256GB",
                     "peice": "38,400",
                     "description": "Pro銀色 ROM:256GB",
                     "picture": ""
                 },
                 {
-                    "id": "ProMax_325",
-                    "color": "silver",
-                    "ROM": "256GB",
-                    "peice": "42,400",
-                    "description": "Pro Max銀色 ROM:256GB",
-                    "picture": ""
-                },
-                {
                     "id": "Pro_351",
-                    "color": "silver",
+                    "color": "silver 銀色",
                     "ROM": "512GB",
                     "peice": "35,400",
                     "description": "Pro銀色 ROM:512GB",
                     "picture": ""
                 },
                 {
-                    "id": "ProMax_351",
-                    "color": "silver",
-                    "ROM": "512GB",
-                    "peice": "49,400",
-                    "description": "Pro Max銀色 ROM:512GB",
-                    "picture": ""
-                },
-                {
                     "id": "Pro_301T",
-                    "color": "silver",
+                    "color": "silver 銀色",
                     "ROM": "1TB",
                     "peice": "52,400",
                     "description": "Pro銀色 ROM:1TB",
                     "picture": ""
                 },
                 {
-                    "id": "ProMax_301T",
-                    "color": "silver",
-                    "ROM": "1TB",
-                    "peice": "56,400",
-                    "description": "Pro Max銀色 ROM:1TB",
-                    "picture": ""
-                },
-                {
                     "id": "Pro_412",
-                    "color": "black",
+                    "color": "black 黑色",
                     "ROM": "128GB",
                     "peice": "34,900",
                     "description": "Pro黑色 ROM:128GB",
                     "picture": ""
                 },
                 {
-                    "id": "ProMax_412",
-                    "color": "black",
-                    "ROM": "128GB",
-                    "peice": "38,900",
-                    "description": "Pro Max黑色 ROM:128GB",
-                    "picture": ""
-                },
-                {
                     "id": "Pro_425",
-                    "color": "black",
+                    "color": "black 黑色",
                     "ROM": "256GB",
                     "peice": "38,400",
                     "description": "Pro黑色 ROM:256GB",
                     "picture": ""
                 },
                 {
-                    "id": "ProMax_425",
-                    "color": "black",
-                    "ROM": "256GB",
-                    "peice": "42,400",
-                    "description": "Pro Max黑色 ROM:256GB",
-                    "picture": ""
-                },
-                {
                     "id": "Pro_451",
-                    "color": "black",
+                    "color": "black 黑色",
                     "ROM": "512GB",
                     "peice": "35,400",
                     "description": "Pro黑色 ROM:512GB",
                     "picture": ""
                 },
                 {
-                    "id": "ProMax_451",
-                    "color": "black",
-                    "ROM": "512GB",
-                    "peice": "49,400",
-                    "description": "Pro Max黑色 ROM:512GB",
-                    "picture": ""
-                },
-                {
                     "id": "Pro_401T",
-                    "color": "black",
+                    "color": "black 黑色",
                     "ROM": "1TB",
                     "peice": "52,400",
                     "description": "Pro黑色 ROM:1TB",
-                    "picture": ""
-                },
-                {
-                    "id": "ProMax_401T",
-                    "color": "black",
-                    "ROM": "1TB",
-                    "peice": "56,400",
-                    "description": "Pro Max黑色 ROM:1TB",
                     "picture": ""
                 }
             ],
             [
                 {
                     "id": "M1_1082G",
-                    "color": "gray",
+                    "color": "gray 太空灰",
                     "RAM": "8GB",
                     "ROM": "256GB",
                     "peice": "30,900",
@@ -667,7 +491,7 @@
                 },
                 {
                     "id": "M1_1162G",
-                    "color": "gray",
+                    "color": "gray 太空灰",
                     "RAM": "16GB",
                     "ROM": "256GB",
                     "peice": "36,900",
@@ -676,7 +500,7 @@
                 },
                 {
                     "id": "M1_1085G",
-                    "color": "gray",
+                    "color": "gray 太空灰",
                     "RAM": "8GB",
                     "ROM": "512GB",
                     "peice": "36,900",
@@ -685,7 +509,7 @@
                 },
                 {
                     "id": "M1_1165G",
-                    "color": "gray",
+                    "color": "gray 太空灰",
                     "RAM": "16GB",
                     "ROM": "512GB",
                     "peice": "42,900",
@@ -694,7 +518,7 @@
                 },
                 {
                     "id": "M1_1081T",
-                    "color": "gray",
+                    "color": "gray 太空灰",
                     "RAM": "8GB",
                     "ROM": "1TB",
                     "peice": "42,900",
@@ -703,7 +527,7 @@
                 },
                 {
                     "id": "M1_1161T",
-                    "color": "gray",
+                    "color": "gray 太空灰",
                     "RAM": "16GB",
                     "ROM": "1TB",
                     "peice": "48,900",
@@ -712,7 +536,7 @@
                 },
                 {
                     "id": "M1_1082T",
-                    "color": "gray",
+                    "color": "gray 太空灰",
                     "RAM": "8GB",
                     "ROM": "2TB",
                     "peice": "54,900",
@@ -721,7 +545,7 @@
                 },
                 {
                     "id": "M1_1162T",
-                    "color": "gray",
+                    "color": "gray 太空灰",
                     "RAM": "16GB",
                     "ROM": "2TB",
                     "peice": "60,900",
@@ -730,7 +554,7 @@
                 },
                 {
                     "id": "M1_2082G",
-                    "color": "gold",
+                    "color": "gold 金色",
                     "RAM": "8GB",
                     "ROM": "256GB",
                     "peice": "30,900",
@@ -739,7 +563,7 @@
                 },
                 {
                     "id": "M1_2162G",
-                    "color": "gold",
+                    "color": "gold 金色",
                     "RAM": "16GB",
                     "ROM": "256GB",
                     "peice": "36,900",
@@ -748,7 +572,7 @@
                 },
                 {
                     "id": "M1_2085G",
-                    "color": "gold",
+                    "color": "gold 金色",
                     "RAM": "8GB",
                     "ROM": "512GB",
                     "peice": "36,900",
@@ -757,7 +581,7 @@
                 },
                 {
                     "id": "M1_2165G",
-                    "color": "gold",
+                    "color": "gold 金色",
                     "RAM": "16GB",
                     "ROM": "512GB",
                     "peice": "42,900",
@@ -766,7 +590,7 @@
                 },
                 {
                     "id": "M1_2081T",
-                    "color": "gold",
+                    "color": "gold 金色",
                     "RAM": "8GB",
                     "ROM": "1TB",
                     "peice": "42,900",
@@ -775,7 +599,7 @@
                 },
                 {
                     "id": "M1_2161T",
-                    "color": "gold",
+                    "color": "gold 金色",
                     "RAM": "16GB",
                     "ROM": "1TB",
                     "peice": "48,900",
@@ -784,7 +608,7 @@
                 },
                 {
                     "id": "M1_2082T",
-                    "color": "gold",
+                    "color": "gold 金色",
                     "RAM": "8GB",
                     "ROM": "2TB",
                     "peice": "54,900",
@@ -793,7 +617,7 @@
                 },
                 {
                     "id": "M1_2162T",
-                    "color": "gold",
+                    "color": "gold 金色",
                     "RAM": "16GB",
                     "ROM": "2TB",
                     "peice": "60,900",
@@ -802,7 +626,7 @@
                 },
                 {
                     "id": "M1_3082G",
-                    "color": "silver",
+                    "color": "silver 銀色",
                     "RAM": "8GB",
                     "ROM": "256GB",
                     "peice": "30,900",
@@ -811,7 +635,7 @@
                 },
                 {
                     "id": "M1_3162G",
-                    "color": "silver",
+                    "color": "silver 銀色",
                     "RAM": "16GB",
                     "ROM": "256GB",
                     "peice": "36,900",
@@ -820,7 +644,7 @@
                 },
                 {
                     "id": "M1_3085G",
-                    "color": "silver",
+                    "color": "silver 銀色",
                     "RAM": "8GB",
                     "ROM": "512GB",
                     "peice": "36,900",
@@ -829,7 +653,7 @@
                 },
                 {
                     "id": "M1_3165G",
-                    "color": "silver",
+                    "color": "silver 銀色",
                     "RAM": "16GB",
                     "ROM": "512GB",
                     "peice": "42,900",
@@ -838,7 +662,7 @@
                 },
                 {
                     "id": "M1_3081T",
-                    "color": "silver",
+                    "color": "silver 銀色",
                     "RAM": "8GB",
                     "ROM": "1TB",
                     "peice": "42,900",
@@ -847,7 +671,7 @@
                 },
                 {
                     "id": "M1_3161T",
-                    "color": "silver",
+                    "color": "silver 銀色",
                     "RAM": "16GB",
                     "ROM": "1TB",
                     "peice": "48,900",
@@ -856,7 +680,7 @@
                 },
                 {
                     "id": "M1_3082T",
-                    "color": "silver",
+                    "color": "silver 銀色",
                     "RAM": "8GB",
                     "ROM": "2TB",
                     "peice": "54,900",
@@ -865,7 +689,7 @@
                 },
                 {
                     "id": "M1_3162T",
-                    "color": "silver",
+                    "color": "silver 銀色",
                     "RAM": "16GB",
                     "ROM": "2TB",
                     "peice": "60,900",
@@ -879,43 +703,115 @@
         let col = document.querySelectorAll(".col-md-4");
         col.forEach(x => {
             x.addEventListener("click", function (e) { pushimg(e) })
-            // function (e) {
-            //     console.dir(e.target);
-            // });
+            
         })
         let pic = document.querySelector(".pic")
         let img = document.createElement("img")
+        let area = document.querySelector(".area")
         let color_item = document.querySelector("#color")
-        // col[0] = document.addEventListener("click", iPhone);
-        // col[1] = document.addEventListener("click", MAC);
-        // col[2] = document.addEventListener("click", iPad);
+        let rom_item = document.querySelector("#specifications")
+        let price_item = document.querySelector("#price")
 
-        // let img = document.querySelector("img");
         function pushimg(e) {
+            let pathArray = [
+                ["./../apple/iPhone 14 Pro/iphone-14-pro11.jpg",
+                    "./../apple/iPhone 14 Pro/iphone-14-pro12.jpg",
+                    "./../apple/iPhone 14 Pro/iphone-14-pro13.jpg",
+                    "./../apple/iPhone 14 Pro/iphone-14-pro14.jpg"
+                ],
+                ["./../apple/MacBookAir/macbook-air1.jpg",
+                    "./../apple/MacBookAir/macbook-air2.jpg",
+                    "./../apple/MacBookAir/macbook-air3.jpg"
+                ],
+                ["./../apple/iPadAir/ipad-air1.jpg",
+                    "./../apple/iPadAir/ipad-air2.jpg",
+                    "./../apple/iPadAir/ipad-air3.jpg",
+                    "./../apple/iPadAir/ipad-air4.jpg",
+                    "./../apple/iPadAir/ipad-air5.jpg"
+                ]
+            ];
             let colorArray = [];
+            let colortextArray = [];
+            let textArray = [];
+            let priceArray = [];
+            let deployArray = [];
+            let macramArray = [];
+
             let looptime;
+            let number;
+            let romloop;
+            let ramloop;
+            let addprice;
+            let Multiplicand;
+            let multiplier;
+            let startingValue;
+            let give;
+            let remove;
+
+            addprice = "";
             color_item.innerHTML = "";
-            // console.dir(e.target)
-            // console.log(e.target.id)
-            // debugger
+            rom_item.innerHTML = "";
+            price_item.innerText = "";
+            
+            let dele;
+            let delet;
+            if (delet = document.querySelector("#delet")) {
+                pricefather.removeChild(delet)
+            }
+            delet = document.querySelector("#delet")
+            let romfather = rom_item.parentNode;
+            if (dele = document.querySelector("#dele")) {
+                romfather.removeChild(dele)
+            }
+            let pricefather = price_item.parentNode;
+            console.log(pricefather)
+
+
+            
+
+            console.log(rom_item.parentNode)
+
+           
             if (e.target.id == "iphone") {
-                // debugger
                 looptime = 4;
+                number = 0;
+                romloop = 4;
+                ramloop = 0;
                 colorArray = ["purple", "gold", "silver", "black"];
-                img.setAttribute("src", "./../apple/iPhone 14 Pro/iphone-14-pro11.jpg")
+                colortextArray = ["紫色", "金色", "銀色", "黑色"];
+                textArray = ["128GB", "256GB", "512GB", "1TB"];
+                priceArray = [34900, 38400, 45400, 52400];
+                img.setAttribute("src", pathArray[0][0])
             }
             else if (e.target.id == "mac") {
                 looptime = 3;
+                number = 1;
+                romloop = 4;
+                ramloop = 2;
                 colorArray = ["gray", "gold", "silver"];
-                img.setAttribute("src", "./../apple/MacBookAir/macbook-air1.jpg")
+                colortextArray = ["太空灰色", "金色", "銀色"];
+                textArray = ["256GB", "512GB", "1TB", "2TB"];
+                macramArray = ["8GB", "16GB"];
+                // ============================================================
+              
+
+                img.setAttribute("src", pathArray[1][0])
             }
             else if (e.target.id == "ipad") {
                 looptime = 5;
+                number = 2;
+                romloop = 2;
+                ramloop = 2;
                 colorArray = ["gray", "blue", "pink", "purple", "white"];
-                img.setAttribute("src", "./../apple/iPadAir/ipad-air1.jpg")
+                colortextArray = ["太空灰色", "藍色", "粉紅色", "紫色", "星光色"];
+                textArray = ["64GB", "256GB"];
+                deployArray = ["WLAN", "4G-LTE"];
+                // ============================================================
+                priceArray = [19900, 24900, 29900];
+                img.setAttribute("src", pathArray[2][0])
             }
             for (let i = 0; i < looptime; i++) {
-                // console.log(colorArray[i])
+                
                 let div = document.createElement("div");
                 div.setAttribute("class", "box")
                 let boxdiv = document.createElement("div")
@@ -924,29 +820,201 @@
                 colordiv.setAttribute("class", `color my-2 ${colorArray[i]}`)
                 let textdiv = document.createElement("div")
                 textdiv.setAttribute("class", "text")
+                let addp = document.createElement("p")
+                addp.innerText = colortextArray[i]
+
+
+                textdiv.append(addp)
                 boxdiv.append(colordiv)
                 boxdiv.append(textdiv)
                 div.append(boxdiv)
                 color_item.append(div)
+                let colorOpt = document.querySelectorAll(".item.my-4")
+                colorOpt[i].addEventListener("click", function () {
+                    // debugger
+                    img.setAttribute("src", `${pathArray[number][i]}`)
+
+                    rom_item.innerHTML = "";
+
+                    for (let j = 0; j < romloop; j++) {
+                        let devicediv = document.createElement("div");
+                        devicediv.setAttribute("class", `x${textArray[j]} box`)
+                        let romdiv = document.createElement("div")
+                        romdiv.setAttribute("class", "item my-4 ROM")
+                        let addROM = document.createElement("p")
+                        addROM.innerText = textArray[j];
+                        romdiv.append(addROM)
+                        devicediv.append(romdiv)
+                        rom_item.append(devicediv)
+                        
+                        romdiv.addEventListener("click", function (event) {
+                            if (ramloop !== 0) {
+
+                                
+                                if (document.querySelectorAll(".choose").length != 0) {
+                                    remove = document.querySelector(".box.choose")
+                                    console.log(remove)
+                                    remove.classList.remove("choose")
+                                }
+                                console.log(remove)
+                                
+                                if (event.target.textContent == "64GB") {
+
+                                    give = document.querySelector(`.x${textArray[j]}.box`)
+                                    give.setAttribute("class", `x${textArray[j]} box choose`)
+
+                                }
+                                if (event.target.textContent == "256GB") {
+
+                                    give = document.querySelector(`.x${textArray[j]}.box`)
+                                    give.setAttribute("class", `x${textArray[j]} box choose`)
+                                    multiplier = 0;
+                                }
+                                else if (event.target.textContent == "512GB") {
+
+                                    give = document.querySelector(`.x${textArray[j]}.box`)
+                                    give.setAttribute("class", `x${textArray[j]} box choose`)
+                                    multiplier = 1;
+                                }
+                                else if (event.target.textContent == "1TB") {
+                                    give = document.querySelector(`.x${textArray[j]}.box`)
+                                    give.setAttribute("class", `x${textArray[j]} box choose`)
+                                    multiplier = 2;
+                                }
+                                else if (event.target.textContent == "2TB") {
+                                    give = document.querySelector(`.x${textArray[j]}.box`)
+                                    give.setAttribute("class", `x${textArray[j]} box choose`)
+                                    multiplier = 4;
+                                }
+                                
+
+                                
+                                console.log(romfather)
+                                let row = document.createElement("div")
+                                
+                                if (dele = document.querySelector("#dele")) {
+                                    romfather.removeChild(dele)
+                                }
+                                row.setAttribute("class", "row")
+                                row.setAttribute("id", "dele")
+                                if (romfather.children.length < 2 && e.target.id == "mac") {
+
+                                    
+                                    for (let z = 0; z < ramloop; z++) {
+                                        let devicediv = document.createElement("div");
+                                        devicediv.setAttribute("class", "box")
+                                        let ramdiv = document.createElement("div");
+                                        ramdiv.setAttribute("class", "item my-4 configuration")
+                                        let addRAM = document.createElement("p")
+                                        addRAM.setAttribute("class", "d-block")
+                                        addRAM.innerText = `RAM: ${macramArray[z]}`;
+                                        ramdiv.append(addRAM)
+                                        devicediv.append(ramdiv)
+                                        row.append(devicediv)
+                                        area.append(row)
+
+                                        ramdiv.addEventListener("click", function (even) {
+
+                                            Multiplicand = 6000;
+                                            if (even.target.textContent == "RAM: 8GB") {
+                                                startingValue = 30900;
+                                            }
+                                            else if (even.target.textContent == "RAM: 16GB") {
+                                                startingValue = 36900;
+                                            }
+                                            pushprice()
+
+                                        })
+                                    }
+                                }
+                                else if (romfather.children.length < 3 && e.target.id == "ipad") {
+
+                                    for (let z = 0; z < ramloop; z++) {
+                                        console.log(romfather.children)
+                                        console.log(j)
+                                        let devicediv = document.createElement("div");
+                                        devicediv.setAttribute("class", "box")
+                                        let ramdiv = document.createElement("div");
+                                        ramdiv.setAttribute("class", "item my-4 configuration")
+                                        let addRAM = document.createElement("p")
+                                        addRAM.innerText = `Network: ${deployArray[z]}`;
+                                        ramdiv.append(addRAM)
+                                        devicediv.append(ramdiv)
+                                        row.append(devicediv)
+                                        area.append(row)
+
+                                        ramdiv.addEventListener("click", function (even) {
+                                            if (price_item.children.length < 1) {
+                                                addprice = document.createElement("p")
+                                            }
+
+                                            let addend;
+                                            let summand;
+                                            if (event.target.textContent == "64GB") {
+                                                summand = 0;
+                                            }
+                                            else if (event.target.textContent == "256GB") {
+                                                summand = 1;
+                                            }
+                                            if (even.target.textContent == "Network: WLAN") {
+                                                addend = 0;
+                                            }
+                                            else if (even.target.textContent == "Network: 4G-LTE") {
+                                                addend = 1;
+                                            }
+
+
+                                            addprice.innerText = `NT: ${Number(parseFloat(priceArray[summand + addend])).toLocaleString("zh-TW", {
+                                                style: 'currency', minimumFractionDigits: 0, currency: 'TWD'
+                                            })}`;
+                                            price_item.append(addprice)
+                                        })
+                                    }
+                                }
+                            }
+                            else {
+                                pushprice(j)
+                            }
+                        })
+
+                    }
+                })
             }
+
             pic.append(img)
 
+            function pushprice(j) {
+
+                let delet;
+                if (delet = document.querySelector("#delet")) {
+                    price_item.removeChild(delet)
+                }
+
+                if (price_item.children.length <= 1 && e.target.id != "mac") {
+
+                    addprice = document.createElement("p")
+                    addprice.setAttribute("id", "delet")
+                    addprice.innerText = `NT: ${Number(parseFloat(priceArray[j])).toLocaleString("zh-TW", {
+                        style: 'currency', minimumFractionDigits: 0, currency: 'TWD'
+                    })}`;
+                    price_item.append(addprice)
+                }
+                else if (price_item.children.length <= 1 && e.target.id == "mac") {
+
+                    addprice = document.createElement("p")
+                    addprice.setAttribute("id", "delet")
+                    addprice.innerText = `NT: ${Number(parseFloat(Multiplicand * multiplier + startingValue)).toLocaleString("zh-TW", {
+                        style: 'currency', minimumFractionDigits: 0, currency: 'TWD'
+                    })}`;
+                    price_item.append(addprice)
+
+                }
+
+
+            }
         }
-        // function iPhone() {
-        //     // img.removeAttribute("src")
-        //     img.setAttribute("src", "./../apple/iPhone 14 Pro/iphone-14-pro11.jpg")
-        //     // pic.append(img)
-        // }
-        // function MAC() {
-        //     // img.removeAttribute("src")
-        //     img.setAttribute("src", "./../apple/MacBookAir/macbook-air1.jpg")
-        //     // pic.append(img)
-        // }
-        // function iPad() {
-        //     // img.removeAttribute("src")
-        //     img.setAttribute("src", "./../apple/iPadAir/ipad-air1.jpg")
-        //     // pic.append(img)
-        // }
+
+
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"

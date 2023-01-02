@@ -771,12 +771,7 @@
                 romfather.removeChild(dele)
             }
             let pricefather = price_item.parentNode;
-            console.log(pricefather)
 
-
-
-
-            console.log(rom_item.parentNode)
 
 
             if (e.target.id == "iphone") {
@@ -816,7 +811,7 @@
                 // ============================================================
                 priceArray = [19900, 24900, 29900];
                 img.setAttribute("src", pathArray[2][0])
-            } else { return }
+            }
             for (let i = 0; i < looptime; i++) {
 
                 let div = document.createElement("div");
@@ -836,8 +831,8 @@
                 boxdiv.append(textdiv)
                 div.append(boxdiv)
                 color_item.append(div)
-                let colorOpt = document.querySelectorAll(".item.my-4")
-                colorOpt[i].addEventListener("click", function () {
+                // let colorOpt = document.querySelectorAll(".item.my-4")
+                div.addEventListener("click", function () {
 
                     img.setAttribute("src", `${pathArray[number][i]}`)
 
@@ -854,16 +849,16 @@
                         devicediv.append(romdiv)
                         rom_item.append(devicediv)
 
-                        romdiv.addEventListener("click", function (event) {
+                        devicediv.addEventListener("click", function (event) {
                             if (ramloop !== 0) {
-
+                                price_item.innerText = "";
 
                                 if (document.querySelectorAll(".choose").length != 0) {
                                     remove = document.querySelector(".box.choose")
-                                    console.log(remove)
+                                    // console.log(remove)
                                     remove.classList.remove("choose")
                                 }
-                                console.log(remove)
+                                // console.log(remove)
 
                                 if (event.target.textContent == "64GB") {
 
@@ -896,7 +891,7 @@
 
 
 
-                                console.log(romfather)
+                                // console.log(romfather)
                                 let row = document.createElement("div")
 
                                 if (dele = document.querySelector("#dele")) {
@@ -920,7 +915,7 @@
                                         row.append(devicediv)
                                         area.append(row)
 
-                                        ramdiv.addEventListener("click", function (even) {
+                                        devicediv.addEventListener("click", function (even) {
 
                                             Multiplicand = 6000;
                                             if (even.target.textContent == "RAM: 8GB") {
@@ -937,8 +932,8 @@
                                 else if (romfather.children.length < 3 && e.target.id == "ipad") {
 
                                     for (let z = 0; z < ramloop; z++) {
-                                        console.log(romfather.children)
-                                        console.log(j)
+                                        // console.log(romfather.children)
+                                        // console.log(j)
                                         let devicediv = document.createElement("div");
                                         devicediv.setAttribute("class", "box")
                                         let ramdiv = document.createElement("div");
@@ -950,24 +945,29 @@
                                         row.append(devicediv)
                                         area.append(row)
 
-                                        ramdiv.addEventListener("click", function (even) {
+                                        devicediv.addEventListener("click", function (even) {
                                             if (price_item.children.length < 1) {
                                                 addprice = document.createElement("p")
+                                                addprice.setAttribute("id", "delet")
                                             }
 
                                             let addend;
                                             let summand;
                                             if (event.target.textContent == "64GB") {
                                                 summand = 0;
+
                                             }
                                             else if (event.target.textContent == "256GB") {
                                                 summand = 1;
+
                                             }
                                             if (even.target.textContent == "Network: WLAN") {
                                                 addend = 0;
+
                                             }
                                             else if (even.target.textContent == "Network: 4G-LTE") {
                                                 addend = 1;
+
                                             }
 
 
@@ -979,7 +979,7 @@
                                     }
                                 }
                             }
-                            else {
+                            else { 
                                 pushprice(j)
                             }
                         })

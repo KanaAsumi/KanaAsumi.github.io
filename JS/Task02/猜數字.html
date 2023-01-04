@@ -87,7 +87,7 @@
 <body>
     <div class="box">
         <div class="row">
-            <div class="col-4">
+            <div class="col-4" id="start">
                 <p>開始</p>
             </div>
             <div class="col-4">
@@ -139,7 +139,7 @@
             let anscol = document.querySelector(".anscol")
             let modal = document.querySelector("#exampleModal")
             let ansp;
-
+            let ansbtn = document.querySelector("#start")
 
 
             col[0].addEventListener("click", getKey)
@@ -147,6 +147,7 @@
             col[2].addEventListener("click", blockanswer)
 
             function getKey() {
+                
                 col[0].removeEventListener("click", getKey)
                 // col[1].removeEventListener("click", giveup)
                 col[1].removeEventListener("click", block)

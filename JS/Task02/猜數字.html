@@ -118,7 +118,7 @@
                         <p style="font-size: 2px; color: #ccc;">或者按我關閉</p>
                     </div>
                     <div class="modal-body">
-                        
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">按我關閉</button>
@@ -138,6 +138,8 @@
             let check = document.querySelector(".fa-check")
             let anscol = document.querySelector(".anscol")
             let modal = document.querySelector("#exampleModal")
+            let ansp;
+
 
 
             col[0].addEventListener("click", getKey)
@@ -152,6 +154,7 @@
                 col[1].addEventListener("click", giveup)
                 let answers = [];
                 get_answer()
+
                 function get_answer() {
                     let q, w, e, r;
                     do {
@@ -179,6 +182,9 @@
                     let p = document.createElement("p")
                     let span = document.querySelector("span")
                     let answertext = document.querySelector(".modal-body")
+                    if (answertext.children.length == 0) {
+                        ansp = document.createElement("p")
+                    }
 
                     // debugger
                     if (inputans.value == "") {
@@ -213,17 +219,23 @@
                     if (atime == 4) {
                         // span.classList.remove("red")
                         // span.classList.add("green")
+
                         p.innerHTML = `<span class="green">${atime}A${btime}B</span> ${inputans.value}`;
 
                         var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {
                             keyboard: true
                         })
-                        
-                        let ansp = document.createElement("p")
+                        console.log(answertext.children.length)
+
+
+
                         ansp.innerHTML = `恭喜你猜對了!!! 答案為${answer}`
-                        answertext.append(ansp)
+                        answertext.append(ansp);
                         var modalToggle = document.getElementById('exampleModal') // relatedTarget
                         myModal.show(modalToggle)
+                        // let addbtn = createElement("div")
+                        // ansp.innerHTML = "";
+                        // answertext.append(ansp)
                     }
                     else {
                         // span.classList.remove("green")
@@ -242,7 +254,7 @@
                     col[1].removeEventListener("click", giveup);
                     col[2].removeEventListener("click", showanswer);
                     check.removeEventListener("click", checks);
-                    getKey();
+                    col[0].addEventListener("click", getKey);
                     col[1].addEventListener("click", block)
                     col[2].addEventListener("click", blockanswer)
                     alert(`\n\n　　　　　　　　勝敗乃兵家常事，請大俠重新來過\n\n\n　　　　　　　　　　　　　答案是${answer}\n\n\n　　　　　　　　　　請再次按下開始重新挑戰`)

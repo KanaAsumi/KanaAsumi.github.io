@@ -147,7 +147,7 @@
             col[2].addEventListener("click", blockanswer)
 
             function getKey() {
-                
+
                 col[0].removeEventListener("click", getKey)
                 // col[1].removeEventListener("click", giveup)
                 col[1].removeEventListener("click", block)
@@ -238,9 +238,10 @@
                         // ansp.innerHTML = "";
                         // answertext.append(ansp)
                     }
+                    else if (atime == 0 && btime == 0) {
+                        return;
+                    }
                     else {
-                        // span.classList.remove("green")
-                        // span.classList.add("red")
                         p.innerHTML = `<span class="red">${atime}A${btime}B</span> ${inputans.value}`;
                     }
                     anscol.append(p);

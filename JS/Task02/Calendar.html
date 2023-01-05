@@ -13,6 +13,7 @@
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             background-color: #fa0;
         }
+
         h2 {
             color: darkred;
         }
@@ -68,8 +69,9 @@
                         <tr>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <td id="minus" class="fs-1 fw-bold">＜</td>
                             <td id="month" class="fs-3 fw-bold"></td>
+                            <td id="plus" class="fs-1 fw-bold">＞</td>
                         </tr>
                         <tr>
                             <td>
@@ -161,49 +163,73 @@
         let thead = document.querySelector("thead")
         let titlefather = document.querySelector(".text-center.my-4")
         let tbody = document.querySelector("tbody")
-        let date = new Date();          //取得現在時間
-        let year = date.getFullYear();  //取得現在年份
-        let month = date.getMonth();    //取得現在幾月
-        let day = date.getDay();        //取得現在星期
-        let daynum = date.getDate();    //取得現在幾號
-        let td = tbody.querySelectorAll("td")
+        let date = new Date();              //取得現在時間
+        let getyear = date.getFullYear();   //取得現在年份
+        let getMonth = date.getMonth();     //取得現在幾月
+        let day = date.getDay();            //取得現在星期
+        let daynum = date.getDate();        //取得現在幾號
+        let tds = tbody.querySelectorAll("td")
         let tmonth = thead.querySelector("#month")
         let tyear = thead.querySelector("#year")
+        let minus = thead.querySelector("#minus")
+        let plus = thead.querySelector("#plus")
         var month_olympic = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
         var month_normal = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
         var month_name = ["January", "Febrary", "March", "April", "May", "June", "July", "Auguest", "September", "October", "November", "December"];
 
         let addYear = document.createElement("h2")
-        addYear.innerText = `${date.getFullYear()}年`
+        addYear.innerText = `西元${getyear}年`
         titlefather.append(addYear)
-        tmonth.innerText = `${month_name[month]}`
+        tmonth.innerText = `${month_name[getMonth]}`
+        currentDate()
 
-        let start;
-        let totalDays = leap(month,year)
-        let firstDay = startDay(month,year)
-        // console.log(totalDays)
+        minus.addEventListener("click", () => {
+            getMonth -= 1;
+            if (getMonth < 0) {
+                getyear -= 1
+                getMonth = 11
+            }
+            addYear.innerText = `西元${getyear}年`
+            tmonth.innerText = `${month_name[getMonth]}`
+            currentDate()
+        })
+        plus.addEventListener("click", () => {
+            getMonth += 1;
+            if (getMonth >= 12) {
+                getyear += 1
+                getMonth = 0
+            }
+            addYear.innerText = `西元${getyear}年`
+            tmonth.innerText = `${month_name[getMonth]}`
+            currentDate()
+        })
+        
+        
 
-        for (let i = firstDay; i < firstDay + totalDays; i++) {
-            td[i].innerText = i-firstDay + 1
-            // console.log(td[i])
+
+        function currentDate() {
+            let start;
+            let totalDays = leap(getMonth, getyear)
+            let firstDay = startDay(getMonth, getyear)
+            tds.forEach(x =>{
+                x.innerText="";
+            })
+            for (let i = firstDay; i < firstDay + totalDays; i++) {
+                tds[i].innerText = i - firstDay + 1
+            }
         }
-       
-
-
         function startDay(month, year) {
             let firstday = new Date(year, month, 1);
-            console.log(year)
-            console.log(month)
-            return (firstday.getDay());
+            return (firstday.getDay()); //取得個月份的第一天是星期幾
         }
         function leap(month, year) {
             var tmp = year % 4;
 
             if (tmp == 0) {
-                return (month_olympic[month]);
-            } 
+                return (month_olympic[month]); //閏年
+            }
             else {
-                return (month_normal[month]);
+                return (month_normal[month]); //平年
             }
         }
     </script>

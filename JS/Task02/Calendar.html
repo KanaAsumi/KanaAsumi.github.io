@@ -30,12 +30,22 @@
             border-right: solid;
         }
 
+        tbody tr td i {
+            line-height: 3;
+        }
+
         tbody tr td {
-            box-sizing: border-box;
             outline: solid;
             padding: 0;
             height: 150px;
             width: 14.2857142857%;
+        }
+
+        tbody tr td p{
+            width: 100%;
+        }
+        tbody tr td p:hover{
+            background-color: #fa0;
         }
 
         .container-fluid {
@@ -46,6 +56,8 @@
             background-color: #fff;
             flex-direction: column;
         }
+
+        td {}
 
         @media screen and (max-width:768px) {}
 
@@ -168,13 +180,13 @@
                     <!-- 開始: -->
                     <!-- <input id="add-date" class="start" type="date"></input> -->
                     日期:
-                    <input id="add-date" class="date" type="date"></input><br><br>
+                    <input class="date" readonly="readonly"></input><br><br>
                     行程:
-                    <input id="add-value" class="item" type="text"></input>
+                    <input class="item" type="text"></input>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button onclick="addItinerary()" type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button onclick="addItinerary()" type="button" class="btn btn-primary">儲存</button>
                 </div>
             </div>
         </div>
@@ -189,13 +201,13 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <input id="add-date" type="text"></input>
-                    <input id="add-value" type="text"></input>
+                    <input class="alter-date" type="text" readonly="readonly"></input><br><br>
+                    <input class="alter-item" type="text"></input>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">修改</button>
-                    <button type="button" class="btn btn-primary">刪除</button>
+                    <button onclick="alter()" type="button" class="btn btn-primary">修改</button>
+                    <button onclick="dele()" type="button" class="btn btn-primary">刪除</button>
                 </div>
             </div>
         </div>
@@ -223,6 +235,9 @@
         let loop;
         let inputTime = document.querySelector(".date")
         let input = document.querySelector(".item")
+        let alterTime = document.querySelector(".alter-date")
+        let alterItem = document.querySelector(".alter-item")
+        let opt;
 
         let addYear = document.createElement("h2")
         titlefather.append(addYear)
@@ -276,7 +291,7 @@
         function currentDate() {
             let dayTitle = document.querySelector(".modal-title")
             let addModal = document.querySelector("#addModal")
-            let alterdateinput = document.querySelector("#alterModal")
+            let alterModal = document.querySelector("#alterModal")
             // tds.forEach(remove => {
             //     remove.setAttribute("data-bs-target", "")
             //     remove.setAttribute("data-bs-toggle", "")
@@ -289,15 +304,48 @@
             tds.forEach(x => {
                 x.innerText = "";
             })
-            // ${week[i]}
 
-            dayTitle.innerText = `${getyear}年${getMonth + 1}月 新增行程`
+            let nowday = 1;
             for (let i = firstDay; i < firstDay + totalDays; i++) {
-                tds[i].innerText = i - firstDay + 1;
+                let num = document.createElement("i")
+                num.innerText = nowday;
+                tds[i].append(num);
+                let thisDay = `${getyear}-${getMonth + 1}-${nowday}`;
+                // console.log(thisDay)
+                // console.log(localStorage.getItem(`${getyear}-${getMonth + 1}-${nowday}`))
+                // console.log(localStorage.getItem(thisDay))
+                tds[i].setAttribute("id", thisDay)
                 // tds[i].setAttribute("data-bs-toggle", "modal")
                 // tds[i].setAttribute("data-bs-target", "#addModal")
 
+                if (localStorage.getItem(thisDay) != null) {
+                    let affairList = JSON.parse(localStorage.getItem(thisDay))
+                    console.log(affairList)
+                    affairList.forEach((x, idx) => {
+                        let p = document.createElement("p")
+                        p.innerText = x.title
+                        p.addEventListener("click", function (e) {
+                            alterTime.value = thisDay
+                            alterItem.value = x.title
+
+                            opt = idx;
+
+                            bootstrap.Modal.getOrCreateInstance(alterModal).show()
+                            e.stopPropagation();
+                        })
+                        // if ()
+
+
+                        tds[i].append(p)
+                    })
+                }
+
+                nowday++;
                 tds[i].onclick = function () {
+
+                    let ymd = tds[i].id.split("-")
+                    inputTime.value = `${ymd[0]}-${ymd[1]}-${ymd[2]}` //新增行程日期
+                    dayTitle.innerText = `${ymd[0]}年${ymd[1]}月${ymd[2]}號 ${week[i]}新增行程`
                     bootstrap.Modal.getOrCreateInstance(addModal).show()
                 }
             }
@@ -317,16 +365,17 @@
             }
         }
         function addItinerary() {
-            
+
             let affairTime = inputTime.value;
             let affair = input.value;
+
 
             let affairObj = {
                 title: affair
             }
             let affairList = [];
 
-            if (localStorage.getItem(date) == null) {
+            if (localStorage.getItem(affairTime) == null) {
                 affairList.push(affairObj)
             }
             else {
@@ -334,14 +383,40 @@
                 affairList.push(affairObj)
             }
 
-            // let addItem = JSON.parse(localStorage.setItem(affair))
-            // let p = document.createElement("p")
-            // p.innerText = affair
-
             localStorage.setItem(affairTime, JSON.stringify(affairList))
 
             bootstrap.Modal.getOrCreateInstance(addModal).hide()
             currentDate()
+        }
+
+        function alter() {
+            let alterdate = alterTime.value;
+            let alteraffair = alterItem.value;
+
+            let affairList = JSON.parse(localStorage.getItem(alterdate))
+            console.log(alterdate)
+            affairList[opt] = {
+                title: alteraffair
+            }
+            localStorage.setItem(alterdate, JSON.stringify(affairList))
+
+            bootstrap.Modal.getOrCreateInstance(alterModal).hide();
+            currentDate()
+
+        }
+
+        function dele() {
+            let deledate = alterTime.value;
+
+            let affairList = JSON.parse(localStorage.getItem(deledate))
+
+            affairList.splice(opt, 1)
+
+            localStorage.setItem(deledate, JSON.stringify(affairList))
+
+            bootstrap.Modal.getOrCreateInstance(alterModal).hide()
+            currentDate()
+
         }
 
 

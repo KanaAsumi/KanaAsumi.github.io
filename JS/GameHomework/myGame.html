@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>拉霸</title>
+    <link rel="stylesheet" href="./../reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+        [row-id].active {
+            border: solid 5px #ccc;
+            box-shadow: 0 0 20px #ccf;
+            transform: 0s;
+        }
+
+        i {
+            line-height: 1.8;
+        }
+
+        .col-2 {
+            text-align: center;
+            font-size: 50px;
+            height: 100px;
+            justify-content: center;
+        }
+
+        .col-4 {
+            display: flex;
+            margin: auto;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .col-4 p {
+            margin: auto;
+        }
+
+        .col-4 img {
+            display: block;
+            margin: auto;
+            width: 100px;
+        }
+
+        .btn {
+            color: #fff;
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div col-id="1" row-id="0" class="col-2"></div>
+            <div col-id="2" row-id="0" class="col-2"></div>
+            <div col-id="3" row-id="0" class="col-2"></div>
+            <div class="col-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-3"></div>
+            <div col-id="1" row-id="1" class="col-2 active"></div>
+            <div col-id="2" row-id="1" class="col-2 active"></div>
+            <div col-id="3" row-id="1" class="col-2 active"></div>
+            <div class="col-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-3"></div>
+            <div col-id="1" row-id="2" class="col-2"></div>
+            <div col-id="2" row-id="2" class="col-2"></div>
+            <div col-id="3" row-id="2" class="col-2"></div>
+            <div class="col-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <p>天下武功</p>
+                <img src="./C8763.jpg" class="speed" alt="">
+                <p>唯快不破</p>
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-info" id="start">開始</button>
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-info" id="rest">休息一下 配口茶</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+    <script>
+        let Mahjong = [
+            {
+                id: 0,
+                emoji: "🀀"
+            },
+            {
+                id: 1,
+                emoji: "🀁"
+            },
+            {
+                id: 2,
+                emoji: "🀂"
+            },
+            {
+                id: 3,
+                emoji: "🀃"
+            },
+            {
+                id: 4,
+                emoji: "🀄"
+            },
+            {
+                id: 5,
+                emoji: "🀅"
+            },
+            {
+                id: 6,
+                emoji: "🀆"
+            },
+        ]
+
+        let c8763 = document.querySelector("img")
+        let startbtn = document.querySelector("#start")
+        let rest = document.querySelector("#rest")
+        rest.addEventListener("click", c87);
+
+        let firstLeftNum = 0;   //第一欄剩下的格數
+        let firstGridNum = 0;   //第一欄要轉的格數
+
+        let leftNum = 0;        //第二欄剩下的格數
+        let gridNum = 0;        //第二欄要轉的格數
+
+        let lastLeftNum = 0;    //第三欄剩下的格數
+        let lastGridNum = 0;    //第三欄要轉的格數
+
+        let allGrids;   //全部的欄
+        let upgrids;    //左欄
+        let grids;      //中欄
+        let downgrids;  //右欄
+
+        let upTime = 0;     //上一格所在的格數
+        let nowTime = 1;    //目前所在的格數
+        let downTime = 2;   //下一格所在的格數
+
+        let _colNum = 0;    //第一欄格數
+        let colNum = 0;     //第二欄格數
+        let __colNum = 0;   //第三欄格數
+
+        let round1Time = 0;     //方法跑的次數
+        let round2Time = 0;     //方法跑的次數
+        let round3Time = 0;     //方法跑的次數
+
+        let firstRoundTime = 0; //要換得牌的章數
+        let roundTime = 0;      //要換得牌的章數
+        let lastRoundTime = 0;  //要換得牌的章數
+
+        let _speed = 50;
+        let speed = 60;
+        let __speed = 70;
+
+        let _out;
+        let out;
+        let __out;
+
+        let drinkTime = 0;
+
+        function start() {
+            allGrids = document.querySelectorAll("[row-id]")
+            // allGrids = Array.from(allGrids).sort((a, b) => {
+            //     return a.getAttributeNode("id").value - b.getAttributeNode("id").value
+            // })
+            // console.log(allGrids)
+            allGrids.forEach(x => {
+                let id = x.getAttributeNode("row-id").value
+                let data = Mahjong.find(x => x.id == id)
+                let img = document.createElement("i")
+                img.innerText = data.emoji
+                x.appendChild(img)
+            })
+        }
+
+        function run() {
+
+            startbtn.removeEventListener("click", run);
+            // _speed = 50;
+            // speed = 60;
+            // __speed = 70;
+
+            //============第一個==============
+            let _runTime = Math.floor(Math.random() * Mahjong.length) + 1
+            firstLeftNum = _runTime + (10 * allGrids.length);
+            firstGridNum = firstLeftNum;
+
+            //============第二個==============
+            let runTime = Math.floor(Math.random() * Mahjong.length) + 1
+            leftNum = runTime + (20 * allGrids.length);
+            gridNum = leftNum;
+
+            //============第三個==============
+            let __runTime = Math.floor(Math.random() * Mahjong.length) + 1
+            lastLeftNum = __runTime + (30 * allGrids.length);
+            lastGridNum = lastLeftNum;
+
+            round1()
+        }
+
+        function round1() {
+            rest.removeEventListener("click", c87)
+            rest.addEventListener("click", running)
+            round1Time++;
+
+            upgrids = document.querySelectorAll(`[col-id="1"]`)
+            //============第一個==============
+
+            if (round1Time >= Mahjong.length) {
+                round1Time = 0;
+            }
+
+            upgrids.forEach(x => {
+
+                if (_colNum >= upgrids.length) {
+                    _colNum = 0;
+                }
+                firstRoundTime = _colNum + round1Time;
+                if (firstRoundTime >= Mahjong.length) {
+                    firstRoundTime -= 7;
+                }
+                x.setAttribute("row-id", `${firstRoundTime}`)
+                let id = x.getAttributeNode("row-id").value
+                let data = Mahjong.find(x => x.id == id)
+                let img = x.querySelector("i")
+                img.innerText = data.emoji
+                x.appendChild(img)
+                _colNum++;
+            })
+            firstLeftNum--;
+            // console.log(`第一個:要走的步數${firstGridNum},剩下的步數${firstLeftNum}`)
+
+
+            if (firstLeftNum > 0) {
+
+                _out = setTimeout(round1, _speed);
+
+                if (firstLeftNum < Math.floor((firstGridNum / 5))) {
+                    _speed += 7
+                }
+                else if (firstGridNum - 3 == firstLeftNum) round2()
+            }
+            else {
+                clearTimeout(_out);
+            }
+            // let newGrids = [upgrids, grids, downgrids];
+            // newGrids.forEach(x => {
+            // colNum = 0 + upTime;
+            // x.forEach(y => {}
+            //換圖
+            // upgrids.forEach(x => {
+            //     x.setAttribute("row-id", `${upTime}`)
+            //     let id = x.getAttributeNode("row-id").value
+            //     let data = Mahjong.find(x => x.id == id)
+            //     let img = x.querySelector("i")
+            //     img.innerText = data.emoji
+            //     x.appendChild(img)
+            // })
+
+        }
+        function round2() {
+            grids = document.querySelectorAll(`[col-id="2"]`)
+            round2Time++;
+
+            if (round2Time >= Mahjong.length) {
+                round2Time = 0;
+            }
+
+            grids.forEach(x => {
+                if (colNum >= grids.length) {
+                    colNum = 0;
+                }
+                roundTime = colNum + round2Time;
+                if (roundTime >= Mahjong.length) {
+                    roundTime -= 7;
+                }
+                x.setAttribute("row-id", `${roundTime}`)
+                let id = x.getAttributeNode("row-id").value
+                let data = Mahjong.find(x => x.id == id)
+                let img = x.querySelector("i")
+                img.innerText = data.emoji
+                x.appendChild(img)
+                colNum++;
+            })
+            leftNum--;
+            // console.log(`第二個:要走的步數${gridNum},剩下的步數${leftNum}`)
+
+            if (leftNum > 0) {
+
+                out = setTimeout(round2, speed);
+
+                if (leftNum < Math.floor((gridNum / 5))) {
+                    speed += 7
+                }
+                else if (gridNum - 3 == leftNum) round3()
+
+            }
+            else {
+                clearTimeout(out)
+            }
+
+
+        }
+        function round3() {
+            downgrids = document.querySelectorAll(`[col-id="3"]`)
+            round3Time++;
+
+            if (round3Time >= Mahjong.length) {
+                round3Time = 0;
+            }
+
+            downgrids.forEach(x => {
+                if (__colNum >= downgrids.length) {
+                    __colNum = 0;
+                }
+                lastRoundTime = __colNum + round3Time;
+                if (lastRoundTime >= Mahjong.length) {
+                    lastRoundTime -= 7;
+                }
+                x.setAttribute("row-id", `${lastRoundTime}`)
+                let id = x.getAttributeNode("row-id").value
+                let data = Mahjong.find(x => x.id == id)
+                let img = x.querySelector("i")
+                img.innerText = data.emoji
+                x.appendChild(img)
+                __colNum++
+            })
+            lastLeftNum--;
+            // console.log(`第三個:要走的步數${lastGridNum},剩下的步數${lastLeftNum}`)
+            // upTime++;
+
+            // if (upTime >= Mahjong.length) {
+            //     upTime = 0;
+            // }
+
+            // upgrids.forEach(x => {
+
+            //     if (_colNum >= Mahjong.length) {
+            //         _colNum = 0;
+            //     }
+            //     x.setAttribute("row-id", `${_colNum}`)
+            //     let id = x.getAttributeNode("row-id").value
+            //     let data = Mahjong.find(x => x.id == id)
+            //     let img = x.querySelector("i")
+            //     img.innerText = data.emoji
+            //     x.appendChild(img)
+            //     _colNum++;
+            // })
+
+            // firstLeftNum--;
+            // console.log(`第一個:要走的步數${firstGridNum},剩下的步數${firstLeftNum}`)
+
+
+            if (lastLeftNum > 0) {
+                __out = setTimeout(round3, __speed);
+
+                if (lastLeftNum < Math.floor((lastGridNum / 5))) {
+                    __speed += 7
+                }
+            }
+            else {
+                clearTimeout(__out)
+                startbtn.addEventListener("click", run)
+                rest.removeEventListener("click", running)
+                rest.addEventListener("click", drink)
+                check()
+                _speed = 50;
+                speed = 60;
+                __speed = 70;
+            }
+        }
+
+        function check() {
+            let result = document.querySelectorAll(".col-2.active")
+            let Father = result[0].parentNode
+            let i = Father.querySelector('i')
+
+            let item = result[0].getAttributeNode("row-id")
+            let item1 = result[1].getAttributeNode("row-id")
+            let item2 = result[2].getAttributeNode("row-id")
+
+            if (item.value == item1.value && item1.value == item2.value && item2.value == item.value) {
+                alert(`恭喜你得到${i.innerHTML}刻子`)
+            }
+            else if (item.value == item1.value || item1.value == item2.value) {
+                alert(`恭喜你得到${i.innerHTML}一對眼`)
+            }
+        }
+
+        function hayaku() {
+            _speed = 10
+            speed = 5
+            __speed = 0
+            alert("你已經使用星爆氣流轉\n請按下開始使用")
+            c8763.removeEventListener("click", hayaku)
+
+            c8763.addEventListener("click", cd)
+            drinkTime = 0;
+        }
+
+        function c87() {
+            alert("你還沒星爆，還不能喝茶")
+        }
+        function running(){
+            alert("你正在星爆中，沒法喝茶")
+        }
+        function cd() {
+            
+            alert("技能冷卻中，明日請早")
+            
+        }
+        function drink() {
+            if (drinkTime < 1) {
+                alert("你喝杯茶，可以再次星爆了")
+            }else{
+                alert("你現在很飽，喝不下了")
+            }
+            c8763.removeEventListener("click", cd)
+            c8763.addEventListener("click", hayaku)
+            drinkTime++;
+        }
+
+        window.onload = function () {
+            start()
+            c8763.addEventListener("click", hayaku)
+            startbtn.addEventListener("click", run)
+        }
+    </script>
+
+</body>
+
+</html>

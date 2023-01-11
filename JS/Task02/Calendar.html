@@ -33,16 +33,28 @@
         tbody tr td i {
             line-height: 3;
         }
-
+        
         tbody tr td {
             outline: solid;
-            padding: 0;
+            text-align: center;
             height: 150px;
+            /* overflow: hidden; */
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow-y:inherit;
+            overflow-x: hidden;
+            /* box-sizing: border-box; */
             width: 14.2857142857%;
         }
-
-        tbody tr td p{
+        table{
+            table-layout: fixed;
+            height: 100%;
             width: 100%;
+        }
+        tbody tr td p{
+            /* display: block; */
+            /* width: 100px; */
+            margin: auto;
         }
         tbody tr td p:hover{
             background-color: #fa0;
@@ -167,6 +179,24 @@
             </div>
         </div>
     </div>
+    <!-- 顯示行程 -->
+    <div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="titleModal"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button onclick="" type="button" class="btn btn-primary">新增</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- 新增行程 -->
     <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -181,6 +211,8 @@
                     <!-- <input id="add-date" class="start" type="date"></input> -->
                     日期:
                     <input class="date" readonly="readonly"></input><br><br>
+                    開始時間:　　　　　　　　結束時間:<br>
+                    <input class="startTime" type="time">　<input class="endTime" type="time"><br><br>
                     行程:
                     <input class="item" type="text"></input>
                 </div>
@@ -201,11 +233,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    日期:
                     <input class="alter-date" type="text" readonly="readonly"></input><br><br>
+                    行程:
                     <input class="alter-item" type="text"></input>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button onclick="alter()" type="button" class="btn btn-primary">修改</button>
                     <button onclick="dele()" type="button" class="btn btn-primary">刪除</button>
                 </div>
@@ -238,6 +271,8 @@
         let alterTime = document.querySelector(".alter-date")
         let alterItem = document.querySelector(".alter-item")
         let opt;
+        let startTime = document.querySelector(".startTime")
+        let endTime = document.querySelector(".endTime")
 
         let addYear = document.createElement("h2")
         titlefather.append(addYear)
@@ -318,7 +353,7 @@
                 // tds[i].setAttribute("data-bs-toggle", "modal")
                 // tds[i].setAttribute("data-bs-target", "#addModal")
 
-                if (localStorage.getItem(thisDay) != null) {
+                if (localStorage.getItem(`${getyear}-${getMonth + 1}-${nowday}`) != null) {
                     let affairList = JSON.parse(localStorage.getItem(thisDay))
                     console.log(affairList)
                     affairList.forEach((x, idx) => {
@@ -368,9 +403,14 @@
 
             let affairTime = inputTime.value;
             let affair = input.value;
-
+            let staTime = startTime.value;
+            let eTime = endTime.value;
+            if(staTime > eTime){
+                alert("請輸入正確的時間")
+            }
 
             let affairObj = {
+                interval: `${staTime}~${eTime}`,
                 title: affair
             }
             let affairList = [];
@@ -392,10 +432,17 @@
         function alter() {
             let alterdate = alterTime.value;
             let alteraffair = alterItem.value;
+            let staTime = startTime.value;
+            let eTime = endTime.value;
+            if(staTime > eTime){
+                alert("請輸入正確的時間")
+            }
+
 
             let affairList = JSON.parse(localStorage.getItem(alterdate))
             console.log(alterdate)
             affairList[opt] = {
+                interval: `${staTime}~${eTime}`,
                 title: alteraffair
             }
             localStorage.setItem(alterdate, JSON.stringify(affairList))

@@ -168,6 +168,7 @@
         let __out;
 
         let drinkTime = 0;
+        let skillTime = 1;
 
         function start() {
             allGrids = document.querySelectorAll("[row-id]")
@@ -185,13 +186,8 @@
         }
 
         function run() {
-            c8763.removeEventListener("click", cd)
-            c8763.addEventListener("click", runningC87)
             startbtn.removeEventListener("click", run);
 
-            // _speed = 50;
-            // speed = 60;
-            // __speed = 70;
 
             //============第一個==============
             let _runTime = Math.floor(Math.random() * Mahjong.length) + 1
@@ -387,7 +383,9 @@
         }
 
         function check() {
-            c8763.addEventListener("click", cd)
+            // if (drinkTime >= 1) {
+            //     c8763.addEventListener("click", cd)
+            // }
             let result = document.querySelectorAll(".col-2.active")
             let Father = result[1].parentNode
             let i = Father.querySelector('i')
@@ -407,6 +405,7 @@
             _speed = 10
             speed = 5
             __speed = 0
+            c8763.addEventListener("click", cd)
             alert("你已經使用星爆氣流轉\n請按下開始使用")
             c8763.removeEventListener("click", hayaku)
             drinkTime = 0;
@@ -419,7 +418,7 @@
             alert("你正在轉，沒法喝茶")
         }
         function cd() {
-            alert("技能冷卻中，明日請早")
+            alert("技能冷卻中，請稍作休息再使用")
         }
         function runningC87() {
             alert("你沒辦法再轉中途星爆")

@@ -185,9 +185,10 @@
         }
 
         function run() {
+            c8763.removeEventListener("click", cd)
             c8763.addEventListener("click", runningC87)
             startbtn.removeEventListener("click", run);
-            
+
             // _speed = 50;
             // speed = 60;
             // __speed = 70;
@@ -211,6 +212,7 @@
         }
 
         function round1() {
+            rest.removeEventListener("click", drink)
             rest.removeEventListener("click", c87)
             rest.addEventListener("click", runningDrink)
             round1Time++;
@@ -377,7 +379,7 @@
                 rest.removeEventListener("click", runningDrink)
                 rest.addEventListener("click", drink)
                 c8763.addEventListener("click", cd)
-                check()
+                setTimeout(check, 500);
                 _speed = 50;
                 speed = 60;
                 __speed = 70;
@@ -387,7 +389,7 @@
         function check() {
             c8763.addEventListener("click", cd)
             let result = document.querySelectorAll(".col-2.active")
-            let Father = result[0].parentNode
+            let Father = result[1].parentNode
             let i = Father.querySelector('i')
 
             let item = result[0].getAttributeNode("row-id")
@@ -407,8 +409,6 @@
             __speed = 0
             alert("你已經使用星爆氣流轉\n請按下開始使用")
             c8763.removeEventListener("click", hayaku)
-
-
             drinkTime = 0;
         }
 
@@ -416,7 +416,7 @@
             alert("你還沒星爆，還不能喝茶")
         }
         function runningDrink() {
-            alert("你正在星爆中，沒法喝茶")
+            alert("你正在轉，沒法喝茶")
         }
         function cd() {
             alert("技能冷卻中，明日請早")

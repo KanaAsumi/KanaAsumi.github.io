@@ -18,7 +18,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-6"></div>
+            <div class="col-6" id="map"></div>
             <div class="col-6"></div>
         </div>
     </div>
@@ -36,10 +36,32 @@
     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
     <script src="./ConviMap.js"></script>
     <script>
-        
-        console.log(shop) 
+        let map
 
+        console.log(shop)
+        function initMap() {
+            map = L.map('map', {
+                center: [25.03416068163684, 121.56454962636319],
+                zoom: 9
+            })
 
+            let osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+            let osm = new L.TileLayer(osmUrl, { minZoom: 8, maxZoom: 19 })
+            map.addLayer(osm)
+        }
+
+        function setMap() {
+            Promise.all(shop)
+                .then(res => res.map(x => x.json()))
+                .then(jsonData=>{
+                    console.log(jsonData)
+                })
+        }
+
+        window.onload = function () {
+            initMap()
+            setMap()
+        }
     </script>
 </body>
 

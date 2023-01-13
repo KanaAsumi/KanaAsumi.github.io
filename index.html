@@ -1,70 +1,214 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>作業表</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <style>
-        .page{
-            margin: auto;
-            width: 960px;
-            background-image: url(./下載.png);
-            background-size:auto;
-            width: 600px;
-            height: 850px;
-            padding-top: 50px;
-            position: relative;
+        body {
+            background-color: #D16000;
         }
-        .new{
-            margin: auto;
-            text-align: center;
+
+        .row {
+            vertical-align: middle;
         }
-        a{
+
+        .title {
+            background-color: aqua;
+            border-radius: 50px;
+        }
+
+        .col-4 .title p {
+            color: black;
+            line-height: 3;
+            margin: auto;
+        }
+
+        .col-4 p {
+            margin: auto;
+            font-weight: 900;
+            color: white;
+        }
+
+        .container{
+            border-bottom: 5px black solid;
+        }
+
+        a {
             display: inline-block;
             color: black;
-            font-size: 30px;
+            font-size: 20px;
             font-weight: 700;
             border-radius: 100px;
-            width: 100px;
-            padding: 30px 0;
+            padding: 0 30px;
             text-decoration: none;
             text-align: center;
         }
-        a:first-child{
-            position: absolute;
-            left: 155px;
-            top: 165px;
-        }
-        a:last-child{
-            position: absolute;
-            right: 150px;
-            top: 120px;
-        }
-        a:hover{
+
+        a:hover {
             color: pink;
-            box-shadow:inset 0 0 5px black  ;
-        }
-        p{
-            font-weight: 900;
-            font-size: 30px;
-            position: absolute;
-            bottom: 350px;
-            left: 70px;
-            color:  yellow;
-            border-radius: 50px;
+            box-shadow: inset 0 0 5px black;
         }
     </style>
 </head>
+
 <body>
-    
-<div class="page">
-    <div class="new">
-        <a href="./CSS/Task02-2/new-whoscall.html">新</a>
-        <a href="./CSS/Task02/02.html">舊</a>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link disabled">Disabled</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!---------------------------CSS--------------------------->
+    <div class="container text-center py-5">
+        <div class="row mt-5">
+            <div class="col-1">
+                <h2>CSS:</h2>
+            </div>
+            <div class="col-4">
+                <div class="title">
+                    <p>Task1</p>
+                </div>
+                <a href="./CSS/Task01/01.html">課表</a>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-4">
+                <div class="title">
+                    <p>Task4</p>
+                </div>
+                <a href="./CSS/Task04/phone.html">RWD排版</a>
+            </div>
+            <div class="col-1"></div>
+        </div>
+
+
+        <div class="row mt-5">
+            <div class="col-1"></div>
+            <div class="col-4">
+                <div class="title">
+                    <p>Task2</p>
+                </div>
+                <p>WhosCall:</p>
+                <a href="./CSS/Task02/02.html">第一版</a>
+                <a href="./CSS/Task02-2/new-whoscall.html">第二版</a>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-4">
+                <div class="title">
+                    <p>Task5</p>
+                </div>
+                <a href="./CSS/Task05/menu.html">RWD選單</a>
+            </div>
+            <div class="col-1"></div>
+        </div>
+
+
+        <div class="row mt-5">
+            <div class="col-1"></div>
+            <div class="col-4">
+                <div class="title">
+                    <p>Task3</p>
+                </div>
+                <a href="./CSS//Task03-TOYOTA/TOYOTA.html">Toyota<br>五大優勢</a>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-4">
+                <div class="title">
+                    <p>Task6</p>
+                </div>
+                <a href="./CSS/Task06/bs_whoscall.html">bootstrap</a>
+            </div>
+            <div class="col-1"></div>
+        </div>
     </div>
-    <p>AMOS</p>
-</div>
-    
+
+    <!---------------------------JS--------------------------->
+    <div class="container text-center py-5">
+        <div class="row mt-5">
+            <div class="col-1">
+                <h2>JS:</h2>
+            </div>
+            <div class="col-4">
+                <div class="title">
+                    <p>Task1</p>
+                </div>
+                <a href="./JS/Task01/JSTask01.html">終極密碼</a>
+                <a href="./JS/Task01/altis.html">altis</a>
+                <a href="./JS/Task01/LoL.html">LoL</a>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-4">
+                <div class="title">
+                    <p>地圖作業</p>
+                </div>
+                <a href="./JS/MapHomework/mapHomework.html">新北711分布</a>
+            </div>
+            <div class="col-1"></div>
+        </div>
+
+
+
+        <div class="row mt-5">
+            <div class="col-1"></div>
+            <div class="col-4">
+                <div class="title">
+                    <p>Task2</p>
+                </div>
+                <a href="./JS/Task02/apple.html">Apple</a>
+                <a href="./JS/Task02/猜數字.html">猜數字</a>
+                <a href="./JS/Task02/Calendar.html">行事曆</a>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-4">
+                <div class="title">
+                    <p>Task5</p>
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+
+
+
+        <div class="row mt-5">
+            <div class="col-1"></div>
+            <div class="col-4">
+                <div class="title">
+                    <p>遊戲作業</p>
+                </div>
+                <a href="./JS/GameHomework/myGame.html">拉霸</a>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-4">
+                <div class="title">
+                    <p>Task6</p>
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

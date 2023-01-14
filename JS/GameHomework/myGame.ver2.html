@@ -1,0 +1,1218 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>拉霸</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+        [row-id].active {
+            border: solid 5px #ccc;
+            box-shadow: 0 0 20px #ccf;
+            transform: 0s;
+        }
+
+        i {
+            line-height: 1.8;
+        }
+
+        .col-2 {
+            text-align: center;
+            font-size: 50px;
+            height: 100px;
+            justify-content: center;
+        }
+
+        .col-4 {
+            display: flex;
+            margin: auto;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .col-4 p {
+            margin: auto;
+        }
+
+        .col-4 img {
+            display: block;
+            margin: auto;
+            width: 100px;
+        }
+
+        .btn {
+            color: #fff;
+            font-weight: 900;
+        }
+
+        .hand-cards {
+            font-size: 50px;
+            display: flex;
+        }
+
+        .tile {
+            width: auto;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div col-id="1" row-id="0" class="col-2"></div>
+            <div col-id="2" row-id="0" class="col-2"></div>
+            <div col-id="3" row-id="0" class="col-2"></div>
+            <div col-id="4" row-id="0" class="col-2"></div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div col-id="1" row-id="1" class="col-2 active"></div>
+            <div col-id="2" row-id="1" class="col-2 active"></div>
+            <div col-id="3" row-id="1" class="col-2 active"></div>
+            <div col-id="4" row-id="1" class="col-2 active"></div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div col-id="1" row-id="2" class="col-2"></div>
+            <div col-id="2" row-id="2" class="col-2"></div>
+            <div col-id="3" row-id="2" class="col-2"></div>
+            <div col-id="4" row-id="2" class="col-2"></div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row">
+            <!-- <div class="col-4">
+                <p>天下武功</p>
+                <img src="./C8763.jpg" class="speed" alt="">
+                <p>唯快不破</p>
+            </div> -->
+            <div class="col-4">
+                <button type="button" class="btn btn-info" id="start">開始</button>
+            </div>
+            <!-- <div class="col-4">
+                <button type="button" class="btn btn-info" id="rest">休息一下 配口茶</button>
+            </div> -->
+        </div>
+        <div class="row hand-cards">
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+    <script>
+        let MahjongPile = [
+            {
+                id: 0,
+                emoji: "🀀"
+            },
+            {
+                id: 1,
+                emoji: "🀁"
+            },
+            {
+                id: 2,
+                emoji: "🀂"
+            },
+            {
+                id: 3,
+                emoji: "🀃"
+            },
+            {
+                id: 4,
+                emoji: "🀄"
+            },
+            {
+                id: 5,
+                emoji: "🀅"
+            },
+            {
+                id: 6,
+                emoji: "🀆"
+            },
+            {
+                id: 7,
+                emoji: "🀇"
+            },
+            {
+                id: 8,
+                emoji: "🀈"
+            },
+            {
+                id: 9,
+                emoji: "🀉"
+            },
+            {
+                id: 10,
+                emoji: "🀊"
+            },
+            {
+                id: 11,
+                emoji: "🀋"
+            },
+            {
+                id: 12,
+                emoji: "🀌"
+            },
+            {
+                id: 13,
+                emoji: "🀍"
+            },
+            {
+                id: 14,
+                emoji: "🀎"
+            },
+            {
+                id: 15,
+                emoji: "🀏"
+            },
+            {
+                id: 16,
+                emoji: "🀐"
+            },
+            {
+                id: 17,
+                emoji: "🀑"
+            },
+            {
+                id: 18,
+                emoji: "🀒"
+            },
+            {
+                id: 19,
+                emoji: "🀓"
+            },
+            {
+                id: 20,
+                emoji: "🀔"
+            },
+            {
+                id: 21,
+                emoji: "🀕"
+            },
+            {
+                id: 22,
+                emoji: "🀖"
+            },
+            {
+                id: 23,
+                emoji: "🀗"
+            },
+            {
+                id: 24,
+                emoji: "🀘"
+            },
+            {
+                id: 25,
+                emoji: "🀙"
+            },
+            {
+                id: 26,
+                emoji: "🀚"
+            },
+            {
+                id: 27,
+                emoji: "🀛"
+            },
+            {
+                id: 28,
+                emoji: "🀜"
+            },
+            {
+                id: 29,
+                emoji: "🀝"
+            },
+            {
+                id: 30,
+                emoji: "🀞"
+            },
+            {
+                id: 31,
+                emoji: "🀟"
+            },
+            {
+                id: 32,
+                emoji: "🀠"
+            },
+            {
+                id: 33,
+                emoji: "🀡"
+            },
+            {
+                id: 34,
+                emoji: "🀀"
+            },
+            {
+                id: 35,
+                emoji: "🀁"
+            },
+            {
+                id: 36,
+                emoji: "🀂"
+            },
+            {
+                id: 37,
+                emoji: "🀃"
+            },
+            {
+                id: 38,
+                emoji: "🀄"
+            },
+            {
+                id: 39,
+                emoji: "🀅"
+            },
+            {
+                id: 40,
+                emoji: "🀆"
+            },
+            {
+                id: 41,
+                emoji: "🀇"
+            },
+            {
+                id: 42,
+                emoji: "🀈"
+            },
+            {
+                id: 43,
+                emoji: "🀉"
+            },
+            {
+                id: 44,
+                emoji: "🀊"
+            },
+            {
+                id: 45,
+                emoji: "🀋"
+            },
+            {
+                id: 46,
+                emoji: "🀌"
+            },
+            {
+                id: 47,
+                emoji: "🀍"
+            },
+            {
+                id: 48,
+                emoji: "🀎"
+            },
+            {
+                id: 49,
+                emoji: "🀏"
+            },
+            {
+                id: 50,
+                emoji: "🀐"
+            },
+            {
+                id: 51,
+                emoji: "🀑"
+            },
+            {
+                id: 52,
+                emoji: "🀒"
+            },
+            {
+                id: 53,
+                emoji: "🀓"
+            },
+            {
+                id: 54,
+                emoji: "🀔"
+            },
+            {
+                id: 55,
+                emoji: "🀕"
+            },
+            {
+                id: 56,
+                emoji: "🀖"
+            },
+            {
+                id: 57,
+                emoji: "🀗"
+            },
+            {
+                id: 58,
+                emoji: "🀘"
+            },
+            {
+                id: 59,
+                emoji: "🀙"
+            },
+            {
+                id: 60,
+                emoji: "🀚"
+            },
+            {
+                id: 61,
+                emoji: "🀛"
+            },
+            {
+                id: 62,
+                emoji: "🀜"
+            },
+            {
+                id: 63,
+                emoji: "🀝"
+            },
+            {
+                id: 64,
+                emoji: "🀞"
+            },
+            {
+                id: 65,
+                emoji: "🀟"
+            },
+            {
+                id: 66,
+                emoji: "🀠"
+            },
+            {
+                id: 67,
+                emoji: "🀡"
+            },
+            {
+                id: 68,
+                emoji: "🀀"
+            },
+            {
+                id: 69,
+                emoji: "🀁"
+            },
+            {
+                id: 70,
+                emoji: "🀂"
+            },
+            {
+                id: 71,
+                emoji: "🀃"
+            },
+            {
+                id: 72,
+                emoji: "🀄"
+            },
+            {
+                id: 73,
+                emoji: "🀅"
+            },
+            {
+                id: 74,
+                emoji: "🀆"
+            },
+            {
+                id: 75,
+                emoji: "🀇"
+            },
+            {
+                id: 76,
+                emoji: "🀈"
+            },
+            {
+                id: 77,
+                emoji: "🀉"
+            },
+            {
+                id: 78,
+                emoji: "🀊"
+            },
+            {
+                id: 79,
+                emoji: "🀋"
+            },
+            {
+                id: 80,
+                emoji: "🀌"
+            },
+            {
+                id: 81,
+                emoji: "🀍"
+            },
+            {
+                id: 82,
+                emoji: "🀎"
+            },
+            {
+                id: 83,
+                emoji: "🀏"
+            },
+            {
+                id: 84,
+                emoji: "🀐"
+            },
+            {
+                id: 85,
+                emoji: "🀑"
+            },
+            {
+                id: 86,
+                emoji: "🀒"
+            },
+            {
+                id: 87,
+                emoji: "🀓"
+            },
+            {
+                id: 88,
+                emoji: "🀔"
+            },
+            {
+                id: 89,
+                emoji: "🀕"
+            },
+            {
+                id: 90,
+                emoji: "🀖"
+            },
+            {
+                id: 91,
+                emoji: "🀗"
+            },
+            {
+                id: 92,
+                emoji: "🀘"
+            },
+            {
+                id: 93,
+                emoji: "🀙"
+            },
+            {
+                id: 94,
+                emoji: "🀚"
+            },
+            {
+                id: 95,
+                emoji: "🀛"
+            },
+            {
+                id: 96,
+                emoji: "🀜"
+            },
+            {
+                id: 97,
+                emoji: "🀝"
+            },
+            {
+                id: 98,
+                emoji: "🀞"
+            },
+            {
+                id: 99,
+                emoji: "🀟"
+            },
+            {
+                id: 100,
+                emoji: "🀠"
+            },
+            {
+                id: 101,
+                emoji: "🀡"
+            },
+            {
+                id: 102,
+                emoji: "🀀"
+            },
+            {
+                id: 103,
+                emoji: "🀁"
+            },
+            {
+                id: 104,
+                emoji: "🀂"
+            },
+            {
+                id: 105,
+                emoji: "🀃"
+            },
+            {
+                id: 106,
+                emoji: "🀄"
+            },
+            {
+                id: 107,
+                emoji: "🀅"
+            },
+            {
+                id: 108,
+                emoji: "🀆"
+            },
+            {
+                id: 109,
+                emoji: "🀇"
+            },
+            {
+                id: 110,
+                emoji: "🀈"
+            },
+            {
+                id: 111,
+                emoji: "🀉"
+            },
+            {
+                id: 112,
+                emoji: "🀊"
+            },
+            {
+                id: 113,
+                emoji: "🀋"
+            },
+            {
+                id: 114,
+                emoji: "🀌"
+            },
+            {
+                id: 115,
+                emoji: "🀍"
+            },
+            {
+                id: 116,
+                emoji: "🀎"
+            },
+            {
+                id: 117,
+                emoji: "🀏"
+            },
+            {
+                id: 118,
+                emoji: "🀐"
+            },
+            {
+                id: 119,
+                emoji: "🀑"
+            },
+            {
+                id: 120,
+                emoji: "🀒"
+            },
+            {
+                id: 121,
+                emoji: "🀓"
+            },
+            {
+                id: 122,
+                emoji: "🀔"
+            },
+            {
+                id: 123,
+                emoji: "🀕"
+            },
+            {
+                id: 124,
+                emoji: "🀖"
+            },
+            {
+                id: 125,
+                emoji: "🀗"
+            },
+            {
+                id: 126,
+                emoji: "🀘"
+            },
+            {
+                id: 127,
+                emoji: "🀙"
+            },
+            {
+                id: 128,
+                emoji: "🀚"
+            },
+            {
+                id: 129,
+                emoji: "🀛"
+            },
+            {
+                id: 130,
+                emoji: "🀜"
+            },
+            {
+                id: 131,
+                emoji: "🀝"
+            },
+            {
+                id: 132,
+                emoji: "🀞"
+            },
+            {
+                id: 133,
+                emoji: "🀟"
+            },
+            {
+                id: 134,
+                emoji: "🀠"
+            },
+            {
+                id: 135,
+                emoji: "🀡"
+            },
+        ]
+        let Mahjong = [
+            {
+                id: 0,
+                emoji: "🀇"
+            },
+            {
+                id: 1,
+                emoji: "🀈"
+            },
+            {
+                id: 2,
+                emoji: "🀉"
+            },
+            {
+                id: 3,
+                emoji: "🀊"
+            },
+            {
+                id: 4,
+                emoji: "🀋"
+            },
+            {
+                id: 5,
+                emoji: "🀌"
+            },
+            {
+                id: 6,
+                emoji: "🀍"
+            },
+            {
+                id: 7,
+                emoji: "🀎"
+            },
+            {
+                id: 8,
+                emoji: "🀏"
+            },
+            {
+                id: 9,
+                emoji: "🀙"
+            },
+            {
+                id: 10,
+                emoji: "🀚"
+            },
+            {
+                id: 11,
+                emoji: "🀛"
+            },
+            {
+                id: 12,
+                emoji: "🀜"
+            },
+            {
+                id: 13,
+                emoji: "🀝"
+            },
+            {
+                id: 14,
+                emoji: "🀞"
+            },
+            {
+                id: 15,
+                emoji: "🀟"
+            },
+            {
+                id: 16,
+                emoji: "🀠"
+            },
+            {
+                id: 17,
+                emoji: "🀡"
+            },
+            {
+                id: 18,
+                emoji: "🀐"
+            },
+            {
+                id: 19,
+                emoji: "🀑"
+            },
+            {
+                id: 20,
+                emoji: "🀒"
+            },
+            {
+                id: 21,
+                emoji: "🀓"
+            },
+            {
+                id: 22,
+                emoji: "🀔"
+            },
+            {
+                id: 23,
+                emoji: "🀕"
+            },
+            {
+                id: 24,
+                emoji: "🀖"
+            },
+            {
+                id: 25,
+                emoji: "🀗"
+            },
+            {
+                id: 26,
+                emoji: "🀘"
+            },
+            {
+                id: 27,
+                emoji: "🀀"
+            },
+            {
+                id: 28,
+                emoji: "🀁"
+            },
+            {
+                id: 29,
+                emoji: "🀂"
+            },
+            {
+                id: 30,
+                emoji: "🀃"
+            },
+            {
+                id: 31,
+                emoji: "🀄"
+            },
+            {
+                id: 32,
+                emoji: "🀅"
+            },
+            {
+                id: 33,
+                emoji: "🀆"
+            },
+        ]
+
+        // let c8763 = document.querySelector("img")
+        let startbtn = document.querySelector("#start")
+        // let rest = document.querySelector("#rest")
+        // rest.addEventListener("click", c87);
+
+        let firstLeftNum = 0;   //第一欄剩下的格數
+        let firstGridNum = 0;   //第一欄要轉的格數
+
+        let leftNum = 0;        //第二欄剩下的格數
+        let gridNum = 0;        //第二欄要轉的格數
+
+        let lastLeftNum = 0;    //第三欄剩下的格數
+        let lastGridNum = 0;    //第三欄要轉的格數
+
+        let fourLeftNum = 0;    //第四欄剩下的格數
+        let fourGridNum = 0;    //第四欄要轉的格數
+
+        let allGrids;   //全部的欄
+        let upgrids;    //左欄
+        let grids;      //中欄
+        let downgrids;  //右欄
+        let fourgrids;  //第四欄
+
+        let upTime = 0;     //上一格所在的格數
+        let nowTime = 1;    //目前所在的格數
+        let downTime = 2;   //下一格所在的格數
+
+        let _colNum = 0;    //第一欄格數
+        let colNum = 0;     //第二欄格數
+        let __colNum = 0;   //第三欄格數
+        let fourcolNum = 0;   //第四欄格數
+
+        let round1Time = 0;     //方法跑的次數
+        let round2Time = 0;     //方法跑的次數
+        let round3Time = 0;     //方法跑的次數
+        let round4Time = 0;     //方法跑的次數
+
+        let firstRoundTime = 0; //要換得牌的章數
+        let roundTime = 0;      //要換得牌的章數
+        let lastRoundTime = 0;  //要換得牌的章數
+        let fourRoundTime = 0;  //要換得牌的章數
+
+        let _speed = 0;
+        let speed = 0;
+        let __speed = 0;
+        let fourspeed = 0;
+
+        let _out;
+        let out;
+        let __out;
+        let fourout;
+
+        // let drinkTime = 0;
+        // let skillTime = 1;
+        let tileArray = [];
+
+        function start() {
+            allGrids = document.querySelectorAll("[row-id]")
+            // allGrids = Array.from(allGrids).sort((a, b) => {
+            //     return a.getAttributeNode("id").value - b.getAttributeNode("id").value
+            // })
+            // console.log(allGrids)
+            allGrids.forEach(x => {
+                let id = x.getAttributeNode("row-id").value
+                let data = Mahjong.find(x => x.id == id)
+                let img = document.createElement("i")
+                img.innerText = data.emoji
+                x.appendChild(img)
+            })
+        }
+
+        function run() {
+            startbtn.removeEventListener("click", run);
+
+
+            //============第一個==============
+            let _runTime = Math.floor(Math.random() * Mahjong.length) + 1
+            firstLeftNum = _runTime + (1 * allGrids.length);
+            firstGridNum = firstLeftNum;
+
+            //============第二個==============
+            let runTime = Math.floor(Math.random() * Mahjong.length) + 1
+            leftNum = runTime + (1 * allGrids.length);
+            gridNum = leftNum;
+
+            //============第三個==============
+            let __runTime = Math.floor(Math.random() * Mahjong.length) + 1
+            lastLeftNum = __runTime + (1 * allGrids.length);
+            lastGridNum = lastLeftNum;
+
+            //============第四個==============
+            let fourrunTime = Math.floor(Math.random() * Mahjong.length) + 1
+            fourLeftNum = fourrunTime + (5 * allGrids.length);
+            fourGridNum = fourLeftNum;
+
+            round1()
+        }
+
+        function round1() {
+            // rest.removeEventListener("click", drink)
+            // rest.removeEventListener("click", c87)
+            // rest.addEventListener("click", runningDrink)
+            round1Time++;
+
+            upgrids = document.querySelectorAll(`[col-id="1"]`)
+            //============第一個==============
+
+            if (round1Time >= Mahjong.length) {
+                round1Time = 0;
+            }
+
+            upgrids.forEach(x => {
+
+                if (_colNum >= upgrids.length) {
+                    _colNum = 0;
+                }
+                firstRoundTime = _colNum + round1Time;
+                if (firstRoundTime >= Mahjong.length) {
+                    firstRoundTime -= 7;
+                }
+                x.setAttribute("row-id", `${firstRoundTime}`)
+                let id = x.getAttributeNode("row-id").value
+                let data = Mahjong.find(x => x.id == id)
+                let img = x.querySelector("i")
+                img.innerText = data.emoji
+                x.appendChild(img)
+                _colNum++;
+            })
+            firstLeftNum--;
+            // console.log(`第一個:要走的步數${firstGridNum},剩下的步數${firstLeftNum}`)
+
+
+            if (firstLeftNum > 0) {
+
+                _out = setTimeout(round1, _speed);
+
+                if (firstLeftNum < Math.floor((firstGridNum / 5))) {
+                    _speed += 7
+                }
+                else if (firstGridNum - 3 == firstLeftNum) round2()
+            }
+            else {
+                clearTimeout(_out);
+            }
+            // let newGrids = [upgrids, grids, downgrids];
+            // newGrids.forEach(x => {
+            // colNum = 0 + upTime;
+            // x.forEach(y => {}
+            //換圖
+            // upgrids.forEach(x => {
+            //     x.setAttribute("row-id", `${upTime}`)
+            //     let id = x.getAttributeNode("row-id").value
+            //     let data = Mahjong.find(x => x.id == id)
+            //     let img = x.querySelector("i")
+            //     img.innerText = data.emoji
+            //     x.appendChild(img)
+            // })
+
+        }
+        function round2() {
+            grids = document.querySelectorAll(`[col-id="2"]`)
+            round2Time++;
+
+            if (round2Time >= Mahjong.length) {
+                round2Time = 0;
+            }
+
+            grids.forEach(x => {
+                if (colNum >= grids.length) {
+                    colNum = 0;
+                }
+                roundTime = colNum + round2Time;
+                if (roundTime >= Mahjong.length) {
+                    roundTime -= 7;
+                }
+                x.setAttribute("row-id", `${roundTime}`)
+                let id = x.getAttributeNode("row-id").value
+                let data = Mahjong.find(x => x.id == id)
+                let img = x.querySelector("i")
+                img.innerText = data.emoji
+                x.appendChild(img)
+                colNum++;
+            })
+            leftNum--;
+            // console.log(`第二個:要走的步數${gridNum},剩下的步數${leftNum}`)
+
+            if (leftNum > 0) {
+
+                out = setTimeout(round2, speed);
+
+                if (leftNum < Math.floor((gridNum / 5))) {
+                    speed += 7
+                }
+                else if (gridNum - 3 == leftNum) round3()
+
+            }
+            else {
+                clearTimeout(out)
+            }
+
+
+        }
+        function round3() {
+            downgrids = document.querySelectorAll(`[col-id="3"]`)
+            round3Time++;
+
+            if (round3Time >= Mahjong.length) {
+                round3Time = 0;
+            }
+
+            downgrids.forEach(x => {
+                if (__colNum >= downgrids.length) {
+                    __colNum = 0;
+                }
+                lastRoundTime = __colNum + round3Time;
+                if (lastRoundTime >= Mahjong.length) {
+                    lastRoundTime -= 7;
+                }
+                x.setAttribute("row-id", `${lastRoundTime}`)
+                let id = x.getAttributeNode("row-id").value
+                let data = Mahjong.find(x => x.id == id)
+                let img = x.querySelector("i")
+                img.innerText = data.emoji
+                x.appendChild(img)
+                __colNum++
+            })
+            lastLeftNum--;
+
+            if (lastLeftNum > 0) {
+                __out = setTimeout(round3, __speed);
+
+                if (lastLeftNum < Math.floor((lastGridNum / 5))) {
+                    __speed += 7
+                }
+                else if (lastGridNum - 3 == lastLeftNum) round4()
+            }
+            else {
+                clearTimeout(__out)
+            }
+        }
+        function round4() {
+            fourgrids = document.querySelectorAll(`[col-id="4"]`)
+            round4Time++;
+
+            if (round4Time >= Mahjong.length) {
+                round4Time = 0;
+            }
+
+            fourgrids.forEach(x => {
+                if (fourcolNum >= fourgrids.length) {
+                    fourcolNum = 0;
+                }
+                fourRoundTime = fourcolNum + round4Time;
+                if (fourRoundTime >= Mahjong.length) {
+                    fourRoundTime -= 7;
+                }
+                x.setAttribute("row-id", `${fourRoundTime}`)
+                let id = x.getAttributeNode("row-id").value
+                let data = Mahjong.find(x => x.id == id)
+                let img = x.querySelector("i")
+                img.innerText = data.emoji
+                x.appendChild(img)
+                fourcolNum++
+            })
+            fourLeftNum--;
+
+            if (fourLeftNum > 0) {
+                fourout = setTimeout(round4, fourspeed);
+
+                if (fourLeftNum < Math.floor((fourGridNum / 5))) {
+                    fourspeed += 7
+                }
+            }
+            else {
+                clearTimeout(fourout)
+                // c8763.removeEventListener("click", runningC87)
+                startbtn.addEventListener("click", run)
+                // rest.removeEventListener("click", runningDrink)
+                // rest.addEventListener("click", drink)
+                // c8763.addEventListener("click", cd)
+                setTimeout(check, 500);
+            }
+        }
+
+        function check() {
+            let handCards = document.querySelector(".hand-cards")
+            let container = document.querySelector(".container")
+            let result = document.querySelectorAll(".col-2.active")
+            console.log(result)
+            result.forEach(x => {
+                let id = x.attributes["row-id"].value
+                let data = Mahjong.find(x => x.id == id)
+                let i = document.createElement("i")
+                let div = document.createElement("div")
+                div.classList.add("tile")
+                div.setAttribute("tileId", `${data.id}`)
+                div.innerText = data.emoji
+                handCards.append(div)
+            })
+            // let Father = result[1].parentNode
+            // let i = Father.querySelectorAll('i')
+            // i.forEach(x => {
+            //     let i = document.createElement("i")
+            //     let div = document.createElement("div")
+            //     div.classList.add("tile")
+            //     div.innerText = x.innerText
+            //     handCards.append(div)
+            // div.append(x.innerText)
+            // _i.append(x.innerText)
+            // handCards.append(_i)
+            // })
+            console.log(handCards)
+            console.dir(handCards)
+
+            _speed = 0;
+            speed = 0;
+            __speed = 0;
+            fourspeed = 0;
+
+            if (handCards.childElementCount == 16) {
+                startbtn.removeEventListener("click", run)
+                let tiles = document.querySelectorAll(".tile")
+                let div = document.createElement("div")
+                div.classList.add("row")
+                let left = document.createElement("div")
+                let mid = document.createElement("div")
+                let right = document.createElement("div")
+                left.classList.add("col-4")
+                mid.classList.add("col-4")
+                right.classList.add("col-4")
+                let button = document.createElement("button")
+                button.classList.add("btn", "btn-info")
+                button.setAttribute("id", "sort")
+                button.setAttribute("type", "button")
+                button.innerText = "整理手牌"
+                mid.append(button)
+                div.append(left)
+                div.append(mid)
+                div.append(right)
+                container.append(div)
+
+                // console.log(tiles)
+                // tiles.forEach(x => {
+                //     tileArray.push(x.innerText)
+                // })
+                // console.log(tileArray)
+                button.addEventListener("click", function () {
+                    tilesSort(tiles)
+                })
+            }
+        }
+
+        function tilesSort(x) {
+
+            let container = document.querySelector(".container")
+            let handCards = document.createElement("div")
+            handCards.classList.add("row", "hand-cards")
+            x = Array.from(x).sort((a, b) => {
+                return a.attributes["tileId"].value - b.attributes["tileId"].value
+            })
+            x.forEach(y=>{
+                let i = document.createElement("i")
+                let div = document.createElement("div")
+                let id = y.getAttributeNode("tileId").value
+                let data = Mahjong.find(x => x.id == id)
+                div.setAttribute("tileId", `${data.id}`)
+                div.classList.add("tile")
+                div.append(y)
+                handCards.append(div)
+            })
+            
+            console.log(handCards.querySelectorAll(".tile"))
+
+            // x = x.sort((a, b) => {
+            //     return a.getAttributeNode("tileId").value - b.getAttributeNode("tileId").value
+            // })
+            // x.sort()
+            container.appendChild(handCards)
+        }
+        // function hayaku() {
+        //     _speed = 0
+        //     speed = 0
+        //     __speed = 0
+        //     c8763.addEventListener("click", cd)
+        //     alert("你已經使用星爆氣流轉\n請按下開始使用")
+        //     c8763.removeEventListener("click", hayaku)
+        //     drinkTime = 0;
+        // }
+
+        // function c87() {
+        //     alert("你還沒星爆，還不能喝茶")
+        // }
+        // function runningDrink() {
+        //     alert("你正在轉，沒法喝茶")
+        // }
+        // function cd() {
+        //     alert("技能冷卻中，請稍作休息再使用")
+        // }
+        // function runningC87() {
+        //     alert("你沒辦法再轉中途星爆")
+        // }
+        // function drink() {
+        //     if (drinkTime < 1) {
+        //         alert("你喝杯茶，可以再次星爆了")
+        //     } else {
+        //         alert("你現在很飽，喝不下了")
+        //     }
+        //     c8763.removeEventListener("click", cd)
+        //     c8763.addEventListener("click", hayaku)
+        //     drinkTime++;
+        // }
+
+        window.onload = function () {
+            start()
+            // c8763.addEventListener("click", hayaku)
+            startbtn.addEventListener("click", run)
+        }
+    </script>
+
+</body>
+
+</html>

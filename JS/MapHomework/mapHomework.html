@@ -20,10 +20,10 @@
             height: 100%;
         }
 
-        i {
+        /* i {
             color: #ccc;
             font-size: 10px;
-        }
+        } */
 
         tr td i {
             color: black;
@@ -47,7 +47,7 @@
                 <h1 class="w-100 text-center pt-3">
                     全台711門市分布圖
                 </h1>
-                <i>(資料來源:103年份)</i>
+                <!-- <i>(資料來源:103年份)</i> -->
                 <h2></h2>
                 <div class="col-12">
                     <table class="table table-bordered table-striped text-center">
@@ -118,11 +118,11 @@
         function initMap() {
             map = L.map('map', {
                 center: [23.593394, 120.888311],
-                zoom: 8
+                zoom: 7
             })
 
             let osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-            let osm = new L.TileLayer(osmUrl, { minZoom: 8, maxZoom: 25 })
+            let osm = new L.TileLayer(osmUrl, { minZoom: 7, maxZoom: 19 })
             map.addLayer(osm)
         }
 
@@ -173,7 +173,7 @@
 
                 marker.addEventListener("click", function () {
                     h2.innerText = `${data.POIName}門市`
-// console.log(data)
+                    // console.log(data)
                     tbody.innerHTML = ""
 
                     let iconTr = document.createElement("tr")
@@ -214,7 +214,7 @@
             })
 
             countySelect.onchange = function () {
-                if(this.value != ""){
+                if (this.value != "") {
                     let county = taiwanShop.find(x => x.city == this.value)
                     // console.log(county)
                     map.setView([county.lat, county.lng], 9)

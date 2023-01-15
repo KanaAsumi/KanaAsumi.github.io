@@ -24,22 +24,44 @@
             color: #ccc;
             font-size: 10px;
         }
+
+        tr td i {
+            color: black;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <!-- <div class="row"> -->
-        <div class="col-12">
-            <h1 class="w-100 text-center pt-3">
-                雙北711門市分布圖
-            </h1>
-            <i>(資料來源:103年份)</i>
-        </div>
-        <!-- </div> -->
         <div class="row">
-            <div class="col-12" id="map"></div>
+            <div class="col-6" id="map"></div>
+            <div class="col-6">
+                <h1 class="w-100 text-center pt-3">
+                    全台711門市分布圖
+                </h1>
+                <i>(資料來源:103年份)</i>
+                <h2></h2>
+                <div class="col-12">
+                    <table class="table table-bordered table-striped text-center">
+                        <thead>
+                            <tr>
+                                <td>停車</td>
+                                <td>用餐</td>
+                                <td>廁所</td>
+                                <td>ATM</td>
+                                <td>CityCafe</td>
+                                <td>Wi-Fi</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
+        <!-- <div class="row"> -->
+        <!-- </div> -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
@@ -53,48 +75,72 @@
         crossorigin=""></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
-    <script src="./ConviMap.js"></script>
+    <!-- <script src="./ConviMap.js"></script> -->
     <script>
         let map
         const taipei = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E5%8F%B0%E5%8C%97%E5%B8%82.json")
         const newTaipei = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E6%96%B0%E5%8C%97%E5%B8%82.json")
-        //const doublePei = { ...taipei, ...newTaipei }
-        let taipeiShop;     //台北商店
-        let newTaipeiShop;  //新北商店
-        let doublePeiShop = [];  //雙北商店
+        //const doublePei = { ...taipei, ...newTaipei } 
+        const Keelung = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E5%9F%BA%E9%9A%86%E5%B8%82.json")
+        const Taichung = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E5%8F%B0%E4%B8%AD%E5%B8%82.json")
+        const Nantou = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E5%8D%97%E6%8A%95%E7%B8%A3.json")
+        const Tainan = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E5%8F%B0%E5%8D%97%E5%B8%82.json")
+        const Taitung = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E5%8F%B0%E6%9D%B1%E7%B8%A3.json")
+        const Chiayi = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E5%98%89%E7%BE%A9%E5%B8%82.json")
+        const ChiayiC = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E5%98%89%E7%BE%A9%E7%B8%A3.json")
+        const Yilan = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E5%AE%9C%E8%98%AD%E7%B8%A3.json")
+        const Pingtung = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E5%B1%8F%E6%9D%B1%E7%B8%A3.json")
+        const Changhua = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E5%BD%B0%E5%8C%96%E7%B8%A3.json")
+        const Hsinchu = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E6%96%B0%E7%AB%B9%E5%B8%82.json")
+        const HsinchuC = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E6%96%B0%E7%AB%B9%E7%B8%A3.json")
+        const Taoyuan = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E6%A1%83%E5%9C%92%E5%B8%82.json")
+        const Penghu = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E6%BE%8E%E6%B9%96%E7%B8%A3.json")
+        const Hualien = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E8%8A%B1%E8%93%AE%E7%B8%A3.json")
+        const Miaoli = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E8%8B%97%E6%A0%97%E7%B8%A3.json")
+        const Lianjiang = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E9%80%A3%E6%B1%9F%E7%B8%A3.json")
+        const Kinmen = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E9%87%91%E9%96%80%E7%B8%A3.json")
+        const Yunlin = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E9%9B%B2%E6%9E%97%E7%B8%A3.json")
+        const Kaohsiung = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E9%AB%98%E9%9B%84%E5%B8%82.json")
+        let taiwanShop = [];
         let markers = L.markerClusterGroup()
+        let h2 = document.querySelector("h2")
+        let tbody = document.querySelector("tbody")
 
-        //console.log(shop)
         function initMap() {
             map = L.map('map', {
-                center: [25.03416068163684, 121.56454962636319],
-                zoom: 10
+                center: [23.593394, 120.888311],
+                zoom: 8
             })
 
             let osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-            let osm = new L.TileLayer(osmUrl, { minZoom: 8, maxZoom: 19 })
+            let osm = new L.TileLayer(osmUrl, { minZoom: 8, maxZoom: 25 })
             map.addLayer(osm)
         }
 
         function setMap() {
-            Promise.all([taipei, newTaipei])
+            Promise.all([taipei, newTaipei, Keelung, Taichung, Nantou, Tainan, Taitung, Chiayi, ChiayiC, Yilan, Pingtung, Changhua, Hsinchu, HsinchuC, Taoyuan, Penghu, Hualien, Miaoli, Lianjiang, Kinmen, Yunlin, Kaohsiung])
                 .then(res => Promise.all(res.map(x => x.json())))
                 .then(jsonData => {
-
+                    // console.log(jsonData)
                     jsonData.forEach(x => {
-                        doublePeiShop = x.stores.map(y => {
-                            // console.log(y.X)
+                        taiwanShop.push(x.stores.map(y => {
                             return {
-                                // ...x,
+                                // ...x,   
+                                city: x.city_name,
                                 Address: y.Address,
                                 POIName: y.POIName,
                                 lat: y.Y,
-                                lng: y.X
+                                lng: y.X,
+                                Dining: y.isDining,
+                                Parking: y.isParking,
+                                Lavatory: y.isLavatory,
+                                Atm: y.isATM,
+                                WiFi: y.is7WiFi,
+                                CityCafe: y.isCityCafe
                             }
-                        })
+                        }))
                     })
-                    // console.log(doublePeiShop)
-
+                    taiwanShop = taiwanShop.flat()
                     renderMarker()
 
                 })
@@ -105,15 +151,43 @@
                 markers.clearLayers()
             }
 
-            Object.keys(doublePeiShop).forEach(x => {
-                // console.log(doublePeiShop)
-                let data = doublePeiShop[x]
+            Object.keys(taiwanShop).forEach(x => {
+                // console.log(taiwanShop)
+                let data = taiwanShop[x]
                 let marker = L.marker([data.lat, data.lng])
-                console.log(data)
+
                 marker.bindPopup(
                     `<h4>門市名稱 : ${data.POIName}</h4>
                     <p>門市地址 : ${data.Address}</p>`
                 )
+
+                marker.addEventListener("click", function () {
+                    h2.innerText = `${data.POIName}門市`
+
+                    tbody.innerHTML = ""
+
+                    let iconTr = document.createElement("tr")
+                    let parinkingTd = document.createElement("td")
+                    let diningTd = document.createElement("td")
+                    let wcTd = document.createElement("td")
+                    let atmTd = document.createElement("td")
+                    let wifiTd = document.createElement("td")
+                    let cafeTd = document.createElement("td")
+                    data.Parking == "Y" ? parinkingTd.innerHTML = `<i class="fa-solid fa-square-parking fs-2"></i>` : parinkingTd.innerHTML = `<i class="fa-solid fa-xmark fs-2"></i>`
+                    data.Dining == "Y" ? diningTd.innerHTML = `<i class="fa-solid fa-utensils fs-2"></i>` : diningTd.innerHTML = `<i class="fa-solid fa-xmark fs-2"></i>`
+                    data.Lavatory == "Y" ? wcTd.innerHTML = `<i class="fa-solid fa-restroom fs-2"></i>` : wcTd.innerHTML = `<i class="fa-solid fa-xmark fs-2"></i>`
+                    data.Atm == "Y" ? atmTd.innerHTML = `<i class="fa-solid fa-a fs-2"></i>` : atmTd.innerHTML = `<i class="fa-solid fa-xmark fs-2"></i>`
+                    data.WiFi == "Y" ? wifiTd.innerHTML = `<i class="fa-solid fa-wifi fs-2"></i>` : wifiTd.innerHTML = `<i class="fa-solid fa-xmark fs-2"></i>`
+                    data.CityCafe == "Y" ? cafeTd.innerHTML = `<i class="fa-solid fa-mug-saucer fs-2"></i>` : cafeTd.innerHTML = `<i class="fa-solid fa-xmark fs-2"></i>`
+                    iconTr.appendChild(parinkingTd)
+                    iconTr.appendChild(diningTd)
+                    iconTr.appendChild(wcTd)
+                    iconTr.appendChild(atmTd)
+                    iconTr.appendChild(cafeTd)
+                    iconTr.appendChild(wifiTd)
+                 
+                    tbody.appendChild(iconTr)
+                })
 
                 markers.addLayer(marker)
             })

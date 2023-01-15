@@ -36,6 +36,14 @@
         <div class="row">
             <div class="col-6" id="map"></div>
             <div class="col-6">
+                <div class="row">
+                    <div class="form-group col-6">
+                        <label for="county">縣市</label>
+                        <select id="county" class="form-control">
+                            <!---->
+                        </select>
+                    </div>
+                </div>
                 <h1 class="w-100 text-center pt-3">
                     全台711門市分布圖
                 </h1>
@@ -78,6 +86,7 @@
     <!-- <script src="./ConviMap.js"></script> -->
     <script>
         let map
+        const countySelect = document.querySelector("#county")
         const taipei = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E5%8F%B0%E5%8C%97%E5%B8%82.json")
         const newTaipei = fetch("https://raw.githubusercontent.com/ctiml/convenience-store-data/master/7-11/%E6%96%B0%E5%8C%97%E5%B8%82.json")
         //const doublePei = { ...taipei, ...newTaipei } 
@@ -121,7 +130,7 @@
             Promise.all([taipei, newTaipei, Keelung, Taichung, Nantou, Tainan, Taitung, Chiayi, ChiayiC, Yilan, Pingtung, Changhua, Hsinchu, HsinchuC, Taoyuan, Penghu, Hualien, Miaoli, Lianjiang, Kinmen, Yunlin, Kaohsiung])
                 .then(res => Promise.all(res.map(x => x.json())))
                 .then(jsonData => {
-                    // console.log(jsonData)
+                    console.log(jsonData)
                     jsonData.forEach(x => {
                         taiwanShop.push(x.stores.map(y => {
                             return {
@@ -143,6 +152,7 @@
                     taiwanShop = taiwanShop.flat()
                     renderMarker()
 
+                    initCountySelect()
                 })
         }
 
@@ -151,8 +161,8 @@
                 markers.clearLayers()
             }
 
+            // console.log(taiwanShop)
             Object.keys(taiwanShop).forEach(x => {
-                // console.log(taiwanShop)
                 let data = taiwanShop[x]
                 let marker = L.marker([data.lat, data.lng])
 
@@ -173,19 +183,19 @@
                     let atmTd = document.createElement("td")
                     let wifiTd = document.createElement("td")
                     let cafeTd = document.createElement("td")
-                    data.Parking == "Y" ? parinkingTd.innerHTML = `<i class="fa-solid fa-square-parking fs-2"></i>` : parinkingTd.innerHTML = `<i class="fa-solid fa-xmark fs-2"></i>`
-                    data.Dining == "Y" ? diningTd.innerHTML = `<i class="fa-solid fa-utensils fs-2"></i>` : diningTd.innerHTML = `<i class="fa-solid fa-xmark fs-2"></i>`
-                    data.Lavatory == "Y" ? wcTd.innerHTML = `<i class="fa-solid fa-restroom fs-2"></i>` : wcTd.innerHTML = `<i class="fa-solid fa-xmark fs-2"></i>`
-                    data.Atm == "Y" ? atmTd.innerHTML = `<i class="fa-solid fa-a fs-2"></i>` : atmTd.innerHTML = `<i class="fa-solid fa-xmark fs-2"></i>`
-                    data.WiFi == "Y" ? wifiTd.innerHTML = `<i class="fa-solid fa-wifi fs-2"></i>` : wifiTd.innerHTML = `<i class="fa-solid fa-xmark fs-2"></i>`
-                    data.CityCafe == "Y" ? cafeTd.innerHTML = `<i class="fa-solid fa-mug-saucer fs-2"></i>` : cafeTd.innerHTML = `<i class="fa-solid fa-xmark fs-2"></i>`
+                    parinkingTd.innerHTML = data.Parking == "Y" ? `<i class="fa-solid fa-square-parking fs-2"></i>` : `<i class="fa-solid fa-xmark fs-2"></i>`
+                    diningTd.innerHTML = data.Dining == "Y" ? `<i class="fa-solid fa-utensils fs-2"></i>` : `<i class="fa-solid fa-xmark fs-2"></i>`
+                    wcTd.innerHTML = data.Lavatory == "Y" ? `<i class="fa-solid fa-restroom fs-2"></i>` : `<i class="fa-solid fa-xmark fs-2"></i>`
+                    atmTd.innerHTML = data.Atm == "Y" ? `<i class="fa-solid fa-a fs-2"></i>` : `<i class="fa-solid fa-xmark fs-2"></i>`
+                    wifiTd.innerHTML = data.WiFi == "Y" ? `<i class="fa-solid fa-wifi fs-2"></i>` : `<i class="fa-solid fa-xmark fs-2"></i>`
+                    cafeTd.innerHTML = data.CityCafe == "Y" ? `<i class="fa-solid fa-mug-saucer fs-2"></i>` : `<i class="fa-solid fa-xmark fs-2"></i>`
                     iconTr.appendChild(parinkingTd)
                     iconTr.appendChild(diningTd)
                     iconTr.appendChild(wcTd)
                     iconTr.appendChild(atmTd)
                     iconTr.appendChild(cafeTd)
                     iconTr.appendChild(wifiTd)
-                 
+
                     tbody.appendChild(iconTr)
                 })
 
@@ -193,7 +203,24 @@
             })
             map.addLayer(markers)
         }
+        function initCountySelect() {
+            // console.log(taiwanShop.map(x=>x.city))
+            ["請選擇", ...new Set(taiwanShop.map(x => x.city))].forEach(city => {
+                console.log(city)
+                let option = document.createElement("option")
+                option.innerText = city
+                option.value = city == "請選擇" ? "" : city
+                countySelect.appendChild(option)
+            })
 
+            countySelect.onchange = function () {
+                if(this.value != ""){
+                    let county = taiwanShop.find(x => x.city == this.value)
+                    console.log(county)
+                    map.setView([county.lat, county.lng], 9)
+                }
+            }
+        }
         window.onload = function () {
             initMap()
             setMap()

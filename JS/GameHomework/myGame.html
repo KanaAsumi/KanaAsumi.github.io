@@ -389,15 +389,20 @@
             let result = document.querySelectorAll(".col-2.active")
             let Father = result[1].parentNode
             let i = Father.querySelector('i')
-
-            let item = result[0].getAttributeNode("row-id")
-            let item1 = result[1].getAttributeNode("row-id")
-            let item2 = result[2].getAttributeNode("row-id")
+console.log(result)
+console.log(Father)
+let item = result[0].getAttributeNode("row-id")
+let item1 = result[1].getAttributeNode("row-id")
+let item2 = result[2].getAttributeNode("row-id")
+console.log(item2)
             if (item.value == item1.value && item1.value == item2.value && item2.value == item.value) {
-                alert(`恭喜你得到${i.innerHTML}刻子`)
+                alert(`恭喜你得到${i.innerText}刻子`)
             }
             else if (item.value == item1.value || item1.value == item2.value) {
-                alert(`恭喜你得到${i.innerHTML}一對眼`)
+                alert(`恭喜你得到${result[1].innerText}一對眼`)
+            }
+            else if (item.value == item2.value) {
+                alert(`恭喜你得到${result[0].innerText}一對眼`)
             }
         }
 

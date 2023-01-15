@@ -130,7 +130,7 @@
             Promise.all([taipei, newTaipei, Keelung, Taichung, Nantou, Tainan, Taitung, Chiayi, ChiayiC, Yilan, Pingtung, Changhua, Hsinchu, HsinchuC, Taoyuan, Penghu, Hualien, Miaoli, Lianjiang, Kinmen, Yunlin, Kaohsiung])
                 .then(res => Promise.all(res.map(x => x.json())))
                 .then(jsonData => {
-                    console.log(jsonData)
+                    // console.log(jsonData)
                     jsonData.forEach(x => {
                         taiwanShop.push(x.stores.map(y => {
                             return {
@@ -173,7 +173,7 @@
 
                 marker.addEventListener("click", function () {
                     h2.innerText = `${data.POIName}門市`
-
+// console.log(data)
                     tbody.innerHTML = ""
 
                     let iconTr = document.createElement("tr")
@@ -206,7 +206,7 @@
         function initCountySelect() {
             // console.log(taiwanShop.map(x=>x.city))
             ["請選擇", ...new Set(taiwanShop.map(x => x.city))].forEach(city => {
-                console.log(city)
+                // console.log(city)
                 let option = document.createElement("option")
                 option.innerText = city
                 option.value = city == "請選擇" ? "" : city
@@ -216,7 +216,7 @@
             countySelect.onchange = function () {
                 if(this.value != ""){
                     let county = taiwanShop.find(x => x.city == this.value)
-                    console.log(county)
+                    // console.log(county)
                     map.setView([county.lat, county.lng], 9)
                 }
             }

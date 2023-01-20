@@ -1054,15 +1054,15 @@
             else {
                 clearTimeout(fourout)
                 // c8763.removeEventListener("click", runningC87)
-                startbtn.addEventListener("click", run)
                 // rest.removeEventListener("click", runningDrink)
                 // rest.addEventListener("click", drink)
                 // c8763.addEventListener("click", cd)
                 setTimeout(check, 500);
             }
         }
-
+        
         function check() {
+            startbtn.addEventListener("click", run)
             let container = document.querySelector(".container")
             let result = document.querySelectorAll(".col-2.active")
             // console.log(result)

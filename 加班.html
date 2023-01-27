@@ -38,7 +38,12 @@
 
         #msg {
             font-size: 36px;
+            font-weight: bold;
             text-align: center;
+        }
+
+        input {
+            height: 30px;
         }
     </style>
 </head>
@@ -61,12 +66,24 @@
         </div>
         <div class="row">
             <div box-id="32" class="col-1"></div>
-            <div class="col-10"></div>
+            <div class="col-10">
+            </div>
             <div box-id="13" class="col-1"></div>
         </div>
         <div class="row">
             <div box-id="31" class="col-1"></div>
-            <div class="col-10"></div>
+            <div class="col-10 d-flex justify-content-evenly">
+                <p class="mt-auto mb-auto fw-bold">請輸入加班倍率</p>
+                <div>
+                    <i class="fa-solid fa-exclamation"></i>：<input type="number" max="10" min="1" id="exclamation" value="">
+                </div>
+                <div>
+                    <i class="fa-solid fa-check"></i>：<input type="number" max="10" min="1" id="check" value="">
+                </div>
+                <div>
+                    <i class="fa-solid fa-question"></i>：<input type="number" max="10" min="1" id="question" value="">
+                </div>
+            </div>
             <div box-id="14" class="col-1"></div>
         </div>
         <div class="row">
@@ -78,7 +95,12 @@
         </div>
         <div class="row">
             <div box-id="29" class="col-1"></div>
-            <div class="col-10"></div>
+            <div class="col-10 d-flex justify-content-evenly">
+                <p class="mt-auto mb-auto fw-bold">請輸入減班時數</p>
+                <div>
+                    <i class="fa-solid fa-xmark"></i>：<input type="number" max="10" min="1" id="xmark" value="">
+                </div>
+            </div>
             <div box-id="16" class="col-1"></div>
         </div>
         <div class="row">
@@ -103,263 +125,268 @@
         </div>
     </div>
     <script>
+        let exclamation, check, question, xmark;
+        exclamation = document.getElementById("exclamation")
+        check = document.getElementById("check")
+        question = document.getElementById("question")
+        xmark = document.getElementById("xmark")
         //宣告
         //格子資料
         let brickData = [
             {
                 id: "1",
-                color: "red",
-                icon: "fa-solid fa-gift",
+                color: "gold",
+                icon: "fa-solid fa-exclamation",
                 target: function () {
-                    return "加班兩倍"
+                    return `加班${exclamation.value}倍`
                 }
             },
             {
                 id: "2",
                 color: "blue",
-                icon: "fa-solid fa-gift",
+                icon: "fa-solid fa-check",
                 target: function () {
-                    return "加班五倍"
+                    return `加班${check.value}倍`
                 }
             },
             {
                 id: "3",
                 color: "green",
-                icon: "fa-solid fa-gift",
+                icon: "fa-solid fa-question",
                 target: function () {
-                    return "加班十倍"
+                    return `加班${question.value}倍`
                 }
             },
             {
                 id: "4",
-                color: "red",
-                icon: "fa-solid fa-gift",
+                color: "gold",
+                icon: "fa-solid fa-exclamation",
                 target: function () {
-                    return "加班兩倍"
+                    return `加班${exclamation.value}倍`
                 }
             },
             {
                 id: "5",
                 color: "blue",
-                icon: "fa-solid fa-gift",
+                icon: "fa-solid fa-check",
                 target: function () {
-                    return "加班五倍"
+                    return `加班${check.value}倍`
                 }
             },
             {
                 id: "6",
                 color: "green",
-                icon: "fa-solid fa-gift",
+                icon: "fa-solid fa-question",
                 target: function () {
-                    return "加班十倍"
+                    return `加班${question.value}倍`
                 }
             },
             {
                 id: "7",
-                color: "red",
-                icon: "fa-solid fa-gift",
+                color: "gold",
+                icon: "fa-solid fa-exclamation",
                 target: function () {
-                    return "加班兩倍"
+                    return `加班${exclamation.value}倍`
                 }
             },
             {
                 id: "8",
                 color: "blue",
-                icon: "fa-solid fa-gift",
+                icon: "fa-solid fa-check",
                 target: function () {
-                    return "加班五倍"
+                    return `加班${check.value}倍`
                 }
             },
             {
                 id: "9",
                 color: "green",
-                icon: "fa-solid fa-gift",
+                icon: "fa-solid fa-question",
                 target: function () {
-                    return "加班十倍"
+                    return `加班${question.value}倍`
                 }
             },
             {
                 id: "10",
-                color: "red",
-                icon: "fa-solid fa-gift",
+                color: "gold",
+                icon: "fa-solid fa-exclamation",
                 target: function () {
-                    return "加班兩倍"
+                    return `加班${exclamation.value}倍`
                 }
             },
             {
                 id: "11",
                 color: "blue",
-                icon: "fa-solid fa-gift",
+                icon: "fa-solid fa-check",
                 target: function () {
-                    return "加班五倍"
+                    return `加班${check.value}倍`
                 }
             },
             {
                 id: "12",
                 color: "green",
-                icon: "fa-solid fa-gift",
+                icon: "fa-solid fa-question",
                 target: function () {
-                    return "加班十倍"
+                    return `加班${question.value}倍`
                 }
             },
             {
                 id: "13",
-                color: "red",
-                icon: "fa-solid fa-gift",
+                color: "gold",
+                icon: "fa-solid fa-exclamation",
                 target: function () {
-                    return "加班兩倍"
+                    return `加班${exclamation.value}倍`
                 }
             },
             {
                 id: "14",
                 color: "blue",
-                icon: "fa-solid fa-gift",
+                icon: "fa-solid fa-check",
                 target: function () {
-                    return "加班五倍"
+                    return `加班${check.value}倍`
                 }
             },
             {
                 id: "15",
                 color: "green",
-                icon: "fa-solid fa-gift",
+                icon: "fa-solid fa-question",
                 target: function () {
-                    return "加班十倍"
+                    return `加班${question.value}倍`
                 }
             },
             {
                 id: "16",
-                color: "red",
-                icon: "fa-solid fa-gift",
+                color: "gold",
+                icon: "fa-solid fa-exclamation",
                 target: function () {
-                    return "加班兩倍"
+                    return `加班${exclamation.value}倍`
                 }
             },
             {
                 id: "17",
-                color: "blue",
-                icon: "fa-solid fa-gift",
+                color: "red",
+                icon: "fa-solid fa-xmark",
                 target: function () {
-                    return "加班五倍"
+                    return `${xmark.value}`
                 }
             },
             {
                 id: "18",
                 color: "green",
-                icon: "fa-solid fa-gift",
+                icon: "fa-solid fa-question",
                 target: function () {
-                    return "加班十倍"
+                    return `加班${question.value}倍`
                 }
             },
             {
                 id: "19",
-                color: "red",
-                icon: "fa-solid fa-gift",
+                color: "gold",
+                icon: "fa-solid fa-exclamation",
                 target: function () {
-                    return "加班兩倍"
+                    return `加班${exclamation.value}倍`
                 }
             },
             {
                 id: "20",
                 color: "blue",
-                icon: "fa-solid fa-gift",
+                icon: "fa-solid fa-check",
                 target: function () {
-                    return "加班五倍"
+                    return `加班${check.value}倍`
                 }
             },
             {
                 id: "21",
                 color: "green",
-                icon: "fa-solid fa-gift",
+                icon: "fa-solid fa-question",
                 target: function () {
-                    return "加班十倍"
+                    return `加班${question.value}倍`
                 }
             },
             {
                 id: "22",
-                color: "red",
-                icon: "fa-solid fa-gift",
+                color: "gold",
+                icon: "fa-solid fa-exclamation",
                 target: function () {
-                    return "加班兩倍"
+                    return `加班${exclamation.value}倍`
                 }
             },
             {
                 id: "23",
                 color: "blue",
-                icon: "fa-solid fa-gift",
+                icon: "fa-solid fa-check",
                 target: function () {
-                    return "加班五倍"
+                    return `加班${check.value}倍`
                 }
             },
             {
                 id: "24",
                 color: "green",
-                icon: "fa-solid fa-gift",
+                icon: "fa-solid fa-question",
                 target: function () {
-                    return "加班十倍"
+                    return `加班${question.value}倍`
                 }
             },
             {
                 id: "25",
-                color: "red",
-                icon: "fa-solid fa-gift",
+                color: "gold",
+                icon: "fa-solid fa-exclamation",
                 target: function () {
-                    return "加班兩倍"
+                    return `加班${exclamation.value}倍`
                 }
             },
             {
                 id: "26",
                 color: "blue",
-                icon: "fa-solid fa-gift",
+                icon: "fa-solid fa-check",
                 target: function () {
-                    return "加班五倍"
+                    return `加班${check.value}倍`
                 }
             },
             {
                 id: "27",
                 color: "green",
-                icon: "fa-solid fa-gift",
+                icon: "fa-solid fa-question",
                 target: function () {
-                    return "加班十倍"
+                    return `加班${question.value}倍`
                 }
             },
             {
                 id: "28",
-                color: "red",
-                icon: "fa-solid fa-gift",
+                color: "gold",
+                icon: "fa-solid fa-exclamation",
                 target: function () {
-                    return "加班兩倍"
+                    return `加班${exclamation.value}倍`
                 }
             },
             {
                 id: "29",
                 color: "blue",
-                icon: "fa-solid fa-gift",
+                icon: "fa-solid fa-check",
                 target: function () {
-                    return "加班五倍"
+                    return `加班${check.value}倍`
                 }
             },
             {
                 id: "30",
                 color: "green",
-                icon: "fa-solid fa-gift",
+                icon: "fa-solid fa-question",
                 target: function () {
-                    return "加班十倍"
+                    return `加班${question.value}倍`
                 }
             },
             {
                 id: "31",
-                color: "red",
-                icon: "fa-solid fa-gift",
+                color: "gold",
+                icon: "fa-solid fa-exclamation",
                 target: function () {
-                    return "加班兩倍"
+                    return `加班${exclamation.value}倍`
                 }
             },
             {
                 id: "32",
                 color: "blue",
-                icon: "fa-solid fa-gift",
+                icon: "fa-solid fa-check",
                 target: function () {
-                    return "加班五倍"
+                    return `加班${check.value}倍`
                 }
             }
         ];
@@ -395,13 +422,13 @@
 
         }
         function go() {
-            speed = 0;
+            speed = 100;
 
             let random = Math.floor(Math.random() * brickData.length) + 1
             // 要走的步數
             // console.log(random)
             // steps = random //v1
-            steps = random + (5 * bricks.length) // v2 多跑幾圈
+            steps = random + (3 * bricks.length) // v2 多跑幾圈
             allSteps = steps
             turnAround()
         }
@@ -422,6 +449,7 @@
                 // console.log(`要走的步數${allSteps} 剩餘步數${steps}`)
                 // debugger
                 //當剩餘步數剩下1/3 越走越慢
+                if (Math.floor((allSteps / 1.5) < steps < Math.floor((allSteps / 3)))) speed -= 1 //變速效果
                 if (steps < Math.floor((allSteps / 3))) speed += 7 //變速效果
             }
             else {

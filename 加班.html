@@ -75,7 +75,8 @@
             <div class="col-10 d-flex justify-content-evenly">
                 <p class="mt-auto mb-auto fw-bold">請輸入加班倍率</p>
                 <div>
-                    <i class="fa-solid fa-exclamation"></i>：<input type="number" max="10" min="1" id="exclamation" value="">
+                    <i class="fa-solid fa-exclamation"></i>：<input type="number" max="10" min="1" id="exclamation"
+                        value="">
                 </div>
                 <div>
                     <i class="fa-solid fa-check"></i>：<input type="number" max="10" min="1" id="check" value="">
@@ -128,7 +129,7 @@
         </div>
     </div>
     <script>
-        let exclamation, check, question, xmark,bolt;
+        let exclamation, check, question, xmark, bolt;
         exclamation = document.getElementById("exclamation")
         check = document.getElementById("check")
         question = document.getElementById("question")
@@ -467,7 +468,11 @@
             renderBrick()
 
             startBtn.onclick = function () {
-                go()
+                if (exclamation.value == "" || check.value == "" || question.value == "" || xmark.value == "" || bolt.value == "") {
+                    alert("請確認所有加減班倍率/時數")
+                } else {
+                    go()
+                }
             }
         }
 

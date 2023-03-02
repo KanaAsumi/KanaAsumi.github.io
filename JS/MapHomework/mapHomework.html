@@ -214,9 +214,11 @@
             })
 
             countySelect.onchange = function () {
+                console.log(this.value)
                 if (this.value != "") {
+                    console.log(taiwanShop)
                     let county = taiwanShop.find(x => x.city == this.value)
-                    // console.log(county)
+                    console.log(county)
                     map.setView([county.lat, county.lng], 9)
                 }
             }
